@@ -1,0 +1,71 @@
+{
+  "cSpell.words": [
+    "appender",
+    "Ascention",
+    "bitrates",
+    "bluray",
+    "characterart",
+    "chrono",
+    "clearart",
+    "dateadded",
+    "douban",
+    "episodedetails",
+    "Evangelion",
+    "fanart",
+    "filebrowser",
+    "filetransfer",
+    "FLAC",
+    "geilijiasu",
+    "hardlink",
+    "hdclearart",
+    "hdtvlogo",
+    "HHWEB",
+    "Hstud",
+    "imdb",
+    "imdbid",
+    "lolice",
+    "Matroska",
+    "minidom",
+    "MNHD",
+    "originaltitle",
+    "Rati",
+    "releasedate",
+    "remultiplexing",
+    "REMUX",
+    "remuxed",
+    "remuxing",
+    "reqwest",
+    "rmvb",
+    "seasonnumber",
+    "seasonposter",
+    "showbackground",
+    "themoviedb",
+    "thetvdb",
+    "tmdb",
+    "TMDBID",
+    "tvbanner",
+    "tvdb",
+    "tvdbid",
+    "tvposter",
+    "tvshow",
+    "tvthumb",
+    "uniqueid",
+    "Wolowitz",
+    "Xvid"
+  ],
+  "window.zoomLevel": 1,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "terminal.integrated.shellArgs.windows": [
+    "/K",
+    "chcp 65001"
+  ],
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}

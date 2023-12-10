@@ -1,0 +1,33 @@
+[default]
+address = "127.0.0.1"
+port = 8702
+workers = 16
+max_blocking = 512
+keep_alive = 5
+ident = "Rocket"
+ip_header = "X-Real-IP" # set to `false` to disable
+log_level = "normal"
+temp_dir = "/tmp"
+cli_colors = true
+
+[default.limits]
+form = "64 kB"
+json = "1 MiB"
+msgpack = "2 MiB"
+"file/jpg" = "5 MiB"
+
+[default.shutdown]
+ctrlc = true
+signals = ["term", "hup"]
+grace = 5
+mercy = 5
+
+[default.databases.diesel]
+url = "config/db.sqlite"
+timeout = 10
+
+[debug]
+secret_key = "PMzX6svhj+mC4qfSSb25BMfpfJcIi6y8eZLZToC5kTDauNgwPFjRUOuup+tMaqEWP5PCZlMfxnL/hWicV/THzg=="
+
+[release]
+secret_key = "kz+aLwVnbNeUGZV6Nyj0tEYAsY7lDwZa82ny8uSCkU8E1OgAb9Ah2keI2sPCABjOooIJ9wj00ruamezwmgb8zg=="

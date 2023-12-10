@@ -1,0 +1,145 @@
+@startuml
+
+participant Server order 0
+
+participant app_helper_module_ModuleHelper order 60
+
+participant app_modules_themoviedb_TheMovieDbModule order 71
+participant app_modules_FileTransferModule order 72
+
+participant app_plugins_DirMonitor order 70
+
+participant BackgroundScheduler order 91
+participant Observer order 92
+participant FileMonitorHandler order 93
+
+== AppStart ==
+
+Server -> Server
+
+app_main -> app_main: main()
+app_main -> app_db_init: init_db()
+app_main -> app_db_init: update_db()
+
+app_main -> Server: run()
+activate Server
+Server -> app_main: start_module()
+
+app_main -> app_helper_display_DisplayHelper: DisplayHelper()
+activate app_helper_display_DisplayHelper
+
+app_main -> app_core_module_ModuleManager: ModuleManager()
+activate app_core_module_ModuleManager
+app_core_module_ModuleManager -> app_core_module_ModuleManager: init()
+app_core_module_ModuleManager -> app_core_module_ModuleManager: load_modules()
+app_core_module_ModuleManager -> app_helper_module_ModuleHelper: load()
+app_helper_module_ModuleHelper -> app_modules_themoviedb_TheMovieDbModule: init_module()
+app_helper_module_ModuleHelper -> app_modules_FileTransferModule: init_module()
+
+app_main -> app_core_plugin_PluginManager: PluginManager()
+activate app_core_plugin_PluginManager
+app_core_plugin_PluginManager -> app_core_plugin_PluginManager: init()
+app_core_plugin_PluginManager -> app_core_plugin_PluginManager: init_config()
+app_core_plugin_PluginManager -> app_core_plugin_PluginManager: start()
+app_core_plugin_PluginManager -> app_helper_module_ModuleHelper: load()
+app_helper_module_ModuleHelper -> app_plugins_DirMonitor: init_plugin()
+app_plugins_DirMonitor -> Observer: FileMonitorHandler()
+app_plugins_DirMonitor -> BackgroundScheduler: start()
+
+app_main -> app_scheduler_Scheduler: Scheduler()
+activate app_scheduler_Scheduler
+app_scheduler_Scheduler -> app_scheduler_Scheduler: init()
+app_scheduler_Scheduler -> BackgroundScheduler: add_job(MediaServerChain)
+app_scheduler_Scheduler -> BackgroundScheduler: start()
+
+app_main -> app_command_Command: Command()
+activate app_command_Command
+
+newpage
+
+== DirMonitor ==
+
+app_plugins_FileMonitorHandler -> app_plugins_FileMonitorHandler: on_created();
+note left: 监听目录变化
+app_plugins_FileMonitorHandler -> app_plugins_DirMonitor: event_handler();
+
+app_plugins_DirMonitor -> app_db_transferhistory_oper_TransferHistoryOper: get_by_src();
+note left: 历史是否解析过
+
+app_plugins_DirMonitor -> app_core_metainfo_MetaInfoPath: MetaInfoPath();
+note left: 获取变化文件元信息，创建metainfo
+app_core_metainfo_MetaInfoPath -> app_core_metainfo_MetaInfo: dir_meta = MetaInfo();
+app_core_metainfo_MetaInfoPath -> app_core_metainfo_MetaInfo: file_meta = MetaInfo();
+
+app_plugins_DirMonitor -> app_chain_ChainBase: recognize_media();
+note left: 使用链服务识别媒体信息（豆瓣、TMDB），创建mediainfo
+app_chain_ChainBase -> app_chain_ChainBase: run_module();
+app_chain_ChainBase -> app_modules_themoviedb_TheMovieDbModule: recognize_media();
+app_modules_themoviedb_TheMovieDbModule -> app_modules_themoviedb_TmdbCache: get();
+app_modules_themoviedb_TheMovieDbModule -> app_modules_themoviedb_TmdbHelper: get_info();
+app_modules_themoviedb_TheMovieDbModule -> app_modules_themoviedb_TmdbCache: update();
+
+app_plugins_DirMonitor -> app_chain_ChainBase: obtain_images();
+note left: 使用链服务获取图片信息，完善mediainfo
+app_chain_ChainBase -> app_chain_ChainBase: run_module();
+app_chain_ChainBase -> app_modules_fanart_FanartModule: obtain_images();
+app_chain_ChainBase -> app_modules_themoviedb_TheMovieDbModule: obtain_images();
+
+app_plugins_DirMonitor -> app_chain_ChainBase: transfer();
+note left: 使用链服务转移文件，mediainfo
+app_chain_ChainBase -> app_chain_ChainBase: run_module();
+app_chain_ChainBase -> app_modules_FileTransferModule: transfer();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: transfer_media();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: __get_dest_dir();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: rename_format();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: get_rename_path();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: __transfer_file();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: __transfer_command();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: __transfer_other_files();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: __transfer_subtitles();
+app_modules_FileTransferModule -> app_modules_FileTransferModule: __transfer_audio_track_files();
+
+app_plugins_DirMonitor -> app_chain_ChainBase: scrape_metadata();
+note left: 使用链服务刮削文件（豆瓣、TMDB）
+app_chain_ChainBase -> app_chain_ChainBase: run_module();
+app_chain_ChainBase -> app_modules_themoviedb_DoubanModule: scrape_metadata();
+app_chain_ChainBase -> app_modules_themoviedb_TheMovieDbModule: scrape_metadata();
+app_modules_themoviedb_TheMovieDbModule -> app_modules_TmdbScraper: gen_scraper_files();
+app_modules_TmdbScraper -> app_modules_TmdbScraper: 生成根目录图片();
+app_modules_TmdbScraper -> app_modules_TmdbScraper: 查询季信息();
+app_modules_TmdbScraper -> app_modules_TmdbScraper: 季目录NFO();
+app_modules_TmdbScraper -> app_modules_TmdbScraper: TMDB季poster图片();
+app_modules_TmdbScraper -> app_modules_TmdbScraper: 季的其它图片();
+app_modules_TmdbScraper -> app_modules_TmdbScraper: 查询集详情();
+app_modules_TmdbScraper -> app_modules_TmdbScraper: 集NFO();
+app_modules_TmdbScraper -> app_modules_TmdbScraper: 集的图片();
+
+app_plugins_DirMonitor -> app_chain_ChainBase: refresh_mediaserver();
+note left: 使用链服务刷新媒体服务
+app_chain_ChainBase -> app_modules_EmbyModule: refresh_mediaserver();
+app_modules_EmbyModule -> app_modules_Emby: refresh_library_by_items();
+
+== AppShutDown ==
+
+Server -> Server: shutdown()
+Server -> app_main: shutdown_server()
+
+app_main -> app_command_Command: stop()
+deactivate app_command_Command
+
+app_main -> app_scheduler_Scheduler: stop()
+deactivate app_scheduler_Scheduler
+
+app_main -> app_core_plugin_PluginManager: stop()
+deactivate app_core_plugin_PluginManager
+
+app_main -> app_helper_display_DisplayHelper: stop()
+deactivate app_helper_display_DisplayHelper
+
+app_main -> app_core_module_ModuleManager: stop()
+deactivate app_core_module_ModuleManager
+
+Server -> Server: shutdown()
+deactivate Server
+
+@enduml

@@ -1,0 +1,7 @@
+{
+  "window.zoomLevel": 2,
+  "terminal.integrated.shellArgs.windows": [
+    "/K",
+    "chcp 65001"
+  ]
+}

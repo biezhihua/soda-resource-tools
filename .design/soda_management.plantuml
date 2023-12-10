@@ -1,0 +1,29 @@
+@startuml
+
+== create resource meta ==
+
+service -> soda_lib: create_resource_meta()
+soda_lib -> MetaInfo: create()
+MetaInfo -> Meta: create_meta()
+MetaInfo <-- Meta: file_meta
+MetaInfo -> Meta: create_meta()
+MetaInfo <-- Meta: dir_meta
+soda_lib <-- MetaInfo: MetaInfo()
+service <-- soda_lib: meta
+
+== identify resource from meta ==
+
+service -> soda_lib: identify_resource(meta)
+service <-- soda_lib: ResourceInfo
+
+== transfer resource from resource and meta  ==
+
+service -> soda_lib: transfer_resource(meta, resource)
+service <-- soda_lib: TransferInfo
+
+== scrape resource metadata from resource and meta and transfer ==
+
+service -> soda_lib: scrape_resource_metadata(meta, resource, transfer)
+service <-- soda_lib: ScrapeInfo
+
+@enduml

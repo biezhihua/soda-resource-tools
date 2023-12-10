@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Rocket",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/target/debug/soda_media_tools_server",
+      "args": [],
+      "env": {
+        "ROCKET_ENV": "development",
+        "ROCKET_WORKERS": "4",
+        "ROCKET_PORT": "8702"
+      }
+    }
+  ]
+}

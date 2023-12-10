@@ -1,0 +1,51 @@
+[package]
+name = "soda_resource_tools_server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+soda_resource_tools_lib = { path = "../soda_resource_tools_lib" }
+
+# https://crates.io/crates/toml
+toml = "0.8.0"
+
+# https://crates.io/crates/jwt
+jwt = "0.16.0"
+
+# https://crates.io/crates/hmac
+hmac = "0.12.1"
+
+# https://crates.io/crates/sha2
+sha2 = "0.10.7"
+
+# https://crates.io/crates/yaml-rust
+serde = "1.0"
+
+# Web
+rocket = { version = "0.5.0-rc.3", features = ["json", "secrets"] }
+
+# 数据库
+diesel = { version = "2.1.0", features = ["sqlite", "returning_clauses_for_sqlite_3_35", "r2d2"] }
+diesel_migrations = "2.1.0"
+
+# 环境参数
+dotenvy = "0.15.7"
+
+# 编解码
+urlencoding = "2.1.3"
+
+# 线程
+tokio = { version = "1.32.0", features = ["full"] }
+
+# 日志
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", default-features = false, features = ["fmt", "ansi", "env-filter", "tracing-log"] }
+
+chrono = { version = "0.4", features = [] }
+once_cell = "1.18.0"
+
+[dependencies.rocket_sync_db_pools]
+version = "=0.1.0-rc.3"
+features = ["diesel_sqlite_pool", "sqlite_pool"]
