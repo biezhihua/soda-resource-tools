@@ -169,7 +169,7 @@ fn main() -> Result<(), SodaError> {
                     return Err(SodaError::Str("初始化配置文件失败，请检查网络后重试"));
                 }
 
-                let local_soda_config_path = config_dir.join("soda_config.json");
+                let local_soda_config_path = config_dir.join(SODA_CONFIG_JSON);
                 let local_soda_config: Value = serde_json::from_str(&fs::read_to_string(&local_soda_config_path)?)?;
                 tracing::info!(target:"soda::info", "配置文件: {}", local_soda_config);
 
@@ -205,16 +205,16 @@ fn main() -> Result<(), SodaError> {
 fn check_internet() -> Result<(), SodaError> {
     tracing::info!(target:"soda::info", "开始检查网络");
 
-    tracing::info!(target:"soda::info", "开始访问: https://raw.githubusercontent.com/biezhihua/soda_cli/main/soda_config.json" );
-    let _ = reqwest::blocking::get("https://raw.githubusercontent.com/biezhihua/soda_cli/main/soda_config.json")?;
+    tracing::info!(target:"soda::info", "开始访问: https://raw.githubusercontent.com/biezhihua/soda-resource-tools/main/soda_cli_config/soda_config.json" );
+    let _ = reqwest::blocking::get(raw_github_json())?;
 
     tracing::info!(target:"soda::info", "开始访问: https://api.themoviedb.org" );
     // let _ = reqwest::blocking::Client::new().post("https://api.themoviedb.org").send()?;
-    let _ = reqwest::blocking::get("https://api.themoviedb.org")?;
+    let _ = reqwest::blocking::get(api_themoviedb())?;
 
     tracing::info!(target:"soda::info", "开始访问: https://webservice.fanart.tv" );
     // let _ = reqwest::blocking::Client::new().post("https://webservice.fanart.tv").send()?;
-    let _ = reqwest::blocking::get("https://webservice.fanart.tv")?;
+    let _ = reqwest::blocking::get(api_fanart())?;
 
     return Ok(());
 }
@@ -272,13 +272,13 @@ fn init_lib_config_dev(lib_dir: &Path, rename_style: &RenameStyle) {
 fn init_config(config_dir: &Path) -> Result<(), SodaError> {
     tracing::info!(target:"soda::info", "开始从Github获取配置文件");
 
-    let soda_config_url = format!("{}/soda_config.json", raw_github());
+    let soda_config_url = format!("{}/{}", raw_github(), SODA_CONFIG_JSON);
 
     let remote_soda_config: Value = reqwest::blocking::get(soda_config_url)?.json()?;
 
     tracing::info!(target:"soda::info", "获取配置文件成功: {}", remote_soda_config);
 
-    let local_soda_config_path = config_dir.join("soda_config.json");
+    let local_soda_config_path = config_dir.join(SODA_CONFIG_JSON);
     if !local_soda_config_path.exists() {
         update_soda_config(&local_soda_config_path, &remote_soda_config, config_dir)?;
     } else {
@@ -292,8 +292,14 @@ fn init_config(config_dir: &Path) -> Result<(), SodaError> {
     return Ok(());
 }
 
+const SODA_CONFIG_JSON: &'static str = "soda_config.json";
+
 fn raw_github() -> &'static str {
-    return "https://raw.githubusercontent.com/biezhihua/soda_cli/main";
+    return "https://raw.githubusercontent.com/biezhihua/soda-resource-tools/main/soda_cli_config";
+}
+
+fn raw_github_json() -> String {
+    return format!("{}/{}", raw_github(), SODA_CONFIG_JSON);
 }
 
 fn api_themoviedb() -> &'static str {
@@ -309,7 +315,7 @@ fn update_soda_config(
     remote_soda_config: &Value,
     config_dir: &std::path::Path,
 ) -> Result<(), SodaError> {
-    // write soda_config.json
+    // write config to local
     fs::write(local_soda_config_path, remote_soda_config.to_string())?;
 
     let bin = remote_soda_config
