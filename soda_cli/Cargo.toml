@@ -8,7 +8,8 @@ homepage = "https://github.com/biezhihua/soda-resource-tools"
 readme = "https://github.com/biezhihua/soda-resource-tools/blob/main/soda_cli/README.md"
 
 [dependencies]
-soda_resource_tools_lib = { path = "../soda_resource_tools_lib" }
+
+soda_resource_tools_lib = { path = "../soda_resource_tools_lib", version = "0.1.0"}
 
 # 日志
 tracing = "0.1.40"
