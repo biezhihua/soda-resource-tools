@@ -1,3 +1,4 @@
+# https://github.com/cross-rs/cross
 # https://juejin.cn/post/7325645956254351360
 # https://github.com/cross-rs/cross-toolchains
 # https://hub.docker.com/r/freeznet/x86_64-apple-darwin-cross
@@ -6,12 +7,14 @@
 # linux
 [target.x86_64-unknown-linux-gnu]
 xargo = false
-# dockerfile = "D:\\Projects\\github\\cross\\docker\\Dockerfile.x86_64-unknown-linux-gnu"
+image = "togettoyou/ghcr.io.cross-rs.x86_64-unknown-linux-gnu:main"
+pre-build = ["apt-get update && apt-get install pkg-config libssl-dev"]
 
 # windwos
 [target.x86_64-pc-windows-gnu]
 xargo = false
-# dockerfile = "D:\\Projects\\github\\cross\\docker\\Dockerfile.x86_64-pc-windows-gnu"
+image = "togettoyou/ghcr.io.cross-rs.x86_64-pc-windows-gnu:main"
+
 
 # macos
 [target.x86_64-apple-darwin]

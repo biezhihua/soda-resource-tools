@@ -209,11 +209,9 @@ fn check_internet() -> Result<(), SodaError> {
     let _ = reqwest::blocking::get(raw_github_json())?;
 
     tracing::info!(target:"soda::info", "开始访问: https://api.themoviedb.org" );
-    // let _ = reqwest::blocking::Client::new().post("https://api.themoviedb.org").send()?;
     let _ = reqwest::blocking::get(api_themoviedb())?;
 
     tracing::info!(target:"soda::info", "开始访问: https://webservice.fanart.tv" );
-    // let _ = reqwest::blocking::Client::new().post("https://webservice.fanart.tv").send()?;
     let _ = reqwest::blocking::get(api_fanart())?;
 
     return Ok(());
