@@ -1,5 +1,5 @@
 [package]
-name = "soda_cli"
+name = "soda_clix"
 version = "0.1.0"
 edition = "2021"
 license = "GPL-3.0-only"
@@ -8,7 +8,7 @@ homepage = "https://github.com/biezhihua/soda-resource-tools"
 documentation = "https://github.com/biezhihua/soda-resource-tools"
 repository = "https://github.com/biezhihua/soda-resource-tools"
 readme = "README.md"
-description = "soda-cli"
+description = "bzh_clix"
 authors = ["biezhihua"]
 categories = ["command-line-utilities"]
 
