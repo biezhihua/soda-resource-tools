@@ -40,7 +40,7 @@ where
                             handler.handle_other_event(event.paths);
                         }
                     },
-                    Err(error) => tracing::info!("Error: {error:?}"),
+                    Err(error) => tracing::debug!("Error: {error:?}"),
                 }
             }
         }

@@ -120,7 +120,7 @@
         "en_name": "Back From The Brink",
         "year": "2023",
         "season": "",
-        "episode": "EP03",
+        "episode": "E03",
         "resolution": "2160p",
         "source": "WEB-DL",
         "video_codec": "H.265",
@@ -149,7 +149,7 @@
       "title": "13.Reasons.Why.S01E01.Tape.1.Side.A.2160p.NF.WEB-DL.DDP5.1.HDR.HEVC-HHWEB.mkv",
       "metadata": {
         "cn_name": "",
-        "en_name": "13.Reasons.Why",
+        "en_name": "13 Reasons Why",
         "year": "",
         "season": "S01",
         "episode": "E01",
@@ -226,19 +226,19 @@
       }
     },
     {
-      "title": "Jade.Other People's Money.Ep01.HDTV.1080p.H264-CNHK.ts",
+      "title": "Jade.Other People's Money.Ep01.HDTV.1080p.H264-CNHK.mkv",
       "metadata": {
         "cn_name": "",
         "en_name": "Other People's Money",
         "year": "",
         "season": "",
-        "episode": "Ep01",
+        "episode": "E01",
         "resolution": "1080p",
         "source": "HDTV",
         "video_codec": "H.264",
         "audio_codec": "",
         "release_group": "CNHK",
-        "container": "ts"
+        "container": "mkv"
       }
     },
     {
@@ -706,19 +706,19 @@
       }
     },
     {
-      "title": "AOD.百万同居计划.Million Dollar Family.Ep01.HDTV.1080p.H264-OneHD.ts",
+      "title": "AOD.百万同居计划.Million Dollar Family.Ep01.HDTV.1080p.H264-OneHD.mkv",
       "metadata": {
         "cn_name": "百万同居计划",
         "en_name": "Million Dollar Family",
         "year": "",
         "season": "",
-        "episode": "Ep01",
+        "episode": "E01",
         "resolution": "1080p",
         "source": "HDTV",
         "video_codec": "H.264",
         "audio_codec": "",
         "release_group": "OneHD",
-        "container": "ts"
+        "container": "mkv"
       }
     },
     {
@@ -738,19 +738,19 @@
       }
     },
     {
-      "title": "[壹高清]你喜欢勃拉姆斯吗.Do You Like Brahms.Ep01.HDTV.720p.H264-OneHD.ts",
+      "title": "[壹高清]你喜欢勃拉姆斯吗.Do You Like Brahms.Ep01.HDTV.720p.H264-OneHD.mkv",
       "metadata": {
         "cn_name": "你喜欢勃拉姆斯吗",
         "en_name": "Do You Like Brahms",
         "year": "",
         "season": "",
-        "episode": "Ep01",
+        "episode": "E01",
         "resolution": "720p",
         "source": "HDTV",
         "video_codec": "H.264",
         "audio_codec": "",
         "release_group": "OneHD",
-        "container": "ts"
+        "container": "mkv"
       }
     },
     {
@@ -770,7 +770,7 @@
       }
     },
     {
-      "title": "Jade.Forensic.Heroes.V.E01.2022.HDTV.1080i.H264-HDCTV.ts",
+      "title": "Jade.Forensic.Heroes.V.E01.2022.HDTV.1080i.H264-HDCTV.mkv",
       "metadata": {
         "cn_name": "",
         "en_name": "Forensic Heroes V",
@@ -782,7 +782,7 @@
         "video_codec": "H.264",
         "audio_codec": "",
         "release_group": "HDCTV",
-        "container": "ts"
+        "container": "mkv"
       }
     },
     {
@@ -882,29 +882,13 @@
       }
     },
     {
-      "title": "One.Dream.One.Home.2019.E01.WEB-DL.4K.HLG10.H265.AAC-HDCTV.mp4",
-      "metadata": {
-        "cn_name": "",
-        "en_name": "One Dream One Home",
-        "year": "2019",
-        "season": "",
-        "episode": "E01",
-        "resolution": "2160p",
-        "source": "WEB-DL",
-        "video_codec": "H.265",
-        "audio_codec": "AAC",
-        "release_group": "HDCTV",
-        "container": "mp4"
-      }
-    },
-    {
       "title": "Scarlet EP01.mp4",
       "metadata": {
         "cn_name": "",
         "en_name": "Scarlet",
         "year": "",
         "season": "",
-        "episode": "EP01",
+        "episode": "E01",
         "resolution": "",
         "source": "",
         "video_codec": "",
@@ -952,7 +936,7 @@
         "en_name": "Three Kingdoms",
         "year": "2010",
         "season": "",
-        "episode": "EP01",
+        "episode": "E01",
         "resolution": "720p",
         "source": "BluRay",
         "video_codec": "H.264",
@@ -1234,7 +1218,7 @@
       }
     },
     {
-      "title": "Cast.Away.2000.1080p.Blu-ray.AVC.DTS-HD.MA.5.1-BHYS@OurBits.iso",
+      "title": "Cast.Away.2000.1080p.Blu-ray.AVC.DTS-HD.MA.5.1-BHYS@OurBits.mp4",
       "metadata": {
         "cn_name": "",
         "en_name": "Cast Away",
@@ -1246,7 +1230,7 @@
         "video_codec": "H.264",
         "audio_codec": "DTS-HD.MA.5.1",
         "release_group": "BHYS@OurBits",
-        "container": "iso"
+        "container": "mp4"
       }
     },
     {
@@ -1482,7 +1466,7 @@
         "season": "",
         "episode": "",
         "resolution": "1080p",
-        "source": "BluRay.Remux",
+        "source": "BluRay",
         "video_codec": "H.264",
         "audio_codec": "TrueHD.7.1",
         "release_group": "Dream",
@@ -1624,7 +1608,7 @@
         "en_name": "THE PRIDE OF HUNAN CUISINE",
         "year": "2021",
         "season": "",
-        "episode": "EP01",
+        "episode": "E01",
         "resolution": "2160p",
         "source": "WEB-DL",
         "video_codec": "H.265",
@@ -1640,7 +1624,7 @@
         "en_name": "Planet Earth II",
         "year": "2016",
         "season": "S01",
-        "episode": "EP01",
+        "episode": "E01",
         "resolution": "2160p",
         "source": "BluRay.Remux",
         "video_codec": "H.265",
@@ -1653,7 +1637,7 @@
       "title": "[大堡礁].BBC.Great.Barrier.Reef.2012.Blu-ray.1080i.AVC.DTS-HD.MA.2.0-CMCT.mkv",
       "metadata": {
         "cn_name": "大堡礁",
-        "en_name": "BBC Great Barrier Reef",
+        "en_name": "Great Barrier Reef",
         "year": "2012",
         "season": "",
         "episode": "",
@@ -1669,7 +1653,7 @@
       "title": "[猎捕].The.Hunt.Complete.2015.BluRay.1080p.x264.DTS.2Audios-CMCT.mkv",
       "metadata": {
         "cn_name": "猎捕",
-        "en_name": "The Hunt Complete",
+        "en_name": "The Hunt",
         "year": "2015",
         "season": "",
         "episode": "",
@@ -1688,7 +1672,7 @@
         "en_name": "The Hunt",
         "year": "2015",
         "season": "",
-        "episode": "EP01",
+        "episode": "E01",
         "resolution": "1080p",
         "source": "BluRay",
         "video_codec": "H.264",
@@ -1701,7 +1685,7 @@
       "title": "[非洲].BBC.Africa.S01.2013.Blu-ray.1080i.AVC.DTS-HD.MA.5.1-CMCT.mkv",
       "metadata": {
         "cn_name": "非洲",
-        "en_name": "BBC Africa",
+        "en_name": "Africa",
         "year": "2013",
         "season": "S01",
         "episode": "",
@@ -1837,7 +1821,7 @@
         "season": "S01",
         "episode": "E01",
         "resolution": "1080p",
-        "source": "WEB",
+        "source": "WEB-DL",
         "video_codec": "H.264",
         "audio_codec": "",
         "release_group": "KOGi",
@@ -1880,7 +1864,7 @@
       "title": "(2010.05.26)Evangelion 2.22 You Can (Not) Advance-[1080p][JP.BD.Remux].mkv",
       "metadata": {
         "cn_name": "",
-        "en_name": "Evangelion 2.22 You Can (Not) Advance",
+        "en_name": "Evangelion 2 22 You Can (Not) Advance",
         "year": "",
         "season": "",
         "episode": "",
@@ -1934,7 +1918,7 @@
         "season": "S01",
         "episode": "E01",
         "resolution": "1080p",
-        "source": "BDRIP",
+        "source": "BDRip",
         "video_codec": "H.265",
         "audio_codec": "FLAC",
         "release_group": "",
@@ -1950,7 +1934,7 @@
         "season": "",
         "episode": "",
         "resolution": "1080p",
-        "source": "BDRIP",
+        "source": "BDRip",
         "video_codec": "H.264",
         "audio_codec": "FLAC",
         "release_group": "",
@@ -1964,9 +1948,9 @@
         "en_name": "Isekai Ojisan",
         "year": "",
         "season": "",
-        "episode": "03",
+        "episode": "E03",
         "resolution": "1080p",
-        "source": "BDRIP",
+        "source": "BDRip",
         "video_codec": "H.264",
         "audio_codec": "FLAC",
         "release_group": "",
@@ -1980,9 +1964,9 @@
         "en_name": "Isekai Ojisan",
         "year": "",
         "season": "",
-        "episode": "01",
+        "episode": "E01",
         "resolution": "1080p",
-        "source": "BDRIP",
+        "source": "BDRip",
         "video_codec": "H.264",
         "audio_codec": "FLACx2",
         "release_group": "",
@@ -2265,7 +2249,7 @@
       "title": "消失的十一层.The.Lost.11th.Floor.S01E24.2023.2160p.WEB-DL.H265.DDP5.1-OurTV.mp4",
       "metadata": {
         "cn_name": "消失的十一层",
-        "en_name": "The.Lost.11th.Floor",
+        "en_name": "The Lost 11th Floor",
         "year": "2023",
         "season": "S01",
         "episode": "E24",
@@ -2594,6 +2578,4090 @@
         "video_codec": "H.265",
         "audio_codec": "AC3",
         "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Ivory.Tower.S01E01.2003.2160p.WEB-DL.H264.60fps.AAC-HHWEB.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Ivory Tower",
+        "year": "2003",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "HHWEB",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Alice.in.Borderland.S01E01.2160p.NF.WEB-DL.DDP5.1.H.265.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Alice in Borderland",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "AOD.百万同居计划.Million Dollar Family.Ep15.End.HDTV.1080p.H264-OneHD.mkv",
+      "metadata": {
+        "cn_name": "百万同居计划",
+        "en_name": "Million Dollar Family",
+        "year": "",
+        "season": "",
+        "episode": "E15",
+        "resolution": "1080p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "OneHD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Arrow.S06E01.Fallout.1080p.Bluray.x265.10bit.DDP.5.1.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Arrow",
+        "year": "",
+        "season": "S06",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[壹高清]你喜欢勃拉姆斯吗.Do You Like Brahms.Ep16.End.HDTV.720p.H264-OneHD.mkv",
+      "metadata": {
+        "cn_name": "你喜欢勃拉姆斯吗",
+        "en_name": "Do You Like Brahms",
+        "year": "",
+        "season": "",
+        "episode": "E16",
+        "resolution": "720p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "OneHD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Eight.Hours.2022.E01.WEB-DL.4K.H265.DDP.AAC-HDCTV.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Eight Hours",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.AAC",
+        "release_group": "HDCTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Eight.Hours.2022.E01.Repack.WEB-DL.4K.H265.DDP.AAC-HDCTV.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Eight Hours",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.AAC",
+        "release_group": "HDCTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "From.Repair.to.Pair.2022.E01.WEB-DL.4K.H265.AAC-HDCTV.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "From Repair to Pair",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "HDCTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Halo.S01E01.Contact.2160p.WEB-DL.DDP5.1.H.265-NTb.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Halo",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "NTb",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "House.S01E01.2004.Amazon.WEB-DL.1080p.H264.DDP-AREY.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "House",
+        "year": "2004",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP",
+        "release_group": "AREY",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Jade.War.of.the.Genders.E100.2000.HDTV.1080i.H264-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "War of the Genders",
+        "year": "2000",
+        "season": "",
+        "episode": "E100",
+        "resolution": "1080i",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Le.dernier.seigneur.des.Balkans.S01E01.720p.ARTE.WEB-DL.x264.AAC-PTerWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Le dernier seigneur des Balkans",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "720p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "PTerWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Love.Between.Fairy.and.Devil.E01.2022.Netflix.WEB-DL.4K.HEVC.DDP-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Love Between Fairy and Devil",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Shinbun.Kisha.E01.2022.Netflix.WEB-DL.4K.HEVC.HDR.DDP-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Shinbun Kisha",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Silent.E01.2022.FOD.WEB-DL.1080p.H264.AAC-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Silent",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Snowpiercer.S01E10.994.Cars.Long.2160p.Netflix.WEB-DL.DDP.5.1.Atmos.HDR.H.265-HHWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Snowpiercer",
+        "year": "",
+        "season": "S01",
+        "episode": "E10",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1.Atmos",
+        "release_group": "HHWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Bad.Kids.E01.2020.WEB-DL.4K.H265.AAC-Enichi.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Bad Kids",
+        "year": "2020",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "Enichi",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "The.Lying.Life.of.Adults.S01E01.1080p.NF.WEB-DL.x264.DDP5.1-PTerWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Lying Life of Adults",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1",
+        "release_group": "PTerWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Peripheral.S01E01.Pilot.2160p.AMZN.WEB-DL.DDP5.1.HDR.H.265-NTb.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Peripheral",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "NTb",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "TVB Anywhere.法证先锋V.Forensic Heroes V.Ep01.HDTV.1080p.H264.2Audio-OneHD.mkv",
+      "metadata": {
+        "cn_name": "法证先锋V",
+        "en_name": "Forensic Heroes V",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "2Audio",
+        "release_group": "OneHD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "TVB Anywhere.法证先锋V.Forensic Heroes V.Ep01.Repack.HDTV.1080p.H264.2Audio-OneHD.mkv",
+      "metadata": {
+        "cn_name": "法证先锋V",
+        "en_name": "Forensic Heroes V",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "2Audio",
+        "release_group": "OneHD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Unnatural.2018.E01.BluRay.1080p.x264.DD2.0-HDChina.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Unnatural",
+        "year": "2018",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DD2.0",
+        "release_group": "HDChina",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "ViuTV.Million.Dollar.Family.E01.2022.HDTV.1080i.H264-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Million Dollar Family",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080i",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Arrow.S08E08.Crisis.on.Infinite.Earths.Part.Four.1080p.Bluray.x265.10bit.DDP.5.1.MNHDR-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Arrow",
+        "year": "",
+        "season": "S08",
+        "episode": "E08",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "MNHDR-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Arrow.S08E08.Star.City.2040.1080p.Bluray.x265.10bit.DDP.5.1.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Arrow",
+        "year": "2040",
+        "season": "S08",
+        "episode": "E08",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Arrow.S08E08.Inmate.4587.1080p.Bluray.x265.10bit.DDP.5.1.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Arrow",
+        "year": "4587",
+        "season": "S08",
+        "episode": "E08",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[大明王朝1566].Da.Ming.Wang.Chao.2007.E01.1080p.WEB-DL.H265.AAC-PTerWEB.mp4",
+      "metadata": {
+        "cn_name": "大明王朝1566",
+        "en_name": "Da Ming Wang Chao",
+        "year": "2007",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "PTerWEB",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "[信号].Signal.S01E01.2016.BluRay.1080p.x264.DTS-CMCT.mkv",
+      "metadata": {
+        "cn_name": "信号",
+        "en_name": "Signal",
+        "year": "2016",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS",
+        "release_group": "CMCT",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Hanzawa.Naoki.S01E01.2013.DC.Blu-ray.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Hanzawa Naoki",
+        "year": "2013",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Fringe.2008.S01E01.Blu-Ray.1080p.DD5.1.x265.10bit-Yumi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Fringe",
+        "year": "2008",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DD5.1",
+        "release_group": "Yumi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "24小时.S01E01.2001.1080p.Blu-ray.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "24小时",
+        "en_name": "",
+        "year": "2001",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "士兵突击.Soldiers.Sortie.2006.E01.2160p.WEB-DL.AAC.H.265-OurTV.mp4",
+      "metadata": {
+        "cn_name": "士兵突击",
+        "en_name": "Soldiers Sortie",
+        "year": "2006",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "The.World.Between.Us.S01E01.1080p.BluRay.x265.10bit.FLAC.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The World Between Us",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "拜托了！8小时.Eight.Hours.2022.S01E01.1080p.WEB-DL.H264.AAC-OurTV.mp4",
+      "metadata": {
+        "cn_name": "拜托了！8小时",
+        "en_name": "Eight Hours",
+        "year": "2022",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "The.Lord.of.the.Rings.The.Rings.of.Power.S01.E01.A.Shadow.of.the.Past.1080p.AMZN.WEB-DL.DDP5.1.H.264-OurTV.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Lord of the Rings The Rings of Power",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Long.Way.Round.2004.S01E01.2160p.ATVP.WEB-DL.H265.10bit.HDR.DD5.1-LeagueWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Long Way Round",
+        "year": "2004",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DD5.1",
+        "release_group": "LeagueWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Supernatural.S01E13.Route.666.1080p.Blu-Ray.AC3.x265.10bit-Yumi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Supernatural",
+        "year": "",
+        "season": "S01",
+        "episode": "E13",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "Yumi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Marvels.Daredevil.S03E13.2018.2160p.WEB_DL.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Marvels Daredevil",
+        "year": "2018",
+        "season": "S03",
+        "episode": "E13",
+        "resolution": "2160p",
+        "source": "WEB_DL",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "赘婿.第1季.My.Heroic.Husband.S01E36.2021.2160p.WEB-DL.H265.AAC-FLTTH.mp4",
+      "metadata": {
+        "cn_name": "赘婿",
+        "en_name": "My Heroic Husband",
+        "year": "2021",
+        "season": "S01",
+        "episode": "E36",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "FLTTH",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "The.Walking.Dead.S01E01.1080p.BluRay.x264-Japhson.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Walking Dead",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "Japhson",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "2.Broke.Girls.S01E01.2011.1080p.WEB-DL.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Broke Girls",
+        "year": "2011",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "the.walking.dead.s03e01.1080p.bluray.x264-rovers.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "the walking dead",
+        "year": "",
+        "season": "S03",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "rovers",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "24小时.Legacy.S01E01.2017.1080p.Blu-ray.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "24小时",
+        "en_name": "Legacy",
+        "year": "2017",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "2.Broke.Girls.S04E02.2014.1080p.WEB-DL.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Broke Girls",
+        "year": "2014",
+        "season": "S04",
+        "episode": "E02",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Wild.Bloom.S01E28.2022.2160p.WEB-DL.H265.DDP5.1-HHWEB.mp4.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Wild Bloom",
+        "year": "2022",
+        "season": "S01",
+        "episode": "E28",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "HHWEB",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "钻井.The.Rig.2023.S01E06.1080p.AMZN.WEB-DL.H264.DDP5.1-OurTV.mkv",
+      "metadata": {
+        "cn_name": "钻井",
+        "en_name": "The Rig",
+        "year": "2023",
+        "season": "S01",
+        "episode": "E06",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1",
+        "release_group": "OurTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Supernatural.S06E22.The.Man.Who.Knew.Too.Much.Blu-Ray.AC3.x265.10bit-Yumi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Supernatural",
+        "year": "",
+        "season": "S06",
+        "episode": "E22",
+        "resolution": "",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "Yumi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Supernatural.S06E14.Mannequin.3.The.Reckoning.Blu-Ray.AC3.x265.10bit-Yumi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Supernatural",
+        "year": "",
+        "season": "S06",
+        "episode": "E14",
+        "resolution": "",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "Yumi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Supernatural.S05E17.99.Problems.1080p.Blu-Ray.AC3.x265.10bit-Yumi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Supernatural",
+        "year": "",
+        "season": "S05",
+        "episode": "E17",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "Yumi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "请回答1988.第20集.Reply.1988.UHDTV.60fps.DD2.0.x265.10bit-Yumi.mkv",
+      "metadata": {
+        "cn_name": "请回答1988",
+        "en_name": "Reply 1988",
+        "year": "",
+        "season": "",
+        "episode": "E20",
+        "resolution": "",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "DD2.0",
+        "release_group": "Yumi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "the.walking.dead.s11e12.1080p.web.h264-cakes.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "the walking dead",
+        "year": "",
+        "season": "S11",
+        "episode": "E12",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "cakes",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Walking.Dead.S02E03.REPACK.1080p.BluRay.x264-BWB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Walking Dead",
+        "year": "",
+        "season": "S02",
+        "episode": "E03",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "BWB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Good.Doctor.S03E06.45-Degree.Angle.1080p.AMZN.WEB-DL.DDP5.1.x265.10bit-Yumi@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Good Doctor",
+        "year": "",
+        "season": "S03",
+        "episode": "E06",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "Yumi@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Big.Bang.Theory.S02E07.The.Panty.Piñata.Polarization.1080p.Bluray.AC3.x265.10bit-Yumi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Big Bang Theory",
+        "year": "",
+        "season": "S02",
+        "episode": "E07",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "Yumi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "2.Broke.Girls.S06E01E02.2016.1080p.WEB-DL.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Broke Girls",
+        "year": "2016",
+        "season": "S06",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Lord.of.the.Rings.The.Rings.of.Power.S01.E06.Udûn.1080p.AMZN.WEB-DL.DDP5.1.H.264-OurTV.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Lord of the Rings The Rings of Power",
+        "year": "",
+        "season": "S01",
+        "episode": "E06",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Alice.in.Borderland.S01E01.2160p.NF.WEB-DL.DDP5.1.H.265.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Alice in Borderland",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "JSTV.The.Guardian.E01.2022.HDTV.1080i.H264-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Guardian",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080i",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Lost.S01-S06.COMPLETE.2004-2010.1080p.Blu-ray.x265.10bits.DTS.5.1-PTer",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Lost",
+        "year": "",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS.5.1",
+        "release_group": "PTer",
+        "container": ""
+      }
+    },
+    {
+      "title": "One.Dream.One.Home.2019.E01.WEB-DL.4K.HLG10.H265.AAC-HDCTV.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "One Dream One Home",
+        "year": "2019",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "HDCTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Remarriage.and.Desires.S01E02.2022.Netflix.WEB-DL.4K.HEVC.DV.DDP-HDCTV.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Remarriage and Desires",
+        "year": "2022",
+        "season": "S01",
+        "episode": "E02",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP",
+        "release_group": "HDCTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "SAS.Rogue.Heroes.S01E01.2022.1080p.Blu-ray.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "SAS Rogue Heroes",
+        "year": "2022",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Scarlet EP50 End.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Scarlet",
+        "year": "",
+        "season": "",
+        "episode": "E50",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Shameless.US.S09E01.1080p.AMZN.WEB-DL.AC3.x265.10bit-Yumi@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Shameless",
+        "year": "",
+        "season": "S09",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "Yumi@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Arrow.S06E21.Docket.No.11-19-41-73.1080p.Bluray.x265.10bit.DDP.5.1.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Arrow",
+        "year": "",
+        "season": "S06",
+        "episode": "E21",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Universe.S01E01.Secrets.of.the.Sun.2007.BD-REMUX.1080P.H264.AC3-FrankB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Universe",
+        "year": "2007",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BD-Remux",
+        "video_codec": "H.264",
+        "audio_codec": "AC3",
+        "release_group": "FrankB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Universe.S01E01.Secrets.of.the.Sun.2007.BD-REMUX.1080P.H264.AVC.AC3-FrankB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Universe",
+        "year": "2007",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BD-Remux",
+        "video_codec": "H.264",
+        "audio_codec": "AC3",
+        "release_group": "FrankB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Universe.S02E01.Alien.Planets.2008.BD-REMUX.1080P.VC1.DTS-FrankB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Universe",
+        "year": "2008",
+        "season": "S02",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BD-Remux",
+        "video_codec": "VC1",
+        "audio_codec": "DTS",
+        "release_group": "FrankB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Universe.S05E01.7.Wonders.of.the.Solar.System.BD-REMUX.1080P.H264.AVC.DTS-HD-FrankB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Universe",
+        "year": "",
+        "season": "S05",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BD-Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD",
+        "release_group": "FrankB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Universe.S09E01.Omens.of.Doom.1080p.x264.Eac3-FrankB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Universe",
+        "year": "",
+        "season": "S09",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.264",
+        "audio_codec": "Eac3",
+        "release_group": "FrankB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Universe.S08E01.2014.stonehenge.1080p.BD-REMUX.H264.AVC.DTS-FrankB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Universe",
+        "year": "2014",
+        "season": "S08",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BD-Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS",
+        "release_group": "FrankB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Air.Emergency.S13E01.Fight.to.the.Death.英国欧洲航空548号班机空难.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Air Emergency",
+        "year": "",
+        "season": "S13",
+        "episode": "E01",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Air.Emergency.S18E01.NutsAndBolts.埃默里世界航空17号班机.1080P[超清.中英字幕].mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Air Emergency",
+        "year": "",
+        "season": "S18",
+        "episode": "E01",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Air.Emergency.S17E01.Killer.Attitude.西北空联航空5719号班机[1080P 中英双语].mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Air Emergency",
+        "year": "",
+        "season": "S17",
+        "episode": "E01",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Air.Emergency.S01E01.Racing.the.Storm.美国航空1420号.1999[高清内封中字].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Air Emergency",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Air.Emergency.S16E01.Deadly.Silence.死寂（1999年里尔35公务机空难）.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Air Emergency",
+        "year": "",
+        "season": "S16",
+        "episode": "E01",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Air.Emergency.S15E01.Fatal.Transmission.1996年昆西机场相撞事故(联合快运航空5925号班机、空中国王N1127D).mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Air Emergency",
+        "year": "",
+        "season": "S15",
+        "episode": "E01",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "与摩根·弗里曼一起穿越虫洞.Through.The.Wormhole.With.Morgan.Freeman.2010.S01E01.4K.WEB-DL.H265.AAC-PTerWEB.mp4",
+      "metadata": {
+        "cn_name": "与摩根·弗里曼一起穿越虫洞",
+        "en_name": "Through The Wormhole With Morgan Freeman",
+        "year": "2010",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "PTerWEB",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Great.British.Railway.Journeys.S02E01.HDTV.720p.x264.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Great British Railway Journeys",
+        "year": "",
+        "season": "S02",
+        "episode": "E01",
+        "resolution": "720p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Great.British.Railway.Journeys.S03E01.HDTV.720p.x264-GTi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Great British Railway Journeys",
+        "year": "",
+        "season": "S03",
+        "episode": "E01",
+        "resolution": "720p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "GTi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Vietnam.War.E01.2017.BluRay.1080p.x265.10bit.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Vietnam War",
+        "year": "2017",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "USA.A.West.Coast.Journey.2014.2160p.BluRay.x265.10bit.SDR.mUHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "A West Coast Journey",
+        "year": "2014",
+        "season": "",
+        "episode": "",
+        "resolution": "2160p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "mUHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "What.on.Earth.S02E01.1080i.HDTV.MPEG2.DD5.1-TTVa.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "What on Earth",
+        "year": "",
+        "season": "S02",
+        "episode": "E01",
+        "resolution": "1080i",
+        "source": "HDTV",
+        "video_codec": "MPEG2",
+        "audio_codec": "DD5.1",
+        "release_group": "TTVa",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "What.on.Earth.S05E01.CIA.Killer.Monks.1080p.WEB.x264-CAFFEiNE.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "What on Earth",
+        "year": "",
+        "season": "S05",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "CAFFEiNE",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "What.on.Earth.S08E01.Zombietown.USA.1080p.SCI.WEB-DL.AAC2.0.x264-BOOP.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "What on Earth",
+        "year": "",
+        "season": "S08",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC2.0",
+        "release_group": "BOOP",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "What.on.Earth.S09E01.Curse.of.the.Amazon.Nazis.1080p.WEB.h264-CAFFEiNE.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "What on Earth",
+        "year": "",
+        "season": "S09",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "CAFFEiNE",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "What.on.Earth.S11E01.Secret.Soviet.Spacecraft.1080p.WEB.H264-KOMPOST.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "What on Earth",
+        "year": "",
+        "season": "S11",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "KOMPOST",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "What.on.Earth.S12E01.1080p.WEB.h264-CBFM.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "What on Earth",
+        "year": "",
+        "season": "S12",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "CBFM",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Alone.S02E08.The.Ascent.1080p.AMZN.WEB DL.DD+2.0.x264-Cinefeel.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Alone",
+        "year": "",
+        "season": "S02",
+        "episode": "E08",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DD+2.0",
+        "release_group": "Cinefeel",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Alone.S09E11.Fight.Flight.or.Freeze.1080p.AMZN.WEB-DL.AAC2.0.H.264-SMURF.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Alone",
+        "year": "",
+        "season": "S09",
+        "episode": "E11",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC2.0",
+        "release_group": "SMURF",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Australia.with.Simon.Reeve.S01E01.WEB-DL.720p.H.264.AAC-FOXKING.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Australia with Simon Reeve",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "720p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "FOXKING",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "BBC.Africa.EP01.Kalahari.2013.1080p.BluRay.x264.DTS-WiKi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Africa",
+        "year": "2013",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS",
+        "release_group": "WiKi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Alone.S04E09.My.Brothers.Keeper.1080p.AMZN.WEB-DL.DD+2.0.H.264-AJP69.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Alone",
+        "year": "",
+        "season": "S04",
+        "episode": "E09",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DD+2.0",
+        "release_group": "AJP69",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Alone.S05E01.Redemption.1080p.AMZN.WEB-DL.DDP2.0.H.264-KiNGS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Alone",
+        "year": "",
+        "season": "S05",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.2.0",
+        "release_group": "KiNGS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "BBC.Africa.2013.S01.EP01.BluRay.1080p.DTS-HD.MA.5.1.x264-beAst.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Africa",
+        "year": "2013",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "beAst",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "BBC.Attenborough.60.Years.in.the.Wild.2012.EP01.BluRay.1080p.DTS-HD.MA.2.0.x265.10bit-BeiTai.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Attenborough 60 Years in the Wild",
+        "year": "2012",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS-HD.MA.2.0",
+        "release_group": "BeiTai",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "BBC.Frozen.Planet.EP01.2011.1080p.BluRay.DTS.3Audio.x264-HDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Frozen Planet",
+        "year": "2011",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS.3Audio",
+        "release_group": "HDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "BBC.Inside.the.Human.Body.2011.E01.BluRay.1080p.MultiAudio.DTS-HD.MA.2.0.x265.10bit-BeiTai.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Inside the Human Body",
+        "year": "2011",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS-HD.MA.2.0",
+        "release_group": "BeiTai",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "BBC.Life.2009.EP01.BluRay.1080p.MultiAudio.DTS-HD.HR.5.1.x264-beAst.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Life",
+        "year": "2009",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.HR.5.1",
+        "release_group": "beAst",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "BBC.Life.on.Earth.1979.EP01.Blu-Ray.1080p.DTS-HD.MA.2.0.x264-beAst.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Life on Earth",
+        "year": "1979",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.2.0",
+        "release_group": "beAst",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "BBC.Voyager.To.the.Final.Frontier.1080p.HDTV.x264.AAC.MVGroup.org.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Voyager To the Final Frontier",
+        "year": "",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "MVGroup.org",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Blue Planet II 2017 D1 UHD BluRay REMUX 2160p HEVC DTS-HD MA5.1 2Audio-CHD.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Blue Planet II",
+        "year": "2017",
+        "season": "",
+        "episode": "",
+        "resolution": "2160p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.265",
+        "audio_codec": "DTS-HD.MA5.1 2Audio",
+        "release_group": "CHD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "CCTV.Bian.Jiang.Xing.E01.720p.HDTV.x264-NGB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Bian Jiang Xing",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "720p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "NGB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "CCTV9.Blossom.Matters.E01.1080i.HDTV.H264-NGB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Blossom Matters",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080i",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "NGB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Earth.Flight.Ep01.North.America.1080p.BluRay.x264-xiaofriend.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Earth Flight",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "xiaofriend",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Forged.in.Fire.S01E01.Japanese.Katana.1080p.AMZN.WEB-DL.DDP2.0.H.264-playWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Forged in Fire",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.2.0",
+        "release_group": "playWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Forged.in.Fire.S05E01.Rookies.Edition.1080p.HULU.WEB-DL.AAC2.0.H.264-SiGMA.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Forged in Fire",
+        "year": "",
+        "season": "S05",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC2.0",
+        "release_group": "SiGMA",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Formula.1.Drive.to.Survive.S03E01.2021.Netflix.WEB-DL.4K.HEVC.HDR.DDP-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Formula 1 Drive to Survive",
+        "year": "2021",
+        "season": "S03",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Frozen.Planet.II.S01E01.Frozen.Worlds.2160p.iP.WEB-DL.AAC2.0.HLG.H.265-playWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Frozen Planet II",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC2.0",
+        "release_group": "playWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "How.Earth.Made.Us.EP01.HK.2010.BluRay.1080P.DTS-HD.MA2.0.x264-th71@beAst.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "How Earth Made Us",
+        "year": "2010",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.2.0",
+        "release_group": "th71@beAst",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Night on Earth S01E01 Moonlit Plains 2160p WEBRip DD+5.1 HDR x265-Chotab.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Night on Earth",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEBRip",
+        "video_codec": "H.265",
+        "audio_codec": "DD+5.1",
+        "release_group": "Chotab",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "早餐中国.Breakfast.In.China.S04E31.2020.2160p.WEB-DL.H265.mkv",
+      "metadata": {
+        "cn_name": "早餐中国",
+        "en_name": "Breakfast In China",
+        "year": "2020",
+        "season": "S04",
+        "episode": "E31",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "风味人间.Once.Upon.a.Bite.2018.S01E01.WEB-DL.4K.VP9.AAC-PTerWEB.mkv",
+      "metadata": {
+        "cn_name": "风味人间",
+        "en_name": "Once Upon a Bite",
+        "year": "2018",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "VP9",
+        "audio_codec": "AAC",
+        "release_group": "PTerWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Water.Life.2009.E26.1080p.Bluray.x265.10bit.2Audios.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Water Life",
+        "year": "2009",
+        "season": "",
+        "episode": "E26",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audios",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Dynasties.2022.S02E06.V2.1080p.WEB-DL.H264.AAC.2Audio-LeagueWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Dynasties",
+        "year": "2022",
+        "season": "S02",
+        "episode": "E06",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC.2Audio",
+        "release_group": "LeagueWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "早餐中国.Breakfast.In.China.S04E31.2020.2160p.WEB-DL.H265.mkv",
+      "metadata": {
+        "cn_name": "早餐中国",
+        "en_name": "Breakfast In China",
+        "year": "2020",
+        "season": "S04",
+        "episode": "E31",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "宇宙时空之旅.Cosmos.A.SpaceTime.Odyssey.S01E01.Standing.Up.in.the.Milky.Way.2014.BluRay.1080p.x265.10Bit.DTS.5.1.内封中字简繁双语特效-FFans@ws林小凡.mkv",
+      "metadata": {
+        "cn_name": "宇宙时空之旅",
+        "en_name": "Cosmos A SpaceTime Odyssey",
+        "year": "2014",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS.5.1",
+        "release_group": "FFans@ws林小凡",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Around.The.World.In.80.Gardens.2008.E10.1080p.WEB-DL.H264.AAC-PTerWEB.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Around The World In 80 Gardens",
+        "year": "2008",
+        "season": "",
+        "episode": "E10",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "PTerWEB",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "History.of.the.World.2008.S01E100.2160p.WEB-DL.H265.AAC-LeagueWEB.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "History of the World",
+        "year": "2008",
+        "season": "S01",
+        "episode": "E100",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "LeagueWEB",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Into.the.Universe.With.Stephen.Hawking.2010.E03.1080p.Bluray.x265.10bit.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Into the Universe With Stephen Hawking",
+        "year": "2010",
+        "season": "",
+        "episode": "E03",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Turkey.with.Simon.Reeve.S01E01.WEB-DL.1080p.H.264.AAC-FOXKING.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Turkey with Simon Reeve",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "FOXKING",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "The.Civil.War.E9.1865.The.Better.Angels.of.Our.Nature.720p.BluRay.DD5.1.x264-DON.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Civil War",
+        "year": "1865",
+        "season": "",
+        "episode": "E09",
+        "resolution": "720p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DD5.1",
+        "release_group": "DON",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Planet.Earth.EP01.From.Polo.To.Polo.2006.BluRay.1080p.MultiAudio.DTS-HD.HR.5.1.x264-beAst.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Planet Earth",
+        "year": "2006",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.HR.5.1",
+        "release_group": "beAst",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Mediterranean.with.Simon.Reeve.S01E4.WEB-DL.1080p.H.264.AAC-FOXKING.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Mediterranean with Simon Reeve",
+        "year": "",
+        "season": "S01",
+        "episode": "E04",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "FOXKING",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Wonders.Of.The.Solar.System.EP01.Empire.of.the.Sun.2010.1080p.BluRay.DD2.0.x264-HDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Wonders Of The Solar System",
+        "year": "2010",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DD2.0",
+        "release_group": "HDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Elon.Musk.The.Real.Life.Iron.Man.2018.1080p.AMZN.WEB-DL.AAC2.0.H.264-ETHiCS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Elon Musk The Real Life Iron Man",
+        "year": "2018",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC2.0",
+        "release_group": "ETHiCS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Forged.in.Fire.S08E01.720p.WEB.h264-BAE.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Forged in Fire",
+        "year": "",
+        "season": "S08",
+        "episode": "E01",
+        "resolution": "720p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "BAE",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Great.British.Railway.Journeys.S03E25.WEBRIP.720p.x264-iPRiP.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Great British Railway Journeys",
+        "year": "",
+        "season": "S03",
+        "episode": "E25",
+        "resolution": "720p",
+        "source": "WEBRIP",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "iPRiP",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Great.British.Railway.Journeys.S08E01.HDTV.720p.AC3.AAC.x264-GTi.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Great British Railway Journeys",
+        "year": "",
+        "season": "S08",
+        "episode": "E01",
+        "resolution": "720p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "AC3.AAC",
+        "release_group": "GTi",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Great.British.Railway.Journeys.S10E13.Ealing.Broadway.To.South.Kensington.720p.HDTV.x264-BRiTiSHB00Bs.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Great British Railway Journeys",
+        "year": "",
+        "season": "S10",
+        "episode": "E13",
+        "resolution": "720p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "BRiTiSHB00Bs",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Great.British.Railway.Journeys.S11E07.Truro.To.St.Mawgan.720p.HDTV.x264-PVR.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Great British Railway Journeys",
+        "year": "",
+        "season": "S11",
+        "episode": "E07",
+        "resolution": "720p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "PVR",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "What.on.Earth.S07E05.Armageddon.USA.1080p.WEB.x264-ESPRESSO.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "What on Earth",
+        "year": "",
+        "season": "S07",
+        "episode": "E05",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "ESPRESSO",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Dynasties.2022.S02E01.V2.2160p.WEB-DL.H264.DDP5.1.Atmos.2Audio-LeagueWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Dynasties",
+        "year": "2022",
+        "season": "S02",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1.Atmos.2Audio",
+        "release_group": "LeagueWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Immigration.Nation.2020.S01E01.Installing.Fear.1080p.NF.WEB-DL.DDP5.1.x264-NTG.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Immigration Nation",
+        "year": "2020",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1",
+        "release_group": "NTG",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Our Planet  2019  S01E04   Coastal Seas  2160p NF WEBRip x265 .mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Our Planet",
+        "year": "2019",
+        "season": "S01",
+        "episode": "E04",
+        "resolution": "2160p",
+        "source": "WEBRip",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Our Planet  2019  S01E06 - The High Seas  2160p NF WEBRip x265 .mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Our Planet",
+        "year": "2019",
+        "season": "S01",
+        "episode": "E06",
+        "resolution": "2160p",
+        "source": "WEBRip",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Taiwan.Taste.S01E07.2012.1080p.KKTV.WEB-DL.H264.AAC-HHWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Taiwan Taste",
+        "year": "2012",
+        "season": "S01",
+        "episode": "E07",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "HHWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Dynasties.2022.S02E01.V2.2160p.WEB-DL.H264.DDP5.1.Atmos.2Audio-LeagueWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Dynasties",
+        "year": "2022",
+        "season": "S02",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1.Atmos.2Audio",
+        "release_group": "LeagueWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[易中天品三国52千古风流].Yi.Zhong.Tian.Pin.San.Guo.E52.2006.DVDRip.576p.x264.AC3-CMCT.mkv",
+      "metadata": {
+        "cn_name": "易中天品三国",
+        "en_name": "Yi Zhong Tian Pin San Guo",
+        "year": "2006",
+        "season": "",
+        "episode": "E52",
+        "resolution": "576p",
+        "source": "DVDRip",
+        "video_codec": "H.264",
+        "audio_codec": "AC3",
+        "release_group": "CMCT",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "风味人间.Once.Upon.A.Bite.2022.S04E01.2160p.50FPS.WEB-DL.H265.DV.DDP2.0-OurTV.mp4",
+      "metadata": {
+        "cn_name": "风味人间",
+        "en_name": "Once Upon A Bite",
+        "year": "2022",
+        "season": "S04",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.2.0",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "风味人间3·大海小鲜.Once.Upon.A.Bite.2021.S03E01.4K.WEB-DL.H265.DoVi.DDP5.1.Atmos-PTerWEB.mp4",
+      "metadata": {
+        "cn_name": "风味人间",
+        "en_name": "Once Upon A Bite",
+        "year": "2021",
+        "season": "S03",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1.Atmos",
+        "release_group": "PTerWEB",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "风味人间4.Once.Upon.A.Bite.2022.S04E01.2160p.50FPS.WEB-DL.H265.DV.DDP2.0-OurTV.mp4",
+      "metadata": {
+        "cn_name": "风味人间",
+        "en_name": "Once Upon A Bite",
+        "year": "2022",
+        "season": "S04",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.2.0",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "风味人间4.Once.Upon.A.Bite.2022.S04E01.2160p.50FPS.WEB-DL.H265.DV.DDP2.0-OurTV.mp4",
+      "metadata": {
+        "cn_name": "风味人间",
+        "en_name": "Once Upon A Bite",
+        "year": "2022",
+        "season": "S04",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.2.0",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Re.Zero.kara.Hajimeru.Isekai.Seikatsu.E26.Crunchyroll.WEB-DL.1080p.x264.AAC-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Re Zero kara Hajimeru Isekai Seikatsu",
+        "year": "",
+        "season": "",
+        "episode": "E26",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Record.of.Ragnarok.II.2023.S02E01.1080p.NF.WEB-DL.DDP2.0.x264-PTerWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Record of Ragnarok II",
+        "year": "2023",
+        "season": "S02",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.2.0",
+        "release_group": "PTerWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Meitantei.Conan.1996.E1017.2160p.WEB-DL.H265.AAC.2Audio-HaresWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Meitantei Conan",
+        "year": "1996",
+        "season": "",
+        "episode": "E1017",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC.2Audio",
+        "release_group": "HaresWEB",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "孤独摇滚.Bocchi.the.Rock.2022.S01E01.1080p.Crunchyroll.WEB-DL.H264.AAC-OurTV.mkv",
+      "metadata": {
+        "cn_name": "孤独摇滚",
+        "en_name": "Bocchi the Rock",
+        "year": "2022",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "OurTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "斗罗大陆.Dou.Luo.Da.Lu.2018.S01E001.1080p.WEB-DL.AAC.H264-OurTV.mp4",
+      "metadata": {
+        "cn_name": "斗罗大陆",
+        "en_name": "Dou Luo Da Lu",
+        "year": "2018",
+        "season": "S01",
+        "episode": "E001",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Cyberpunk.Edgerunners.E02.Like.A.Boy.2160p.NF.Blu-ray.DDP5.1.H.264-SPADE.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Cyberpunk Edgerunners",
+        "year": "",
+        "season": "",
+        "episode": "E02",
+        "resolution": "2160p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1",
+        "release_group": "SPADE",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Cyberpunk.Edgerunners.02.Like.A.Boy.2160p.NF.Blu-ray.DDP5.1.H.264-SPADE.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Cyberpunk Edgerunners",
+        "year": "",
+        "season": "",
+        "episode": "E02",
+        "resolution": "2160p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DDP.5.1",
+        "release_group": "SPADE",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "鬼灭之刃.锻刀村篇.Kimetsu.No.Yaiba.S04E01.2023.1080p.Crunchyroll.WEB-DL.H264.AAC-OurTV.mkv",
+      "metadata": {
+        "cn_name": "鬼灭之刃.锻刀村篇",
+        "en_name": "Kimetsu No Yaiba",
+        "year": "2023",
+        "season": "S04",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "OurTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[VCB-Studio] OVERLORD [13][Ma10p_1080p][x265_flac].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "OVERLORD",
+        "year": "",
+        "season": "",
+        "episode": "E13",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "VCB-Studio",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[VCB-Studio] OVERLORD III [02][Ma10p_1080p][x265_flac].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "OVERLORD III",
+        "year": "",
+        "season": "",
+        "episode": "E02",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "VCB-Studio",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[VCB-Studio] OVERLORD III [01][Ma10p_1080p][x265_flac_aac].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "OVERLORD III",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC.AAC",
+        "release_group": "VCB-Studio",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[VCB-Studio] Kaifuku Jutsushi no Yarinaoshi [01][Ma10p_1080p][x265_flac].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Kaifuku Jutsushi no Yarinaoshi",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "VCB-Studio",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[VCB-Studio] Durarara!!×2 Shou [01][Ma10p_1080p][x265_flac_aac].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Durarara!!×2 Shou",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC.AAC",
+        "release_group": "VCB-Studio",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[VCB-Studio] Durarara!! [01][Ma10p_1080p][x265_flac].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Durarara!!",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "VCB-Studio",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Dragon.Ball.150.DBOX.CC.480p.x264-SoM.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Dragon Ball",
+        "year": "",
+        "season": "",
+        "episode": "E150",
+        "resolution": "480p",
+        "source": "",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "SoM",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Dragon.Ball.092.DBOX.CC.480p.x264-SoM.[v2].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Dragon Ball",
+        "year": "",
+        "season": "",
+        "episode": "E92",
+        "resolution": "480p",
+        "source": "",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "SoM",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[sergey_krs] Kuroshitsuji II - 01 [BDRip 1920x1080 x264 FLAC].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Kuroshitsuji II",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BDRip",
+        "video_codec": "H.264",
+        "audio_codec": "FLAC",
+        "release_group": "sergey_krs",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[sergey_krs] Kuroshitsuji - Book of Circus - 01 [BDRip 1920x1080 x264 FLAC].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Kuroshitsuji Book of Circus",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BDRip",
+        "video_codec": "H.264",
+        "audio_codec": "FLAC",
+        "release_group": "sergey_krs",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[philosophy-raws][Heroic Age][26][BDRIP][Hi10P FLAC][1920X1080].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Heroic Age",
+        "year": "",
+        "season": "",
+        "episode": "E26",
+        "resolution": "1080p",
+        "source": "BDRip",
+        "video_codec": "",
+        "audio_codec": "FLAC",
+        "release_group": "philosophy-raws",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[Nekomoe kissaten&VCB-Studio] Mushoku Tensei ~Isekai Ittara Honki Dasu~ [01][Ma10p_1080p][x265_flac].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Mushoku Tensei ~Isekai Ittara Honki Dasu~",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "Nekomoe kissaten&VCB-Studio",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[NC-Raws] OVERLORD IV - 01 (B-Global 3840x2160 HEVC AAC MKV) [038B942D].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "OVERLORD IV",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "NC-Raws",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "[DMG] EDENS ZERO 第01话「桜舞うソラに」 [BDRip][HEVC_FLAC][1080P_Ma10P](3E87A76C).mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "EDENS ZERO",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BDRip",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "DMG",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Mobseka 2022 S01E01-[1080p][BDRIP][x265.FLAC].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Mobseka",
+        "year": "2022",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BDRip",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Onipan! S01E01-[1080p][BDRIP][x265.FLAC].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Onipan!",
+        "year": "",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BDRip",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Zom.100.Bucket.List.of.the.Dead.S01E01.2023.2160p.B-Global.WEB-DL.H264.AAC-OurTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Zom 100 Bucket List of the Dead",
+        "year": "2023",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "OurTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "okyo.24.ku.S01E01.2022.1080p.Crunchyroll.WEB-DL.H264.AAC-ADWeb.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "okyo 24 ku",
+        "year": "2022",
+        "season": "S01",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "ADWeb",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "SPY.x.FAMILY.E01.2022.Crunchyroll.WEB-DL.1080p.x264.AAC-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "SPY x FAMILY",
+        "year": "2022",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Re.Zero.kara.Hajimeru.Isekai.Seikatsu.E50.Crunchyroll.WEB-DL.1080p.x264.AAC-HDCTV.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Re Zero kara Hajimeru Isekai Seikatsu",
+        "year": "",
+        "season": "",
+        "episode": "E50",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC",
+        "release_group": "HDCTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Hunter X Hunter 2011 - EP001 [BD 1920x1080 23.976fps AVC-yuv444p10 FLAC Chap] v2 - mawen1250.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Hunter X Hunter",
+        "year": "2011",
+        "season": "",
+        "episode": "E001",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "mawen1250",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "圣斗士星矢第52话：亚历士，传说中的魔皇拳.mkv",
+      "metadata": {
+        "cn_name": "圣斗士星矢",
+        "en_name": "",
+        "year": "",
+        "season": "",
+        "episode": "E52",
+        "resolution": "",
+        "source": "",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "电锯惊魂10.saw.x.2023.1080p.WEB-DL.DD5.1.H264-OurTV.mkv",
+      "metadata": {
+        "cn_name": "电锯惊魂10",
+        "en_name": "saw x",
+        "year": "2023",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DD5.1",
+        "release_group": "OurTV",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "消失的她.Lost.in.the.Stars.2022.WEB-DL.2160p.HEVC.AAC-ZmWeb-高码率.mp4",
+      "metadata": {
+        "cn_name": "消失的她",
+        "en_name": "Lost in the Stars",
+        "year": "2022",
+        "season": "",
+        "episode": "",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "ZmWeb",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "流浪地球2.The.Wandering.Earth.Ⅱ.2023.2160p.HQ.WEB-DL.H265.DDP5.1.Atoms-OurTV.mp4",
+      "metadata": {
+        "cn_name": "流浪地球2",
+        "en_name": "The Wandering Earth Ⅱ",
+        "year": "2023",
+        "season": "",
+        "episode": "",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1.Atoms",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "扫毒3：人在天涯.The.White.Storm.3.Heaven.or.Hell.2023.2160p.WEB-DL.H265.10bit.DDP5.1.2Audio-OurTV.mp4",
+      "metadata": {
+        "cn_name": "扫毒3：人在天涯",
+        "en_name": "The White Storm 3 Heaven or Hell",
+        "year": "2023",
+        "season": "",
+        "episode": "",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1.2Audio",
+        "release_group": "OurTV",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "[封神第一部：朝歌风云].Creation.of.the.Gods.2023.2160p.120fps.WEB-DL.HEVC.10bit.DTSE5.1.3Audios-QHstudIo.mp4",
+      "metadata": {
+        "cn_name": "封神第一部：朝歌风云",
+        "en_name": "Creation of the Gods",
+        "year": "2023",
+        "season": "",
+        "episode": "",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DTSE5.1.3Audios",
+        "release_group": "QHstudIo",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "The Imitation Game 2014 BluRay Remux 1080p AVC DTS-HD MA 5.1-OurBits.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Imitation Game",
+        "year": "2014",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "OurBits",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Vicky Cristina Barcelona 2008 1080p Bluray Remux VC-1 DTS-HD 3.0-decatora27.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Vicky Cristina Barcelona",
+        "year": "2008",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "VC-1",
+        "audio_codec": "DTS-HD.3.0",
+        "release_group": "decatora27",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Sing 2016 1080p BluRay DD 5 1 x264-FuzerHD.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Sing",
+        "year": "2016",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DD 5 1",
+        "release_group": "FuzerHD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Isle Of Dogs 2018 BluRay 1080p HEVC (10bit) DTS-HD MA 5.1 x265-LEGi0N.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Isle Of Dogs",
+        "year": "2018",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "LEGi0N",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Ant Man 2015 UHD BluRay REMUX 2160p HEVC Atmos TrueHD 7.1-PTer.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Ant Man",
+        "year": "2015",
+        "season": "",
+        "episode": "",
+        "resolution": "2160p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.265",
+        "audio_codec": "Atmos TrueHD.7.1",
+        "release_group": "PTer",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "阿甘正传.Forrest.Gump.1994.Remastered.1080p.Blu-ray.x265.10bit.DTS￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "阿甘正传",
+        "en_name": "Forrest Gump",
+        "year": "1994",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "绿里奇迹.The.Green.Mile.1999.JPN.1080p.Blu-ray.x265.10bit.DTS￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "绿里奇迹",
+        "en_name": "The Green Mile",
+        "year": "1999",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Oceans 2009.CHN.Bluray.1080p.x265.10bit.2Audios.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Oceans",
+        "year": "2009",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audios",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "12.Angry.Men.1957.BluRay.1080p.x265.10bit.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "12 Angry Men",
+        "year": "1957",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "CCTV6-HD.The.Teahouse.1982.1080p.HDTV.x264.DD2.0-LTF.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Teahouse",
+        "year": "1982",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "HDTV",
+        "video_codec": "H.264",
+        "audio_codec": "DD2.0",
+        "release_group": "LTF",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "2001.A.Space.Odyssey.1968.BluRay.1080p.x265.10bit.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "2001 A Space Odyssey",
+        "year": "1968",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Top138.英雄本色(4K修复版).A.Better.Tomorrow.1986.REMASTERED.Bluray.1080p.x265.AAC(5.1).2Audios.GREENOTEA.mkv",
+      "metadata": {
+        "cn_name": "英雄本色",
+        "en_name": "A Better Tomorrow",
+        "year": "1986",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AAC(5.1).2Audios",
+        "release_group": "GREENOTEA",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Black Adam 2022 BluRay Remux 1080p AVC Atmos TrueHD 7.1-OurBits.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Black Adam",
+        "year": "2022",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "Atmos TrueHD.7.1",
+        "release_group": "OurBits",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The_Last_Thing_He_Wanted_2020_INTERNAL_1080p_WEB_X264-AMRAP.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Last Thing He Wanted",
+        "year": "2020",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "AMRAP",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Phantoms 1998 BluRay 1080p AC3 HEVC-d3g.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Phantoms",
+        "year": "1998",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "AC3",
+        "release_group": "d3g",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Pearl Harbor 2001 1080p BluRay DTS-HD MA 5.1 x264-BluEvo.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Pearl Harbor",
+        "year": "2001",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "BluEvo",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Jay and Silent Bob Strike Back 2001 1080p BluRay DTS x264-LEGi0N.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Jay and Silent Bob Strike Back",
+        "year": "2001",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS",
+        "release_group": "LEGi0N",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Good Will Hunting 1997 REMUX BluRay 1080p AVC DTS-HD MA 5.1-LEGi0N.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Good Will Hunting",
+        "year": "1997",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "LEGi0N",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Boiler Room 2000 REMUX 1080p Blu-ray AVC DTS-HD MA 7 1-LEGi0N.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Boiler Room",
+        "year": "2000",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.7 1",
+        "release_group": "LEGi0N",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Spider-Man.Across.the.Spider-Verse.2023.2160p.MA.WEB-DL.DDP5.1.Atmos.DV.HDR.H.265-FLUX.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Spider Man Across the Spider Verse",
+        "year": "2023",
+        "season": "",
+        "episode": "",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1.Atmos",
+        "release_group": "FLUX",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Once Upon a Time in America 1984 Extended BluRay REMUX 1080p VC-1 DTS-HD MA5.1 4Audio-CHD.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Once Upon a Time in America",
+        "year": "1984",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "VC-1",
+        "audio_codec": "DTS-HD.MA5.1 4Audio",
+        "release_group": "CHD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Suzume.2022.1080p.iTunes.2Audio.WEB-DL.DD5.1.H.264.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Suzume",
+        "year": "2022",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DD5.1",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Argo.2012.BluRay.1080p.DTS-HD.MA.5.1.AVC.REMUX-FraMeSToR.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Argo",
+        "year": "2012",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "FraMeSToR",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Armageddon.1998.1080p.Blu-ray.Remux.AVC.DTS-HD.MA.5.1-KRaLiMaRKo.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Armageddon",
+        "year": "1998",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "KRaLiMaRKo",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Wreck-It.Ralph.2012.Bluray.1080p.x265.10bit.4Audios.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Wreck It Ralph",
+        "year": "2012",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "4Audios",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Wreck-It.Ralph2012.Bluray.1080p.x265.10bit.4Audios.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Wreck It Ralph",
+        "year": "2012",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "4Audios",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Trueman.Show.1998.BluRay.1080p.x265.10bit.3Audio.MnHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Trueman Show",
+        "year": "1998",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "3Audio",
+        "release_group": "MnHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "SP.BURN∙E.2008.BluRay.1080p.x265.10bit.2Audio.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "BURN E",
+        "year": "2008",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audio",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "New.Dragon.Inn.1992.1080p.BluRay.1080p.x265.10bit.2Audio.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "New Dragon Inn",
+        "year": "1992",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audio",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Lord.of.the.Rings.The.Fellowship.of.the.Ring.2001.EE.BluRay.1080p.x265.10bit.2Audio.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Lord of the Rings The Fellowship of the Ring",
+        "year": "2001",
+        "season": "",
+        "episode": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audio",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Saving.Private.Ryan.1998.BluRay.1080p.x265.10bit.4Audio.MnHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Saving Private Ryan",
+        "year": "1998",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "4Audio",
+        "release_group": "MnHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Blind.Side.2009.BluRay.720p.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Blind Side",
+        "year": "2009",
+        "resolution": "720p",
+        "source": "BluRay",
+        "video_codec": "",
+        "audio_codec": "",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Great.Buddha+2017.BluRay.1080p.x265.10bit.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Great Buddha",
+        "year": "2017",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Edward.Scissorhands.25th.Anniversary.Remastered.Edition.BluRay.1080p.x265.10bit.2Audios.MNHD-FRD.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Edward Scissorhands",
+        "year": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audios",
+        "release_group": "MNHD-FRD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Gone.with.the.Wind.1939.BluRay.1080p.x265.10bit.9Audio.MnHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Gone with the Wind",
+        "year": "1939",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "9Audio",
+        "release_group": "MnHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "A.One.and.a.Two.2000.CC.BluRay.1080p.x265.10bit.3Audio-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "A One and a Two",
+        "year": "2000",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "3Audio",
+        "release_group": "FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Late.Blossom.2011.1080p.WEB-DL.H265.AAC-PTHweb.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Late Blossom",
+        "year": "2011",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "PTHweb",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "The.Eagle.Shooting.Heroes.1993.1080p.KOREA.BluRay.x265.10bit.DD+5.1.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Eagle Shooting Heroes",
+        "year": "1993",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DD+5.1",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Prince.Nezha's.Triumph.Against.Dragon.King.1979.Webrip.1080p.x265.10bit.AAC.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Prince Nezha's Triumph Against Dragon King",
+        "year": "1979",
+        "resolution": "1080p",
+        "source": "Webrip",
+        "video_codec": "H.265",
+        "audio_codec": "AAC",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Avatar.2009.Extended.Collector's.Edition.Hybrid.BluRay.1080p.x265.10bit.DDP5.1.Repack.H.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Avatar",
+        "year": "2009",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Batman.v.Superman.Dawn.of.Justice.2016.1080p.TW.Bluray.REMUX.AVC.TrueHD.Atmos 7.1-HDPter.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Batman v Superman Dawn of Justice",
+        "year": "2016",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "TrueHD.Atmos 7.1",
+        "release_group": "HDPter",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Bounce.2000.1080p.AMZN.WEB-DL.DD+5.1.x264-VLAD.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Bounce",
+        "year": "2000",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DD+5.1",
+        "release_group": "VLAD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Changing.Lanes.2002.1080p.BluRay.x264-CiNEFiLE.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Changing Lanes",
+        "year": "2002",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "CiNEFiLE",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Prestige.2006.1080p.BluRay.x264-WLM.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Prestige",
+        "year": "2006",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "WLM",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Monster.Hunter.2020.UHD.BluRay.2160p.x265.DV.HDR.TrueHD.Atmos.7.1.mUHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Monster Hunter",
+        "year": "2020",
+        "resolution": "2160p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "TrueHD.Atmos.7.1",
+        "release_group": "mUHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Dazed.and.Confused.1993.1080p.BluRay.REMUX.HYBRID.AVC-DTS-HD.MA.5.1-PmP.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Dazed and Confused",
+        "year": "1993",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "PmP",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Justice.League.2017.BluRay.1080p.TrueHD.Atmos.7.1.AVC.REMUX-FraMeSToR.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Justice League",
+        "year": "2017",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "TrueHD.Atmos.7.1",
+        "release_group": "FraMeSToR",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Suicide.Squad.2016.Extended.Cut.BluRay.1080p.TrueHD.Atmos.7.1.AVC.REMUX-FraMeSToR.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Suicide Squad",
+        "year": "2016",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "TrueHD.Atmos.7.1",
+        "release_group": "FraMeSToR",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Sum.of.All.Fears.2002.1080p.BluRay.DTS.x264-CyTSuNee.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Sum of All Fears",
+        "year": "2002",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS",
+        "release_group": "CyTSuNee",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Town.2010.EXTENDED.ALTERNATE.CUT.BluRay.1080p.DTSHD-MA.h264.Remux-decibeL.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Town",
+        "year": "2010",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTSHD-MA",
+        "release_group": "decibeL",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "triple.frontier.2019.internal.multi.1080p.hdr.web.h265-carapils.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "triple frontier",
+        "year": "2019",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "carapils",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Contratiempo.2016.1080p.ESP.BluRay.1080p.x265.10bit.DDP.5.1.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Contratiempo",
+        "year": "2016",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Terminator.2.Judgment.Day.1991.EXTENDED.REMASTERED.1080p.Blu-ray.x265.10bit.DTS-HD￡cXcY@FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Terminator 2 Judgment Day",
+        "year": "1991",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS-HD",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Malena.2000.UNCUT.BluRay.1080p.x265.10bit.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Malena",
+        "year": "2000",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Bourne.Identity.2002.1080p.Blu-ray.x265.10bit.DTS￡cXcY@FRDS(1.58.17).mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Bourne Identity",
+        "year": "2002",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DTS",
+        "release_group": "cXcY@FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Sseo-ni.AKA.Sunny.2011.Director's.Cut.1080p.KOR.Bluray.x265.10bit.DDP5.1.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Sseo ni",
+        "year": "2011",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "In.the.Heat.of.the.Sun.1994.1080p.WEB-DL.1080p.x265.10bit.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "In the Heat of the Sun",
+        "year": "1994",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Waterloo.Bridge.1940.BluRay.1080p.x265.10bit.FLAC.H.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Waterloo Bridge",
+        "year": "1940",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "A.Good.Woman.2004.1080p.AMZN.WEB-DL.DD+5.1.H.264-monkee.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "A Good Woman",
+        "year": "2004",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "DD+5.1",
+        "release_group": "monkee",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "A.Love.Song.for.Bobby.Long.2004.Repack.1080p.Blu-ray.Remux.AVC.DTS-HD.MA.5.1.KRaLiMaRKo.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "A Love Song for Bobby Long",
+        "year": "2004",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "KRaLiMaRKo",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Black.Widow.2021.NORDiC.REMUX.1080p.BluRay.AVC.TrueHD.Atmos7.1-TWA.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Black Widow",
+        "year": "2021",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "TrueHD.Atmos7.1",
+        "release_group": "TWA",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Captain.America.Civil.War.2016.1080p.BluRay.DTS.x264-HDMaNiAcS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Captain America Civil War",
+        "year": "2016",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS",
+        "release_group": "HDMaNiAcS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Captain.Marvel.2019.1080p.UHD.BluRay.DD.5.1.x264-LoRD.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Captain Marvel",
+        "year": "2019",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DD.5.1",
+        "release_group": "LoRD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Chef.2014.1080p.BluRay.DTS.x264-CyTSuNee.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Chef",
+        "year": "2014",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS",
+        "release_group": "CyTSuNee",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Eight.Legged.Freaks.2002.NORDiC.REMUX.1080p.BluRay.AVC.DTS-HD.MA5.1-TWA.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Eight Legged Freaks",
+        "year": "2002",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "TWA",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Ghost.in.the.Shell.2017.NORDiC.1080p.BluRay.x264.DTS-HD.MA.7.1-TWA.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Ghost in the Shell",
+        "year": "2017",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.7.1",
+        "release_group": "TWA",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Ghost.World.2001.Criterion.Collection.REMUX.1080p.Blu-ray.AVC.DTS-HD.MA.5.1-LEGi0N.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Ghost World",
+        "year": "2001",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "LEGi0N",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Girl.with.a.Pearl.Earring.2003.1080p.PROPER.BluRay.x264-MOOVEE.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Girl with a Pearl Earring",
+        "year": "2003",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "MOOVEE",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Her.2013.1080p.BluRay.ReMuX.AVC.DTS-HD.MA.5.1.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Her",
+        "year": "2013",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA.5.1",
+        "release_group": "",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Hitchcock.2012.1080p.BluRay.x264-SECTOR7-4P.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Hitchcock",
+        "year": "2012",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "SECTOR7-4P",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Home.Alone.3.1997.1080p.WEB.x264-iNTENSO.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Home Alone 3",
+        "year": "1997",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "iNTENSO",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Iron.Man.2.2010.1080p.BluRay.REMUX.AVC.DTS-HD.MA_5.1-AROMA.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Iron Man 2",
+        "year": "2010",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "DTS-HD.MA_5.1",
+        "release_group": "AROMA",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Just.Cause.1995.1080p.Bluray.x264-HD4U.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Just Cause",
+        "year": "1995",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "HD4U",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Manny.and.Lo.1996.1080p.WEBRip.x264-RARBG.mp4",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Manny and Lo",
+        "year": "1996",
+        "resolution": "1080p",
+        "source": "WEBRip",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "RARBG",
+        "container": "mp4"
+      }
+    },
+    {
+      "title": "Sing.2.2021.MULTI.1080p.WEB.H264-Slay3R.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Sing 2",
+        "year": "2021",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "Slay3R",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Avengers.2012.Hybrid.1080p.BluRay.REMUX.AVC.Atmos-EPSiLON.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Avengers",
+        "year": "2012",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "Atmos",
+        "release_group": "EPSiLON",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Man.Who.Wasnt.There.2001.MULTi.1080p.BluRay.x264-FHD.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Man Who Wasnt There",
+        "year": "2001",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "FHD",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Prestige.2006.1080p.BluRay.x264-WLM.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Prestige",
+        "year": "2006",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "WLM",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "changing.lanes.1080p.bluray.x264.sample-cinefile.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "changing lanes",
+        "year": "",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "",
+        "release_group": "cinefile",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Jay and Silent Bob Strike Back 2001 1080p BluRay DTS x264-LEGi0N-Sample.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Jay and Silent Bob Strike Back",
+        "year": "2001",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.264",
+        "audio_codec": "DTS",
+        "release_group": "LEGi0N-Sample",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Ashes.of.Time.Redux.2008.BluRay.1080p.x265.10bit.2Audio.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Ashes of Time",
+        "year": "2008",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audio",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Titanic.1997.Open.Matte.BluRay.1080p.x265.10bit.4Audio.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Titanic",
+        "year": "1997",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "4Audio",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "The.Martian.2015.Extended.BluRay.1080p.x265.10bit.2Audio.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "The Martian",
+        "year": "2015",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audio",
+        "release_group": "MNHD-FRDS",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "Farewell.My.Concubine.1993.BFI.BluRay.1080p.x265.10bit.2Audio.MNHD-FRDS.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Farewell My Concubine",
+        "year": "1993",
+        "resolution": "1080p",
+        "source": "BluRay",
+        "video_codec": "H.265",
+        "audio_codec": "2Audio",
+        "release_group": "MNHD-FRDS",
         "container": "mkv"
       }
     }

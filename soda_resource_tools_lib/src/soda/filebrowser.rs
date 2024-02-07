@@ -33,11 +33,22 @@ impl FileItem {
     pub(crate) fn create(path_obj: &Path) -> FileItem {
         let is_dir = path_obj.is_dir();
         let file_type = if is_dir { "dir".to_string() } else { "file".to_string() };
-        let path = if system::is_windows_os() { path_obj.to_str().unwrap().to_string().replace("\\", "/") } else { path_obj.to_str().unwrap().to_string() };
+        let path = if system::is_windows_os() {
+            path_obj.to_str().unwrap().to_string().replace("\\", "/")
+        } else {
+            path_obj.to_str().unwrap().to_string()
+        };
         let name = path_obj.file_name().unwrap().to_str().unwrap().to_string();
         let extension = Self::get_extension(path_obj, is_dir);
         let size = if is_dir { 0 } else { path_obj.metadata().unwrap().len() };
-        let modify_time = path_obj.metadata().unwrap().modified().unwrap().duration_since(UNIX_EPOCH).unwrap().as_secs();
+        let modify_time = path_obj
+            .metadata()
+            .unwrap()
+            .modified()
+            .unwrap()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_secs();
         FileItem {
             file_type,
             path,
@@ -67,7 +78,11 @@ impl FileItem {
     }
 
     fn get_extension(path_obj: &Path, is_dir: bool) -> String {
-        let extension = if is_dir { "".to_string() } else { path_obj.extension().unwrap_or(OsStr::new("")).to_str().unwrap_or("").to_string() };
+        let extension = if is_dir {
+            "".to_string()
+        } else {
+            path_obj.extension().unwrap_or(OsStr::new("")).to_str().unwrap_or("").to_string()
+        };
         extension
     }
 
@@ -78,7 +93,14 @@ impl FileItem {
         let name = path_obj.to_str().unwrap().to_string();
         let extension = Self::get_extension(path_obj, is_dir);
         let size = if is_dir { 0 } else { path_obj.metadata().unwrap().len() };
-        let modify_time = path_obj.metadata().unwrap().modified().unwrap().duration_since(UNIX_EPOCH).unwrap().as_secs();
+        let modify_time = path_obj
+            .metadata()
+            .unwrap()
+            .modified()
+            .unwrap()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_secs();
         FileItem {
             file_type,
             path,
@@ -98,7 +120,14 @@ impl FileItem {
         let name = path_obj.to_str().unwrap().to_string();
         let extension = Self::get_extension(path_obj, is_dir);
         let size = if is_dir { 0 } else { path_obj.metadata().unwrap().len() };
-        let modify_time = path_obj.metadata().unwrap().modified().unwrap().duration_since(UNIX_EPOCH).unwrap().as_secs();
+        let modify_time = path_obj
+            .metadata()
+            .unwrap()
+            .modified()
+            .unwrap()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_secs();
         FileItem {
             file_type,
             path,

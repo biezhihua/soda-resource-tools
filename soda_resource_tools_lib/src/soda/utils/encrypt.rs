@@ -52,7 +52,13 @@ pub fn verify_password(password: &str, actual_password: &str, salt: &str) -> Res
     let n_iter: NonZeroU32 = NonZeroU32::new(100_000).unwrap();
 
     // 较验密码是否匹配
-    match pbkdf2::verify(PBKDF2_ALG, n_iter, salt.as_bytes(), password.as_bytes(), actual_password_decode.as_slice()) {
+    match pbkdf2::verify(
+        PBKDF2_ALG,
+        n_iter,
+        salt.as_bytes(),
+        password.as_bytes(),
+        actual_password_decode.as_slice(),
+    ) {
         Ok(_) => Ok(true),
         _ => Err("Failed".to_string()),
     }
@@ -60,6 +66,7 @@ pub fn verify_password(password: &str, actual_password: &str, salt: &str) -> Res
 
 #[cfg(test)]
 mod test {
+
     use super::{encrypt_password, generate_salt, verify_password};
 
     /// 生成64位随机salt

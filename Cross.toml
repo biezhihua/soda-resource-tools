@@ -1,0 +1,19 @@
+# https://juejin.cn/post/7325645956254351360
+# https://github.com/cross-rs/cross-toolchains
+# https://hub.docker.com/r/freeznet/x86_64-apple-darwin-cross
+# https://github.com/cross-rs/cross?tab=readme-ov-file
+
+# linux
+[target.x86_64-unknown-linux-gnu]
+xargo = false
+# dockerfile = "D:\\Projects\\github\\cross\\docker\\Dockerfile.x86_64-unknown-linux-gnu"
+
+# windwos
+[target.x86_64-pc-windows-gnu]
+xargo = false
+# dockerfile = "D:\\Projects\\github\\cross\\docker\\Dockerfile.x86_64-pc-windows-gnu"
+
+# macos
+[target.x86_64-apple-darwin]
+xargo = false
+image = "freeznet/x86_64-apple-darwin-cross:11.3.1"

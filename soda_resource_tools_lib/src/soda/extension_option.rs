@@ -73,7 +73,7 @@ impl<T> OptionExtensions for Option<T> {
     }
 
     ///
-    /// let api_key = get_api_key().on_none_inspect(|| { tracing::info!("api key is none"); })?;
+    /// let api_key = get_api_key().on_none_inspect(|| { tracing::debug!("api key is none"); })?;
     ///
     fn on_none_inspect<F>(self, f: F) -> Self
     where

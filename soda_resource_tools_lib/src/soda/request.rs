@@ -20,9 +20,9 @@ use super::{
 ///     如果请求网络失败，则返回错误。
 ///     如果请求网络成功，则解析成JSON缓存后返回。
 pub(crate) fn blocking_request_value_with_cache(cache_type: CacheType, method: &str, url: &str) -> Result<Value, SodaError> {
+    tracing::debug!("request url = {:?}", url);
     let cache = cache::cache_get(&cache_type, url);
     if cache.is_some() {
-        tracing::info!("request cache hit url = {}", url);
         let cache_text = cache.unwrap();
         match serde_json::from_str(&cache_text) {
             Ok(value) => {
@@ -58,13 +58,16 @@ pub(crate) fn blocking_request_value_with_cache(cache_type: CacheType, method: &
 }
 
 pub(crate) fn blocking_request(method: &str, url: &str) -> Result<reqwest::blocking::Response, SodaError> {
-    Ok(if method == "GET" { blocking_request_get(url)? } else { blocking_request_post(url)? })
+    Ok(if method == "GET" {
+        blocking_request_get(url)?
+    } else {
+        blocking_request_post(url)?
+    })
 }
 
 pub(crate) fn blocking_request_post(url: &str) -> Result<reqwest::blocking::Response, SodaError> {
     let response = reqwest::blocking::Client::new().post(url).send().on_err_inspect(|e| {
         tracing::error!("request error {:?}", e);
-        utils::write_request_error(format!("url = {} e = {:?}", url, e));
     })?;
     Ok(response)
 }
@@ -72,7 +75,6 @@ pub(crate) fn blocking_request_post(url: &str) -> Result<reqwest::blocking::Resp
 pub(crate) fn blocking_request_get(url: &str) -> Result<reqwest::blocking::Response, SodaError> {
     let response = reqwest::blocking::get(url).on_err_inspect(|e| {
         tracing::error!("request error {:?}", e);
-        utils::write_request_error(format!("url = {} e = {:?}", url, e));
     })?;
     Ok(response)
 }
@@ -90,7 +92,6 @@ pub(crate) fn blocking_get_request_and_download_file(url: &str, image_path: &std
 fn blocking_request_bytes_with_cache(cache_type: CacheType, method: &str, url: &str) -> Result<Bytes, SodaError> {
     let cache = cache::cache_get_bytes(&cache_type, url);
     if cache.is_some() {
-        tracing::info!("request cache hit url = {}", url);
         return Ok(cache.unwrap());
     }
 

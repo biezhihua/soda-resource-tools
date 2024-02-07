@@ -91,8 +91,6 @@ X265 和 H.265 都是视频编码标准，通常也被称为 High Efficiency Vid
 
 请注意，这些字段的含义可以根据上下文和特定的应用领域有所不同。如果你在特定的领域或项目中遇到这些字段，请查看相关文档或说明以获取更准确的含义。
 
-## 字段含义
-
 以下是你提供的音频编解码和音频格式相关字段的含义解释：
 
 1. "DTS-HD.MA.5.1.3Audio"：这表示音频编码为DTS-HD Master Audio，包括5.1声道，并有3个不同的音频流。
@@ -178,6 +176,11 @@ X265 和 H.265 都是视频编码标准，通常也被称为 High Efficiency Vid
 
 在媒体文件名 "Skam.S2E02.你对一个朋友撒谎却怪罪于我.SweSub.1080p.WEB-DL.H264.mp4" 中，“SweSub” 通常指的是 "Swedish Subtitles"，意即“瑞典语字幕”。这表明该视频文件包含瑞典语的字幕选项。这种标记在不同语言版本的电视剧或电影中常见，用来指示附加的字幕语言。
 
+
+## EE
+
+EE: This likely stands for "Extended Edition," which suggests that this version of the film includes additional footage not seen in the original theatrical release.
+
 ## 包大小
 
  File  .text      Size Crate
@@ -203,3 +206,4 @@ X265 和 H.265 都是视频编码标准，通常也被称为 High Efficiency Vid
  0.3%   1.1%   85.7KiB url
  3.3%  12.6% 1015.4KiB And 85 more crates. Use -n N to show more.
 26.2% 100.0%    7.8MiB .text section size, the file size is 29.9MiB
+

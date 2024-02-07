@@ -44,14 +44,33 @@ mod test {
 
     #[test]
     fn test_create_token() {
-        let token = create_token("soda", Token { key: "time".to_string(), expire_time_millis: 60 * 24 * 7 * 1000 });
+        let token = create_token(
+            "soda",
+            Token {
+                key: "time".to_string(),
+                expire_time_millis: 60 * 24 * 7 * 1000,
+            },
+        );
         println!("access_token = {}", token);
-        assert_eq!(token, "eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVfdGltZV9taWxsaXMiOiIxMDA4MDAwMCIsImtleSI6InRpbWUifQ.qK5Ff-aqKPoo15R3afHo5C4dV0XJhMEhsAwrR-UANwM");
+        assert_eq!(
+            token,
+            "eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVfdGltZV9taWxsaXMiOiIxMDA4MDAwMCIsImtleSI6InRpbWUifQ.qK5Ff-aqKPoo15R3afHo5C4dV0XJhMEhsAwrR-UANwM"
+        );
     }
 
     #[test]
     fn test_verification_token() {
-        let token = verification_token("soda", "eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVfdGltZV9taWxsaXMiOiIxMDA4MDAwMCIsImtleSI6InRpbWUifQ.qK5Ff-aqKPoo15R3afHo5C4dV0XJhMEhsAwrR-UANwM").unwrap();
-        assert_eq!(token, Token { key: "time".to_string(), expire_time_millis: 60 * 24 * 7 * 1000 });
+        let token = verification_token(
+            "soda",
+            "eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmVfdGltZV9taWxsaXMiOiIxMDA4MDAwMCIsImtleSI6InRpbWUifQ.qK5Ff-aqKPoo15R3afHo5C4dV0XJhMEhsAwrR-UANwM",
+        )
+        .unwrap();
+        assert_eq!(
+            token,
+            Token {
+                key: "time".to_string(),
+                expire_time_millis: 60 * 24 * 7 * 1000
+            }
+        );
     }
 }

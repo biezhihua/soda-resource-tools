@@ -1,61 +1,81 @@
 use std::{ops::Index, path::Path};
 
-use tracing_subscriber::fmt::format;
 use xml::{writer::XmlEvent, EmitterConfig, EventWriter};
 
 use crate::soda::{
     dom,
     entity::*,
     extension_option::OptionExtensions,
-    fanart::entity::FanartTV,
+    fanart::entity::{FanartMovie, FanartTV},
     request,
     utils::{self, str_replace_extension, time},
 };
 
-use super::entity::{TmdbEpisode, TmdbSeason, TmdbTV};
+use super::entity::{TmdbEpisode, TmdbMovie, TmdbSeason, TmdbTV};
 
 pub(crate) fn gen_scrape_files(scrape_config: &ScrapeConfig, mt_meta: &MTMetadata, mt_info: &MTInfo, path: &str) {
     match mt_info {
-        MTInfo::MOVIE(_) => todo!(),
         MTInfo::TV(TVType::TMDB(tmdb_tv_info)) => {
             gen_scrape_tv_files(scrape_config, path, tmdb_tv_info, mt_meta);
+        }
+        MTInfo::MOVIE(MovieType::TMDB(tmdb_movie_info)) => {
+            gen_scrape_movie_files(scrape_config, path, tmdb_movie_info, mt_meta);
         }
     }
 }
 
-fn gen_scrape_tv_files(scrape_config: &ScrapeConfig, path: &str, tmdb_tv_info: &super::entity::TmdbTVInfo, meta: &MTMetadata) {
+fn gen_scrape_movie_files(scrape_config: &ScrapeConfig, path: &str, tmdb_info: &super::entity::TmdbMovieInfo, mt_meta: &MTMetadata) {
     // root
-    let tv_root_path = Path::new(path).parent().unwrap().parent().unwrap();
+    let root_path = Path::new(path).parent().unwrap();
+
+    // gen movie.nfo file
+    if !root_path.join("movie.nfo").exists() {
+        gen_movie_nfo_file(&tmdb_info.movie, root_path, Path::new(path));
+    } else {
+        tracing::debug!("movie.nfo file exist, skip gen tvshow.nfo file");
+    }
+
+    if scrape_config.enable_scrape_image {
+        // save movie images
+        tmdb_info.fanart.is_some_then(|fanart| {
+            save_movie_images(&tmdb_info.movie, fanart, root_path);
+        });
+    }
+}
+
+fn gen_scrape_tv_files(scrape_config: &ScrapeConfig, path: &str, tmdb_info: &super::entity::TmdbTVInfo, meta: &MTMetadata) {
+    // root
+    let root_path = Path::new(path).parent().unwrap().parent().unwrap();
 
     // gen tvshow.nfo file
-    if !tv_root_path.join("tvshow.nfo").exists() {
-        gen_tvshow_nfo_file(&tmdb_tv_info.tv, tv_root_path);
+    if !root_path.join("tvshow.nfo").exists() {
+        gen_tvshow_nfo_file(&tmdb_info.tv, root_path);
     } else {
-        tracing::info!("tvshow.nfo file exist, skip gen tvshow.nfo file");
+        tracing::debug!("tvshow.nfo file exist, skip gen tvshow.nfo file");
     }
 
     if scrape_config.enable_scrape_image {
         // save tv images
-        tmdb_tv_info.fanart_tv.is_some_then(|fanart_tv| {
-            save_tv_show_images(&tmdb_tv_info.tv, fanart_tv, tv_root_path);
+        tmdb_info.fanart.is_some_then(|fanart_tv| {
+            save_tv_show_images(&tmdb_info.tv, fanart_tv, root_path);
         });
     }
 
     // season
     meta.season_number().is_some_then(|season_number| {
-        tmdb_tv_info.tv_seasons.get(season_number).is_some_then(|season_info| {
+        tmdb_info.tv_seasons.get(season_number).is_some_then(|season_info| {
             let tv_season_path = Path::new(path).parent().unwrap();
 
             // gen season.nfo file
             if !tv_season_path.join("season.nfo").exists() {
                 gen_season_nfo_file(meta, &season_info.tv_season, tv_season_path);
             } else {
-                tracing::info!("season.nfo file exist, skip gen season.nfo file");
+                tracing::debug!("season.nfo file exist, skip gen season.nfo file");
             }
 
             if scrape_config.enable_scrape_image {
                 // save season images
-                save_season_images(&season_info.tv_season, tv_root_path, tv_season_path);
+                save_season_images(&season_info.tv_season, root_path, tv_season_path);
             }
         });
     });
@@ -63,7 +83,7 @@ fn gen_scrape_tv_files(scrape_config: &ScrapeConfig, path: &str, tmdb_tv_info: &
     // episode
     meta.season_number().is_some_then(|season_number| {
         meta.episode_number().is_some_then(|episode_number| {
-            tmdb_tv_info.tv_seasons.get(season_number).is_some_then(|season_info| {
+            tmdb_info.tv_seasons.get(season_number).is_some_then(|season_info| {
                 season_info.tv_episodes.get(episode_number).is_some_then(|episode| {
                     let tv_episode_path = Path::new(path);
 
@@ -76,7 +96,7 @@ fn gen_scrape_tv_files(scrape_config: &ScrapeConfig, path: &str, tmdb_tv_info: &
                             save_episode_images(episode, tv_episode_path);
                         }
                     } else {
-                        tracing::info!("episode file not exist, skip gen episode.nfo file");
+                        tracing::debug!("episode file not exist, skip gen episode.nfo file");
                     }
                 });
             });
@@ -85,166 +105,298 @@ fn gen_scrape_tv_files(scrape_config: &ScrapeConfig, path: &str, tmdb_tv_info: &
 }
 
 fn save_episode_images(episode: &TmdbEpisode, tv_episode_path: &Path) {
-    tracing::info!("save episode images, tv_episode_path = {:?}", tv_episode_path);
+    tracing::debug!("save episode images, tv_episode_path = {:?}", tv_episode_path);
 
     episode.still_path.is_some_then(|still_path| {
         let suffix = still_path.split(".").last().unwrap();
 
         let image_path = tv_episode_path.clone().with_extension(suffix);
         if !image_path.exists() {
-            tracing::info!("save still image, image_path = {:?}", image_path);
+            tracing::debug!("save still image, image_path = {:?}", image_path);
             request::blocking_get_request_and_download_file(&format!("https://image.tmdb.org/t/p/original{}", still_path), &image_path);
         } else {
-            tracing::info!("still image exist, skip save still image, image_path = {:?}", image_path);
+            tracing::debug!("still image exist, skip save still image, image_path = {:?}", image_path);
         }
     });
 }
 
 fn save_season_images(tv_season: &TmdbSeason, tv_root_path: &Path, tv_season_path: &Path) {
-    tracing::info!("save season images, tv_season_path = {:?}", tv_season_path);
+    tracing::debug!("save season images, tv_season_path = {:?}", tv_season_path);
     tv_season.season_number.is_some_then(|season_number| {
         tv_season.poster_path.is_some_then(|poster_path| {
             let suffix = poster_path.split(".").last().unwrap();
             let url = format!("https://image.tmdb.org/t/p/original{}", poster_path);
             let image_path = tv_root_path.join(format!("season{:02}-poster.{}", season_number, suffix));
             if !image_path.exists() {
-                tracing::info!("save poster image, image_path = {:?}", image_path);
+                tracing::debug!("save poster image, image_path = {:?}", image_path);
                 request::blocking_get_request_and_download_file(&url, &image_path);
             } else {
-                tracing::info!("poster image exist, skip save poster image, image_path = {:?}", image_path);
+                tracing::debug!("poster image exist, skip save poster image, image_path = {:?}", image_path);
             }
         });
     });
 }
 
-fn save_tv_show_images(tv: &TmdbTV, fanart_tv: &FanartTV, tv_root_path: &Path) {
-    tracing::info!("save tv show images, tv_root_path = {:?}", tv_root_path);
+fn save_movie_images(tmdb: &TmdbMovie, fanart: &FanartMovie, root_path: &Path) {
+    tracing::debug!("save movie images, root_path = {:?}", root_path);
 
     // banner
-    if let Some(banner) = &fanart_tv.tvbanner {
+    if let Some(banner) = &fanart.moviebanner {
         if let Some(image) = banner.first() {
             let url = image.url();
             if !url.is_empty() {
                 let suffix = url.split(".").last().unwrap();
-                let image_path = tv_root_path.join(format!("banner.{}", suffix));
+                let image_path = root_path.join(format!("banner.{}", suffix));
                 if !image_path.exists() {
-                    tracing::info!("save banner image, image_path = {:?}", image_path);
+                    tracing::debug!("save banner image, image_path = {:?}", image_path);
                     request::blocking_get_request_and_download_file(url, &image_path);
                 } else {
-                    tracing::info!("banner image exist, skip save banner image, image_path = {:?}", image_path);
-                }
-            }
-        }
-    }
-
-    // characterart
-    if let Some(characterart) = &fanart_tv.characterart {
-        if let Some(image) = characterart.first() {
-            let url = image.url();
-            if !url.is_empty() {
-                let suffix = url.split(".").last().unwrap();
-                let image_path = tv_root_path.join(format!("characterart.{}", suffix));
-                if !image_path.exists() {
-                    tracing::info!("save characterart image, image_path = {:?}", image_path);
-                    request::blocking_get_request_and_download_file(url, &image_path);
-                } else {
-                    tracing::info!("characterart image exist, skip save characterart image, image_path = {:?}", image_path);
+                    tracing::debug!("banner image exist, skip save banner image, image_path = {:?}", image_path);
                 }
             }
         }
     }
 
     // logo
-    if let Some(logo) = &fanart_tv.hdtvlogo {
+    if let Some(logo) = &fanart.hdmovielogo {
         if let Some(image) = logo.first() {
             let url = image.url();
             if !url.is_empty() {
                 let suffix = url.split(".").last().unwrap();
-                let image_path = tv_root_path.join(format!("logo.{}", suffix));
+                let image_path = root_path.join(format!("logo.{}", suffix));
                 if !image_path.exists() {
-                    tracing::info!("save logo image, image_path = {:?}", image_path);
+                    tracing::debug!("save logo image, image_path = {:?}", image_path);
                     request::blocking_get_request_and_download_file(url, &image_path);
                 } else {
-                    tracing::info!("logo image exist, skip save logo image, image_path = {:?}", image_path);
+                    tracing::debug!("logo image exist, skip save logo image, image_path = {:?}", image_path);
                 }
             }
         }
     }
 
     // thumb
-    if let Some(thumb) = &fanart_tv.tvthumb {
+    if let Some(thumb) = &fanart.moviethumb {
         if let Some(image) = thumb.first() {
             let url = image.url();
             if !url.is_empty() {
                 let suffix = url.split(".").last().unwrap();
-                let image_path = tv_root_path.join(format!("thumb.{}", suffix));
+                let image_path = root_path.join(format!("thumb.{}", suffix));
                 if !image_path.exists() {
-                    tracing::info!("save thumb image, image_path = {:?}", image_path);
+                    tracing::debug!("save thumb image, image_path = {:?}", image_path);
                     request::blocking_get_request_and_download_file(url, &image_path);
                 } else {
-                    tracing::info!("thumb image exist, skip save thumb image, image_path = {:?}", image_path);
+                    tracing::debug!("thumb image exist, skip save thumb image, image_path = {:?}", image_path);
                 }
             }
         }
     }
 
     // background
-    if let Some(background) = &fanart_tv.showbackground {
+    if let Some(background) = &fanart.moviebackground {
         if let Some(image) = background.first() {
             let url = image.url();
             if !url.is_empty() {
                 let suffix = url.split(".").last().unwrap();
-                let image_path = tv_root_path.join(format!("background.{}", suffix));
+                let image_path = root_path.join(format!("background.{}", suffix));
                 if !image_path.exists() {
-                    tracing::info!("save background image, image_path = {:?}", image_path);
+                    tracing::debug!("save background image, image_path = {:?}", image_path);
                     request::blocking_get_request_and_download_file(url, &image_path);
                 } else {
-                    tracing::info!("background image exist, skip save background image, image_path = {:?}", image_path);
+                    tracing::debug!("background image exist, skip save background image, image_path = {:?}", image_path);
+                }
+            }
+        }
+    }
+
+    // disc
+    if let Some(disc) = &fanart.moviedisc {
+        if let Some(image) = disc.first() {
+            let url = image.url();
+            if !url.is_empty() {
+                let suffix = url.split(".").last().unwrap();
+                let image_path = root_path.join(format!("disc.{}", suffix));
+                if !image_path.exists() {
+                    tracing::debug!("save disc image, image_path = {:?}", image_path);
+                    request::blocking_get_request_and_download_file(url, &image_path);
+                } else {
+                    tracing::debug!("disc image exist, skip save disc image, image_path = {:?}", image_path);
                 }
             }
         }
     }
 
     // clearart
-    if let Some(clearart) = &fanart_tv.hdclearart {
+    if let Some(clearart) = &fanart.hdmovieclearart {
         if let Some(image) = clearart.first() {
             let url = image.url();
             if !url.is_empty() {
                 let suffix = url.split(".").last().unwrap();
-                let image_path = tv_root_path.join(format!("clearart.{}", suffix));
+                let image_path = root_path.join(format!("clearart.{}", suffix));
                 if !image_path.exists() {
-                    tracing::info!("save clearart image, image_path = {:?}", image_path);
+                    tracing::debug!("save clearart image, image_path = {:?}", image_path);
                     request::blocking_get_request_and_download_file(url, &image_path);
                 } else {
-                    tracing::info!("clearart image exist, skip save clearart image, image_path = {:?}", image_path);
+                    tracing::debug!("clearart image exist, skip save clearart image, image_path = {:?}", image_path);
                 }
             }
         }
     }
 
     // poster
-    if !tv.poster_path().is_empty() {
-        let poster_path = tv.poster_path();
+    if !tmdb.poster_path().is_empty() {
+        let poster_path = tmdb.poster_path();
         let suffix = poster_path.split(".").last().unwrap();
-        let image_path = tv_root_path.join(format!("poster.{}", suffix));
+        let image_path = root_path.join(format!("poster.{}", suffix));
         if !image_path.exists() {
-            tracing::info!("save poster image, image_path = {:?}", image_path);
+            tracing::debug!("save poster image, image_path = {:?}", image_path);
             request::blocking_get_request_and_download_file(&format!("https://image.tmdb.org/t/p/original{}", poster_path), &image_path);
         } else {
-            tracing::info!("poster image exist, skip save poster image, image_path = {:?}", image_path);
+            tracing::debug!("poster image exist, skip save poster image, image_path = {:?}", image_path);
         }
     }
 
     // backdrop
-    if !tv.backdrop_path().is_empty() {
-        let backdrop_path = tv.backdrop_path();
+    if !tmdb.backdrop_path().is_empty() {
+        let backdrop_path = tmdb.backdrop_path();
         let suffix = backdrop_path.split(".").last().unwrap();
-        let image_path = tv_root_path.join(format!("backdrop.{}", suffix));
+        let image_path = root_path.join(format!("backdrop.{}", suffix));
         if !image_path.exists() {
-            tracing::info!("save backdrop image, image_path = {:?}", image_path);
+            tracing::debug!("save backdrop image, image_path = {:?}", image_path);
             request::blocking_get_request_and_download_file(&format!("https://image.tmdb.org/t/p/original{}", backdrop_path), &image_path);
         } else {
-            tracing::info!("backdrop image exist, skip save backdrop image, image_path = {:?}", image_path);
+            tracing::debug!("backdrop image exist, skip save backdrop image, image_path = {:?}", image_path);
+        }
+    }
+}
+
+fn save_tv_show_images(tmdb: &TmdbTV, fanart: &FanartTV, root_path: &Path) {
+    tracing::debug!("save tv show images, tv_root_path = {:?}", root_path);
+
+    // banner
+    if let Some(banner) = &fanart.tvbanner {
+        if let Some(image) = banner.first() {
+            let url = image.url();
+            if !url.is_empty() {
+                let suffix = url.split(".").last().unwrap();
+                let image_path = root_path.join(format!("banner.{}", suffix));
+                if !image_path.exists() {
+                    tracing::debug!("save banner image, image_path = {:?}", image_path);
+                    request::blocking_get_request_and_download_file(url, &image_path);
+                } else {
+                    tracing::debug!("banner image exist, skip save banner image, image_path = {:?}", image_path);
+                }
+            }
+        }
+    }
+
+    // characterart
+    if let Some(characterart) = &fanart.characterart {
+        if let Some(image) = characterart.first() {
+            let url = image.url();
+            if !url.is_empty() {
+                let suffix = url.split(".").last().unwrap();
+                let image_path = root_path.join(format!("characterart.{}", suffix));
+                if !image_path.exists() {
+                    tracing::debug!("save characterart image, image_path = {:?}", image_path);
+                    request::blocking_get_request_and_download_file(url, &image_path);
+                } else {
+                    tracing::debug!("characterart image exist, skip save characterart image, image_path = {:?}", image_path);
+                }
+            }
+        }
+    }
+
+    // logo
+    if let Some(logo) = &fanart.hdtvlogo {
+        if let Some(image) = logo.first() {
+            let url = image.url();
+            if !url.is_empty() {
+                let suffix = url.split(".").last().unwrap();
+                let image_path = root_path.join(format!("logo.{}", suffix));
+                if !image_path.exists() {
+                    tracing::debug!("save logo image, image_path = {:?}", image_path);
+                    request::blocking_get_request_and_download_file(url, &image_path);
+                } else {
+                    tracing::debug!("logo image exist, skip save logo image, image_path = {:?}", image_path);
+                }
+            }
+        }
+    }
+
+    // thumb
+    if let Some(thumb) = &fanart.tvthumb {
+        if let Some(image) = thumb.first() {
+            let url = image.url();
+            if !url.is_empty() {
+                let suffix = url.split(".").last().unwrap();
+                let image_path = root_path.join(format!("thumb.{}", suffix));
+                if !image_path.exists() {
+                    tracing::debug!("save thumb image, image_path = {:?}", image_path);
+                    request::blocking_get_request_and_download_file(url, &image_path);
+                } else {
+                    tracing::debug!("thumb image exist, skip save thumb image, image_path = {:?}", image_path);
+                }
+            }
+        }
+    }
+
+    // background
+    if let Some(background) = &fanart.showbackground {
+        if let Some(image) = background.first() {
+            let url = image.url();
+            if !url.is_empty() {
+                let suffix = url.split(".").last().unwrap();
+                let image_path = root_path.join(format!("background.{}", suffix));
+                if !image_path.exists() {
+                    tracing::debug!("save background image, image_path = {:?}", image_path);
+                    request::blocking_get_request_and_download_file(url, &image_path);
+                } else {
+                    tracing::debug!("background image exist, skip save background image, image_path = {:?}", image_path);
+                }
+            }
+        }
+    }
+
+    // clearart
+    if let Some(clearart) = &fanart.hdclearart {
+        if let Some(image) = clearart.first() {
+            let url = image.url();
+            if !url.is_empty() {
+                let suffix = url.split(".").last().unwrap();
+                let image_path = root_path.join(format!("clearart.{}", suffix));
+                if !image_path.exists() {
+                    tracing::debug!("save clearart image, image_path = {:?}", image_path);
+                    request::blocking_get_request_and_download_file(url, &image_path);
+                } else {
+                    tracing::debug!("clearart image exist, skip save clearart image, image_path = {:?}", image_path);
+                }
+            }
+        }
+    }
+
+    // poster
+    if !tmdb.poster_path().is_empty() {
+        let poster_path = tmdb.poster_path();
+        let suffix = poster_path.split(".").last().unwrap();
+        let image_path = root_path.join(format!("poster.{}", suffix));
+        if !image_path.exists() {
+            tracing::debug!("save poster image, image_path = {:?}", image_path);
+            request::blocking_get_request_and_download_file(&format!("https://image.tmdb.org/t/p/original{}", poster_path), &image_path);
+        } else {
+            tracing::debug!("poster image exist, skip save poster image, image_path = {:?}", image_path);
+        }
+    }
+
+    // backdrop
+    if !tmdb.backdrop_path().is_empty() {
+        let backdrop_path = tmdb.backdrop_path();
+        let suffix = backdrop_path.split(".").last().unwrap();
+        let image_path = root_path.join(format!("backdrop.{}", suffix));
+        if !image_path.exists() {
+            tracing::debug!("save backdrop image, image_path = {:?}", image_path);
+            request::blocking_get_request_and_download_file(&format!("https://image.tmdb.org/t/p/original{}", backdrop_path), &image_path);
+        } else {
+            tracing::debug!("backdrop image exist, skip save backdrop image, image_path = {:?}", image_path);
         }
     }
 
@@ -254,10 +406,10 @@ fn save_tv_show_images(tv: &TmdbTV, fanart_tv: &FanartTV, tv_root_path: &Path) {
     //     let suffix = image.url.split(".").last().unwrap();
     //     let image_path = tv_root_path.join(format!("poster.{}", suffix));
     //     if !image_path.exists() {
-    //         tracing::info!("save poster image, image_path = {:?}", image_path);
+    //         tracing::debug!("save poster image, image_path = {:?}", image_path);
     //         utils::download_file(&image.url, &image_path);
     //     } else {
-    //         tracing::info!("poster image exist, skip save poster image, image_path = {:?}", image_path);
+    //         tracing::debug!("poster image exist, skip save poster image, image_path = {:?}", image_path);
     //     }
     // });
 
@@ -269,10 +421,10 @@ fn save_tv_show_images(tv: &TmdbTV, fanart_tv: &FanartTV, tv_root_path: &Path) {
     //         Ok(season_number) => {
     //             let image_path = tv_root_path.join(format!("season{:02}-poster.{}", season_number, suffix));
     //             if !image_path.exists() {
-    //                 tracing::info!("save season image, image_path = {:?}", image_path);
+    //                 tracing::debug!("save season image, image_path = {:?}", image_path);
     //                 utils::download_file(&image.url, &image_path);
     //             } else {
-    //                 tracing::info!("season image exist, skip save season image, image_path = {:?}", image_path);
+    //                 tracing::debug!("season image exist, skip save season image, image_path = {:?}", image_path);
     //             }
     //         }
     //         Err(e) => {
@@ -305,12 +457,16 @@ fn save_tv_show_images(tv: &TmdbTV, fanart_tv: &FanartTV, tv_root_path: &Path) {
 fn gen_episode_nfo_file(meta: &MTMetadata, season_number: &i64, episode_number: &i64, tmdb_episode: &TmdbEpisode, tv_episode_path: &Path) {
     let tv_episode_path = tv_episode_path.clone().with_extension("nfo");
 
-    tracing::info!("gen episode.nfo file, tv_episode_path = {:?}", tv_episode_path);
+    tracing::debug!("gen episode.nfo file, tv_episode_path = {:?}", tv_episode_path);
 
     let mut xml: Vec<u8> = Vec::new();
 
     //
-    let mut w = EmitterConfig::new().write_document_declaration(true).pad_self_closing(true).perform_indent(true).create_writer(&mut xml);
+    let mut w = EmitterConfig::new()
+        .write_document_declaration(true)
+        .pad_self_closing(true)
+        .perform_indent(true)
+        .create_writer(&mut xml);
 
     // season
     // root
@@ -321,7 +477,8 @@ fn gen_episode_nfo_file(meta: &MTMetadata, season_number: &i64, episode_number: 
     dom::write_text_element(&mut w, "dateadded", &time::now_time_format());
 
     // uniqueid
-    w.write(XmlEvent::start_element("uniqueid").attr("type", "tmdb").attr("default", "true")).unwrap();
+    w.write(XmlEvent::start_element("uniqueid").attr("type", "tmdb").attr("default", "true"))
+        .unwrap();
     w.write(XmlEvent::characters(&tmdb_episode.tmdb_id_str())).unwrap();
     w.write(XmlEvent::end_element()).unwrap();
 
@@ -360,7 +517,7 @@ fn gen_episode_nfo_file(meta: &MTMetadata, season_number: &i64, episode_number: 
 
     dom::save_nfo(&xml, tv_episode_path.to_str().unwrap());
 
-    tracing::info!("gen episode.nfo file, tv_episode_path = {:?} success", tv_episode_path);
+    tracing::debug!("gen episode.nfo file, tv_episode_path = {:?} success", tv_episode_path);
 }
 
 // <?xml version="1.0" encoding="utf-8"?>
@@ -375,12 +532,16 @@ fn gen_episode_nfo_file(meta: &MTMetadata, season_number: &i64, episode_number: 
 //   <seasonnumber>12</seasonnumber>
 // </season>
 fn gen_season_nfo_file(meta: &MTMetadata, season: &TmdbSeason, tv_season_path: &Path) {
-    tracing::info!("gen season.nfo file, title = {:?} tv_season_path = {:?}", season.title(), tv_season_path);
+    tracing::debug!("gen season.nfo file, title = {:?} tv_season_path = {:?}", season.title(), tv_season_path);
 
     let mut xml: Vec<u8> = Vec::new();
 
     //
-    let mut w = EmitterConfig::new().write_document_declaration(true).pad_self_closing(true).perform_indent(true).create_writer(&mut xml);
+    let mut w = EmitterConfig::new()
+        .write_document_declaration(true)
+        .pad_self_closing(true)
+        .perform_indent(true)
+        .create_writer(&mut xml);
 
     // season
     // root
@@ -411,7 +572,11 @@ fn gen_season_nfo_file(meta: &MTMetadata, season: &TmdbSeason, tv_season_path: &
     // save nfo
     dom::save_nfo(&xml, tv_season_path.join("season.nfo").to_str().unwrap());
 
-    tracing::info!("gen season.nfo file, title = {:?} tv_season_path = {:?} success", season.title(), tv_season_path);
+    tracing::debug!(
+        "gen season.nfo file, title = {:?} tv_season_path = {:?} success",
+        season.title(),
+        tv_season_path
+    );
 }
 
 // <?xml version="1.0" encoding="utf-8"?>
@@ -479,31 +644,35 @@ fn gen_season_nfo_file(meta: &MTMetadata, season: &TmdbSeason, tv_season_path: &
 //   <season>-1</season>
 //   <episode>-1</episode>
 // </tvshow>
-fn gen_tvshow_nfo_file(tmdb_tv: &TmdbTV, tv_root_path: &Path) {
-    tracing::info!("gen tvshow.nfo file, title = {:?} tv_root_path = {:?}", tmdb_tv.name, tv_root_path);
+fn gen_tvshow_nfo_file(tmdb: &TmdbTV, root_path: &Path) {
+    tracing::debug!("gen tvshow.nfo file, title = {:?} root_path = {:?}", tmdb.name, root_path);
 
     let mut xml: Vec<u8> = Vec::new();
 
     //
-    let mut w = EmitterConfig::new().write_document_declaration(true).pad_self_closing(true).perform_indent(true).create_writer(&mut xml);
+    let mut w = EmitterConfig::new()
+        .write_document_declaration(true)
+        .pad_self_closing(true)
+        .perform_indent(true)
+        .create_writer(&mut xml);
 
     // root
     w.write(XmlEvent::start_element("tvshow")).unwrap();
 
     // gen common nfo
-    gen_common_nfo(&mut w, tmdb_tv);
+    gen_tv_common_nfo(&mut w, tmdb);
 
     // title
-    dom::write_text_element(&mut w, "title", tmdb_tv.name());
+    dom::write_text_element(&mut w, "title", tmdb.name());
 
     // originaltitle
-    dom::write_text_element(&mut w, "originaltitle", tmdb_tv.original_language());
+    dom::write_text_element(&mut w, "originaltitle", tmdb.original_language());
 
     // premiered
-    dom::write_text_element(&mut w, "premiered", tmdb_tv.first_air_date());
+    dom::write_text_element(&mut w, "premiered", tmdb.first_air_date());
 
     // year
-    dom::write_text_element(&mut w, "year", tmdb_tv.year());
+    dom::write_text_element(&mut w, "year", tmdb.year());
 
     // season
     dom::write_text_element(&mut w, "season", "-1");
@@ -515,29 +684,30 @@ fn gen_tvshow_nfo_file(tmdb_tv: &TmdbTV, tv_root_path: &Path) {
     w.write(XmlEvent::end_element()).unwrap();
 
     // save nfo
-    dom::save_nfo(&xml, tv_root_path.join("tvshow.nfo").to_str().unwrap());
+    dom::save_nfo(&xml, root_path.join("tvshow.nfo").to_str().unwrap());
 
-    tracing::info!("gen tvshow.nfo file, title = {:?} tv_root_path = {:?} success", tmdb_tv.name, tv_root_path);
+    tracing::debug!("gen tvshow.nfo file, title = {:?} tv_root_path = {:?} success", tmdb.name, root_path);
 }
 
-fn gen_common_nfo(w: &mut EventWriter<&mut Vec<u8>>, tmdb_tv: &TmdbTV) {
+fn gen_tv_common_nfo(w: &mut EventWriter<&mut Vec<u8>>, tmdb: &TmdbTV) {
     // dateadded
     // get now time and format to 2021-01-01 00:00:00
     dom::write_text_element(w, "dateadded", &time::now_time_format());
 
     // TMDB
-    if !tmdb_tv.tmdb_id().is_empty() {
+    if !tmdb.tmdb_id().is_empty() {
         // <tmdbid>1418</tmdbid>
-        dom::write_text_element(w, "tmdbid", &tmdb_tv.tmdb_id());
+        dom::write_text_element(w, "tmdbid", &tmdb.tmdb_id());
 
         // <uniqueid type="tmdb" default="false">1418</uniqueid>
-        w.write(XmlEvent::start_element("uniqueid").attr("type", "tmdb").attr("default", "false")).unwrap();
-        w.write(XmlEvent::characters(&tmdb_tv.tmdb_id())).unwrap();
+        w.write(XmlEvent::start_element("uniqueid").attr("type", "tmdb").attr("default", "false"))
+            .unwrap();
+        w.write(XmlEvent::characters(&tmdb.tmdb_id())).unwrap();
         w.write(XmlEvent::end_element()).unwrap();
     }
 
     // TVDB
-    tmdb_tv.tvdb_id().is_some_then(|tvdb_id| {
+    tmdb.tvdb_id().is_some_then(|tvdb_id| {
         // <tvdbid>80379</tvdbid>
         dom::write_text_element(w, "tvdbid", &tvdb_id.to_string());
 
@@ -548,25 +718,26 @@ fn gen_common_nfo(w: &mut EventWriter<&mut Vec<u8>>, tmdb_tv: &TmdbTV) {
     });
 
     // IMDB
-    tmdb_tv.imdb_id().is_some_then(|imdb_id| {
+    tmdb.imdb_id().is_some_then(|imdb_id| {
         // <imdbid>tt0898266</imdbid>
         dom::write_text_element(w, "imdbid", imdb_id);
 
         // <uniqueid type="imdb" default="true">tt0898266</uniqueid>
-        w.write(XmlEvent::start_element("uniqueid").attr("type", "imdb").attr("default", "true")).unwrap();
+        w.write(XmlEvent::start_element("uniqueid").attr("type", "imdb").attr("default", "true"))
+            .unwrap();
         w.write(XmlEvent::characters(imdb_id)).unwrap();
         w.write(XmlEvent::end_element()).unwrap();
     });
 
     // overview
     // plot
-    dom::write_cdata_text_element(w, "plot", &tmdb_tv.overview());
+    dom::write_cdata_text_element(w, "plot", &tmdb.overview());
 
     // outline
-    dom::write_cdata_text_element(w, "outline", &tmdb_tv.overview());
+    dom::write_cdata_text_element(w, "outline", &tmdb.overview());
 
     // director
-    tmdb_tv.directors().is_some_then(|directors| {
+    tmdb.directors().is_some_then(|directors| {
         directors.iter().for_each(|director| {
             w.write(XmlEvent::start_element("director").attr("tmdbid", &director.id())).unwrap();
             w.write(XmlEvent::characters(director.name())).unwrap();
@@ -575,7 +746,7 @@ fn gen_common_nfo(w: &mut EventWriter<&mut Vec<u8>>, tmdb_tv: &TmdbTV) {
     });
 
     // actors
-    tmdb_tv.actors().is_some_then(|actors| {
+    tmdb.actors().is_some_then(|actors| {
         actors.iter().for_each(|actor| {
             w.write(XmlEvent::start_element("actor")).unwrap();
 
@@ -591,10 +762,137 @@ fn gen_common_nfo(w: &mut EventWriter<&mut Vec<u8>>, tmdb_tv: &TmdbTV) {
     });
 
     // genre
-    tmdb_tv.genres.is_some_then(|genres| {
+    tmdb.genres.is_some_then(|genres| {
         genres.iter().for_each(|genre| dom::write_text_element(w, "genre", genre.name()));
     });
 
     // rating
-    dom::write_text_element(w, "rating", &tmdb_tv.vote_average());
+    dom::write_text_element(w, "rating", &tmdb.vote_average());
+}
+
+fn gen_movie_nfo_file(tmdb: &super::entity::TmdbMovie, root_path: &Path, movie_path: &Path) {
+    let movie_path = movie_path.clone().with_extension("nfo");
+
+    tracing::debug!(
+        "gen movie.nfo file, title = {:?} root_path = {:?} movie_path = {:?}",
+        tmdb.title,
+        root_path,
+        movie_path
+    );
+
+    let mut xml: Vec<u8> = Vec::new();
+
+    //
+    let mut w = EmitterConfig::new()
+        .write_document_declaration(true)
+        .pad_self_closing(true)
+        .perform_indent(true)
+        .create_writer(&mut xml);
+
+    // root
+    w.write(XmlEvent::start_element("movie")).unwrap();
+
+    // gen common nfo
+    gen_movie_common_nfo(&mut w, tmdb);
+
+    // title
+    dom::write_text_element(&mut w, "title", tmdb.name());
+
+    // originaltitle
+    dom::write_text_element(&mut w, "originaltitle", tmdb.original_language());
+
+    // premiered
+    dom::write_text_element(&mut w, "premiered", tmdb.first_air_date());
+
+    // year
+    dom::write_text_element(&mut w, "year", tmdb.year());
+
+    // end root
+    w.write(XmlEvent::end_element()).unwrap();
+
+    // save nfo
+    dom::save_nfo(&xml, movie_path.to_str().unwrap());
+
+    tracing::debug!("gen movie.nfo file, title = {:?} tv_root_path = {:?} success", tmdb.title, root_path);
+}
+
+fn gen_movie_common_nfo(w: &mut EventWriter<&mut Vec<u8>>, tmdb: &TmdbMovie) {
+    // dateadded
+    // get now time and format to 2021-01-01 00:00:00
+    dom::write_text_element(w, "dateadded", &time::now_time_format());
+
+    // TMDB
+    if !tmdb.tmdb_id().is_empty() {
+        // <tmdbid>1418</tmdbid>
+        dom::write_text_element(w, "tmdbid", &tmdb.tmdb_id());
+
+        // <uniqueid type="tmdb" default="false">1418</uniqueid>
+        w.write(XmlEvent::start_element("uniqueid").attr("type", "tmdb").attr("default", "false"))
+            .unwrap();
+        w.write(XmlEvent::characters(&tmdb.tmdb_id())).unwrap();
+        w.write(XmlEvent::end_element()).unwrap();
+    }
+
+    // TVDB
+    tmdb.tvdb_id().is_some_then(|tvdb_id| {
+        // <tvdbid>80379</tvdbid>
+        dom::write_text_element(w, "tvdbid", &tvdb_id.to_string());
+
+        // <uniqueid type="tvdb">80379</uniqueid>
+        w.write(XmlEvent::start_element("uniqueid").attr("type", "tvdb")).unwrap();
+        w.write(XmlEvent::characters(&tvdb_id.to_string())).unwrap();
+        w.write(XmlEvent::end_element()).unwrap();
+    });
+
+    // IMDB
+    tmdb.imdb_id().is_some_then(|imdb_id| {
+        // <imdbid>tt0898266</imdbid>
+        dom::write_text_element(w, "imdbid", imdb_id);
+
+        // <uniqueid type="imdb" default="true">tt0898266</uniqueid>
+        w.write(XmlEvent::start_element("uniqueid").attr("type", "imdb").attr("default", "true"))
+            .unwrap();
+        w.write(XmlEvent::characters(imdb_id)).unwrap();
+        w.write(XmlEvent::end_element()).unwrap();
+    });
+
+    // overview
+    // plot
+    dom::write_cdata_text_element(w, "plot", &tmdb.overview());
+
+    // outline
+    dom::write_cdata_text_element(w, "outline", &tmdb.overview());
+
+    // director
+    tmdb.directors().is_some_then(|directors| {
+        directors.iter().for_each(|director| {
+            w.write(XmlEvent::start_element("director").attr("tmdbid", &director.id())).unwrap();
+            w.write(XmlEvent::characters(director.name())).unwrap();
+            w.write(XmlEvent::end_element()).unwrap();
+        });
+    });
+
+    // actors
+    tmdb.actors().is_some_then(|actors| {
+        actors.iter().for_each(|actor| {
+            w.write(XmlEvent::start_element("actor")).unwrap();
+
+            dom::write_text_element(w, "name", actor.name());
+            dom::write_text_element(w, "type", "Actor");
+            dom::write_text_element(w, "role", actor.character());
+            dom::write_text_element(w, "tmdbid", &actor.id());
+            dom::write_text_element(w, "thumb", &actor.thumb());
+            dom::write_text_element(w, "profile", &actor.profile());
+
+            w.write(XmlEvent::end_element()).unwrap();
+        });
+    });
+
+    // genre
+    tmdb.genres.is_some_then(|genres| {
+        genres.iter().for_each(|genre| dom::write_text_element(w, "genre", genre.name()));
+    });
+
+    // rating
+    dom::write_text_element(w, "rating", &tmdb.vote_average());
 }

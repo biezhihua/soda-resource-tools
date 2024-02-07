@@ -6,6 +6,7 @@ mod meta_tests {
     use std::io::Read;
 
     use serde_json::Value;
+    use soda_resource_tools_lib::soda::entity::MetaContext;
     use tracing::Level;
     use tracing_subscriber::fmt::format::FmtSpan;
     use tracing_subscriber::EnvFilter;
@@ -20,22 +21,9 @@ mod meta_tests {
 
     /// 初始化日志配置
     fn init_tracing() {
-        // Configure a `tracing` subscriber that logs traces emitted by the server.
         tracing_subscriber::fmt()
-            // Filter what traces are displayed based on the RUST_LOG environment
-            // variable.
-            //
-            // Traces emitted by the example code will always be displayed. You
-            // can set `RUST_LOG=tokio=trace` to enable additional traces emitted by
-            // Tokio itself.
-            .with_env_filter(EnvFilter::from_default_env().add_directive(Level::INFO.into()))
-            // Log events when `tracing` spans are created, entered, exited, or
-            // closed. When Tokio's internal tracing support is enabled (as
-            // described above), this can be used to track the lifecycle of spawned
-            // tasks on the Tokio runtime.
+            .with_env_filter(EnvFilter::from_default_env().add_directive(Level::DEBUG.into()))
             .with_span_events(FmtSpan::FULL)
-            // Set this subscriber as the default, to collect all traces emitted by
-            // the program.
             .init();
     }
 
@@ -52,16 +40,18 @@ mod meta_tests {
 
         // Check if the parsed JSON is an array
         if let Some(items) = json["items"].as_array() {
+            let mut scrape_context = MetaContext::new();
+
             items.iter().rev().for_each(|element| {
                 let title = element["title"].as_str().unwrap();
 
+                scrape_context.init(title);
+
                 if !element["metadata"].is_null() {
-                    let metadata = soda::create_mt_metadata(title).unwrap();
+                    let metadata = soda::meta::create_metadata_mt(&mut scrape_context).unwrap();
 
                     if let Some(year) = element["metadata"]["year"].as_str() {
-                        if !year.is_empty() {
-                            assert_eq!(year, metadata.year.unwrap());
-                        }
+                        assert_eq!(year, metadata.year);
                     }
 
                     if let Some(season) = element["metadata"]["season"].as_str() {

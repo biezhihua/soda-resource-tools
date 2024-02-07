@@ -9,6 +9,7 @@ pub mod token;
 use std::fs::OpenOptions;
 use std::io::Write;
 
+use super::entity::SodaError;
 use super::LIB_CONFIG;
 
 pub fn is_bluray_dir(path: &str) -> bool {
@@ -89,9 +90,14 @@ pub(crate) fn get_tmdb_http_cache_path() -> String {
     http_cache
 }
 
-
 pub(crate) fn get_fanart_http_cache_path() -> String {
     let cache_path = get_cache_path();
     let http_cache = cache_path.join("fanart_http_cache").to_str().unwrap().to_string();
     http_cache
+}
+
+pub(crate) fn get_path_file_name(path: &str) -> Result<String, SodaError> {
+    let path = Path::new(path);
+    let file_name = path.file_name().and_then(|s| s.to_str()).ok_or(SodaError::Str("file_name is empty"))?;
+    Ok(file_name.to_string())
 }

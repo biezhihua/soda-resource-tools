@@ -7,15 +7,24 @@ use crate::soda::request::blocking_request;
 use crate::soda::{cache, request, utils};
 
 pub(crate) fn tmdb_request(action: &str, params: &str, method: &str) -> Result<Value, SodaError> {
-    tracing::info!("action = {} params = {} method = {}", action, params, method);
-
     let api_key = get_api_key()
         .on_none_inspect(|| {
-            tracing::info!("TheMovieDb API Key 未设置");
+            tracing::debug!("TheMovieDb API Key 未设置");
         })
         .unwrap();
 
-    let url = if params.contains("language") { format!("https://{}/3{}?api_key={}&{}", get_api_domain(), action, api_key, params) } else { format!("https://{}/3{}?api_key={}&{}&language={}", get_api_domain(), action, api_key, params, get_api_language()) };
+    let url = if params.contains("language") {
+        format!("https://{}/3{}?api_key={}&{}", get_api_domain(), action, api_key, params)
+    } else {
+        format!(
+            "https://{}/3{}?api_key={}&{}&language={}",
+            get_api_domain(),
+            action,
+            api_key,
+            params,
+            get_api_language()
+        )
+    };
 
     let json = request::blocking_request_value_with_cache(cache::CacheType::TMDB, method, &url)?;
 

@@ -1,12 +1,14 @@
 use std::collections::{HashMap, HashSet};
+use std::path::{Path, PathBuf};
 
+use regex::Regex;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use tracing::span::{self, Id};
 
 use crate::soda::extension_option::OptionExtensions;
 
-use super::tmdb::entity::{TmdbCast, TmdbCrew, TmdbEpisode, TmdbGenre, TmdbSeason, TmdbSeasonInfo, TmdbTV, TmdbTVInfo};
+use super::tmdb::entity::{TmdbCast, TmdbCrew, TmdbEpisode, TmdbGenre, TmdbMovie, TmdbMovieInfo, TmdbSeason, TmdbSeasonInfo, TmdbTV, TmdbTVInfo};
 use std::error::Error;
 use std::fmt::{self, Display, Formatter};
 
@@ -70,52 +72,288 @@ impl From<serde_json::Error> for SodaError {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+pub enum RenameStyle {
+    /// Emby 重命名格式
+    Emby,
+}
+
+impl std::fmt::Display for RenameStyle {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let s = match self {
+            RenameStyle::Emby => "emby",
+        };
+        s.fmt(f)
+    }
+}
+
+impl std::str::FromStr for RenameStyle {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "emby" => Ok(Self::Emby),
+            _ => Err(format!("Unknown type: {s}")),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub enum EmbyRenameStyle {
+    /// 影视 - 电影 重命名格式
+    /// ```text
+    /// https://emby.media/support/articles/Movie-Naming.html
+    ///
+    /// 按照如下格式和顺序重命名
+    ///
+    /// /300 (2006)/300 (2006) - 1080p.mkv
+    /// /300 (2006)/300 (2006).mkv
+    /// /300/300.mkv
+    /// ```
+    EmbyMovie,
+
+    /// 影视 - 电视剧 重命名格式
+    /// ```text
+    /// https://emby.media/support/articles/TV-Naming.html
+    ///
+    /// 按照如下格式和顺序重命名
+    ///
+    /// \Glee (2009)\Season 1\S01E01.mp4
+    /// \Glee\Season 1\S01E01.mp4
+    ///
+    /// ```
+    EmbyTV,
+}
+impl EmbyRenameStyle {
+    pub(crate) fn rename(&self, mt_meta: &MTMetadata) -> PathBuf {
+        tracing::debug!("emby rename style = {:?}", self);
+
+        match &self {
+            EmbyRenameStyle::EmbyMovie => {
+                let title = if !mt_meta.title_cn.is_empty() {
+                    mt_meta.title_cn.clone()
+                } else {
+                    mt_meta.title_en.clone()
+                };
+
+                if !title.is_empty() && !mt_meta.year.is_empty() && !mt_meta.resolution.is_empty() && !mt_meta.extension.is_empty() {
+                    // /300 (2006)/300 (2006) - 1080p.mkv
+
+                    let path = PathBuf::new()
+                        .join(format!("{} ({})", title, mt_meta.year))
+                        .join(format!("{} ({}) - {}.{}", title, mt_meta.year, mt_meta.resolution, mt_meta.extension));
+
+                    tracing::debug!("emby EmbyMovie style = {:?}", path.to_str().unwrap());
+
+                    return path;
+                }
+
+                if !title.is_empty() && !mt_meta.year.is_empty() && !mt_meta.extension.is_empty() {
+                    // /300 (2006)/300 (2006).mkv
+
+                    let path = PathBuf::new()
+                        .join(format!("{} ({})", title, mt_meta.year))
+                        .join(format!("{} ({}).{}", title, mt_meta.year, mt_meta.extension));
+
+                    tracing::debug!("emby EmbyMovie style = {:?}", path.to_str().unwrap());
+
+                    return path;
+                }
+
+                if !title.is_empty() && !mt_meta.extension.is_empty() {
+                    // /300/300.mkv
+
+                    let path = PathBuf::new().join(format!("{}", title)).join(format!("{}.{}", title, mt_meta.extension));
+
+                    tracing::debug!("emby EmbyMovie style = {:?}", path.to_str().unwrap());
+
+                    return path;
+                }
+
+                return unreachable!("emby movie rename not implement");
+            }
+            EmbyRenameStyle::EmbyTV => {
+                let title = if !mt_meta.title_cn.is_empty() {
+                    mt_meta.title_cn.clone()
+                } else {
+                    mt_meta.title_en.clone()
+                };
+
+                // \Glee (2009)\Season 1\S01E01.mp4
+                if !title.is_empty()
+                    && !mt_meta.year.is_empty()
+                    && !mt_meta.season.is_empty()
+                    && !mt_meta.episode.is_empty()
+                    && !mt_meta.extension.is_empty()
+                {
+                    let path = PathBuf::new()
+                        .join(format!("{} ({})", title, mt_meta.year))
+                        .join(format!("Season {}", mt_meta.season_number().unwrap_or(1)))
+                        .join(format!(
+                            "S{:02}E{:02}.{}",
+                            mt_meta.season_number().unwrap_or(1),
+                            mt_meta.episode_number().unwrap_or(1),
+                            mt_meta.extension
+                        ));
+
+                    tracing::debug!("emby EmbyTV style = {:?}", path.to_str().unwrap());
+
+                    return path;
+                }
+
+                // \Glee\Season 1\S01E01.mp4
+                if !title.is_empty()
+                    && mt_meta.year.is_empty()
+                    && (mt_meta.season.is_empty() || !mt_meta.season.is_empty())
+                    && !mt_meta.episode.is_empty()
+                    && !mt_meta.extension.is_empty()
+                {
+                    let path = PathBuf::new()
+                        .join(format!("{}", title))
+                        .join(format!("Season {}", mt_meta.season_number().unwrap_or(1)))
+                        .join(format!(
+                            "S{:02}E{:02}.{}",
+                            mt_meta.season_number().unwrap_or(1),
+                            mt_meta.episode_number().unwrap_or(1),
+                            mt_meta.extension
+                        ));
+
+                    tracing::debug!("emby EmbyTV style = {:?}", path.to_str().unwrap());
+
+                    return path;
+                }
+
+                return unreachable!("emby tv rename not implement");
+            }
+        }
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct LibConfig {
     /// 缓存路径
     pub cache_path: String,
-    /// 强匹配规则路径
-    pub strong_match_rules_path: String,
+
+    /// 剧集 强匹配规则路径
+    pub strong_match_rules_tv_path: String,
+    pub strong_match_rules_tv: String,
+
+    /// 电影 强匹配规则路径
+    pub strong_match_rules_movie_path: String,
+    pub strong_match_rules_movie: String,
+
     /// 强匹配正则规则路径
     pub strong_match_regex_rules_path: String,
-    /// 是否启用强匹配缓存
-    pub strong_match_regex_enable_cache: bool,
+    pub strong_match_regex_rules: String,
+
+    /// 强匹配名称映射路径
+    pub strong_match_name_map_path: String,
+    pub strong_match_name_map: String,
+
     /// 是否跳过特典
     pub metadata_skip_special: bool,
+
     /// 影视 - 电视剧 重命名格式
+    /// ```text
+    /// https://emby.media/support/articles/TV-Naming.html
+    ///
+    ///  \TV
+    /// \Glee (2009)
+    /// \Season 1
+    ///    Glee S01E01.mp4
+    ///    Glee S01E02.mp4
+    /// \TV
+    /// \Seinfeld (1989)
+    ///     Seinfeld S01E01.mp4
+    ///     Seinfeld S01E02.mp4
+    /// ```
     pub transfer_rename_format_tv: String,
+
     /// 影视 - 电影 重命名格式
+    /// ```text
+    /// https://emby.media/support/articles/Movie-Naming.html
+    ///
+    /// \Movies\Avatar (2009)\Avatar (2009).mkv
+    /// \Movies\Pulp Fiction (1994)\Pulp Fiction (1994).mp4
+    /// \Movies\Reservoir Dogs (1992)\Reservoir Dogs (1992).mp4
+    /// \Movies\The Usual Suspects (1995)\The Usual Suspects (1995).mkv
+    /// \Movies\Top Gun (1986)\Top Gun (1986).mp4
+    /// /Movies
+    /// /300 (2006)
+    /// /300 (2006)/300 (2006) - 1080p.mkv
+    /// /300 (2006)/300 (2006) - 4K.mkv
+    /// /300 (2006)/300 (2006) - 720p.mp4
+    /// /300 (2006)/300 (2006) - extended edition.mp4
+    /// /300 (2006)/300 (2006) - directors cut.mp4
+    /// /300 (2006)/300 (2006) - 3D.hsbs.mp4
+    /// ```
     pub transfer_rename_format_movie: String,
+
+    /// 电影和电视剧重命名格式
+    pub rename_style: Option<RenameStyle>,
 }
 
 impl LibConfig {
     pub fn update(&mut self, config: LibConfig) {
-        tracing::info!("update config = {:?}", config);
         self.cache_path = config.cache_path;
-        self.strong_match_rules_path = config.strong_match_rules_path;
+
+        //
         self.strong_match_regex_rules_path = config.strong_match_regex_rules_path;
-        self.strong_match_regex_enable_cache = config.strong_match_regex_enable_cache;
-        self.metadata_skip_special = config.metadata_skip_special;
+        self.strong_match_regex_rules = config.strong_match_regex_rules;
+
+        //
+        self.strong_match_rules_tv_path = config.strong_match_rules_tv_path;
+        self.strong_match_rules_tv = config.strong_match_rules_tv;
+
+        //
+        self.strong_match_rules_movie_path = config.strong_match_rules_movie_path;
+        self.strong_match_rules_movie = config.strong_match_rules_movie;
+
+        //
+        self.strong_match_name_map_path = config.strong_match_name_map_path;
+        self.strong_match_name_map = config.strong_match_name_map;
+
+        //
         self.transfer_rename_format_tv = config.transfer_rename_format_tv;
         self.transfer_rename_format_movie = config.transfer_rename_format_movie;
+
+        //
+        self.metadata_skip_special = config.metadata_skip_special;
+
+        //
+        self.rename_style = config.rename_style;
     }
 
     pub fn new() -> LibConfig {
         let current_path = std::env::current_dir().unwrap();
         return LibConfig {
+            //
             cache_path: current_path.join("cache").to_str().unwrap().to_string(),
-            strong_match_rules_path: current_path.join("config").join("mt_strong_match_rules.json").to_str().unwrap().to_string(),
+            // 
+            strong_match_rules_tv_path: current_path.join("config").join("mt_strong_match_rules_tv.json").to_str().unwrap().to_string(),
+            //
+            strong_match_rules_movie_path: current_path.join("config").join("mt_strong_match_rules_movie.json").to_str().unwrap().to_string(),
+            //
             strong_match_regex_rules_path: current_path.join("config").join("mt_strong_match_regex_rules.json").to_str().unwrap().to_string(),
+            //
+            strong_match_name_map_path: current_path.join("config").join("mt_strong_match_name_map.json").to_str().unwrap().to_string(),
+            //
             transfer_rename_format_tv: "$title_cn$.$title_en$.$release_year$/$title_cn$.$title_en$.$year$.$season$.$resolution$.$source$.$video_codec$.$audio_codec$/$title_cn$.$title_en$.$year$.$season$$episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$".to_string(),
-            transfer_rename_format_movie: "$title_cn$.$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$".to_string(),
-            strong_match_regex_enable_cache: false,
+            transfer_rename_format_movie: "$title_cn$.$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$/$title_cn$.$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$".to_string(),
             metadata_skip_special: false,
+            strong_match_rules_tv: "".to_string(),
+            strong_match_rules_movie: "".to_string(),
+            strong_match_regex_rules: "".to_string(),
+            strong_match_name_map: "".to_string(),
+            rename_style: None,
         };
     }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ScrapeConfig {
-    /// 是否刮削图片
+    /// 是否将刮削信息写入文件，nfo、image
+    pub enable_scrape_write: bool,
+    /// 是否刮削图片，从网络获取图片
     pub enable_scrape_image: bool,
     /// 是否识别媒体资源
     pub enable_recognize: bool,
@@ -123,7 +361,11 @@ pub struct ScrapeConfig {
 
 impl ScrapeConfig {
     pub fn new() -> ScrapeConfig {
-        return ScrapeConfig { enable_scrape_image: true, enable_recognize: true };
+        return ScrapeConfig {
+            enable_scrape_image: true,
+            enable_recognize: true,
+            enable_scrape_write: true,
+        };
     }
 }
 
@@ -134,14 +376,18 @@ pub enum MTInfo {
 }
 
 impl MTInfo {
-    pub(crate) fn new(tmdb_tv: TmdbTV) -> MTInfo {
+    pub(crate) fn new_movie(tmdb_movie: TmdbMovie) -> MTInfo {
+        MTInfo::MOVIE(MovieType::TMDB(TmdbMovieInfo::new(tmdb_movie)))
+    }
+
+    pub(crate) fn new_tv(tmdb_tv: TmdbTV) -> MTInfo {
         MTInfo::TV(TVType::TMDB(TmdbTVInfo::new(tmdb_tv)))
     }
 
     pub(crate) fn title(&self) -> &str {
         match self {
             MTInfo::MOVIE(movie) => match movie {
-                MovieType::TMDB() => "",
+                MovieType::TMDB(movie) => movie.movie.name(),
             },
             MTInfo::TV(tv) => match tv {
                 TVType::TMDB(tv) => tv.tv.name(),
@@ -152,7 +398,7 @@ impl MTInfo {
     pub(crate) fn original_title(&self) -> &str {
         match self {
             MTInfo::MOVIE(movie) => match movie {
-                MovieType::TMDB() => "",
+                MovieType::TMDB(movie) => "",
             },
             MTInfo::TV(tv) => match tv {
                 TVType::TMDB(tv) => tv.tv.original_name(),
@@ -164,7 +410,7 @@ impl MTInfo {
     pub(crate) fn tmdb_id(&self) -> i64 {
         match self {
             MTInfo::MOVIE(movie) => match movie {
-                MovieType::TMDB() => -1,
+                MovieType::TMDB(movie) => movie.movie.id.clone(),
             },
             MTInfo::TV(tv) => match tv {
                 TVType::TMDB(tv) => tv.tv.id.clone(),
@@ -172,31 +418,31 @@ impl MTInfo {
         }
     }
 
-    pub(crate) fn tvdb_id(&self) -> Option<i64> {
+    pub(crate) fn tvdb_id(&self) -> Option<String> {
         match self {
             MTInfo::TV(tv) => match tv {
                 TVType::TMDB(tv) => {
-                    if let Some(external_ids) = &tv.tv.external_ids {
-                        return Some(external_ids.tvdb_id());
-                    }
-                    return None;
+                    return tv.tv.tvdb_id();
                 }
             },
-            _ => None,
+            MTInfo::MOVIE(movie) => match movie {
+                MovieType::TMDB(movie) => {
+                    return movie.movie.tvdb_id();
+                }
+            },
         }
     }
 
     pub(crate) fn imdb_id(&self) -> Option<&str> {
         match self {
             MTInfo::MOVIE(movie) => match movie {
-                MovieType::TMDB() => None,
+                MovieType::TMDB(movie) => {
+                    return movie.movie.imdb_id();
+                }
             },
             MTInfo::TV(tv) => match tv {
                 TVType::TMDB(tv) => {
-                    if let Some(external_ids) = &tv.tv.external_ids {
-                        return Some(external_ids.imdb_id());
-                    }
-                    return None;
+                    return tv.tv.imdb_id();
                 }
             },
         }
@@ -232,7 +478,7 @@ impl MTInfo {
     pub(crate) fn tmdb_id_str(&self) -> String {
         match self {
             MTInfo::MOVIE(movie) => match movie {
-                MovieType::TMDB() => "".to_string(),
+                MovieType::TMDB(movie) => "".to_string(),
             },
             MTInfo::TV(tv) => match tv {
                 TVType::TMDB(tv) => tv.tv.id.to_string(),
@@ -243,7 +489,7 @@ impl MTInfo {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum MovieType {
-    TMDB(),
+    TMDB(TmdbMovieInfo),
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -258,10 +504,129 @@ pub enum MTType {
 }
 
 /// 资源类型
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum ResourceType {
     /// 影视 MT
+    /// Movie or TV
     MT,
+}
+
+impl std::fmt::Display for ResourceType {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let s = match self {
+            ResourceType::MT => "mt",
+        };
+        s.fmt(f)
+    }
+}
+impl std::str::FromStr for ResourceType {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "mt" => Ok(Self::MT),
+            _ => Err(format!("Unknown type: {s}")),
+        }
+    }
+}
+
+/// 文件名识别上下文，用于实现一些能力
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct MetaContext {
+    // 父刮削的路径
+    pub parent_path: String,
+    // 当前刮削的路径
+    pub cur_path: String,
+    // 上一次刮削的路径
+    pub last_path: String,
+    // 当前刮削的文件名
+    pub cur_file_name: String,
+    // 当前刮削的规则
+    pub cur_rule: String,
+    // 是否出错
+    pub error: bool,
+    // 当前刮削的输入
+    pub input: String,
+    // 最后一次使用的解析规则
+    pub last_rule: Option<Rule>,
+}
+
+impl MetaContext {
+    pub fn new() -> MetaContext {
+        return MetaContext {
+            cur_path: "".to_string(),
+            cur_file_name: "".to_string(),
+            cur_rule: "".to_string(),
+            last_path: "".to_string(),
+            parent_path: "".to_string(),
+            input: "".to_string(),
+            error: false,
+            last_rule: None,
+        };
+    }
+
+    // 同一个父路径可以复用上一次的规则
+    pub fn enable_cache(&mut self) -> bool {
+        // todo
+        // 同一个父路径可以复用上一次的规则
+        if let Some(parent) = Path::new(&self.cur_path).parent() {
+            let parent_path = parent.to_str().unwrap();
+            let enable_cache = if parent_path.is_empty() {
+                false
+            } else {
+                if self.last_path.is_empty() {
+                    self.last_path = self.cur_path.clone();
+                    false
+                } else {
+                    let last_parent_path = Path::new(&self.last_path).parent().unwrap().to_str().unwrap();
+                    if last_parent_path == parent_path {
+                        tracing::debug!(
+                            "build_mt_file_tokens parent_path = {} last_parent_path = {}",
+                            parent_path,
+                            last_parent_path
+                        );
+                        true
+                    } else {
+                        self.last_path = self.cur_path.clone();
+                        false
+                    }
+                }
+            };
+            return enable_cache;
+        }
+        return false;
+    }
+
+    pub(crate) fn reset(&mut self) {
+        self.cur_path = "".to_string();
+        self.cur_file_name = "".to_string();
+        self.cur_rule = "".to_string();
+        self.last_path = "".to_string();
+        self.parent_path = "".to_string();
+        self.error = false;
+    }
+
+    pub fn init(&mut self, src_path: &str) -> bool {
+        self.reset();
+
+        let path = Path::new(&src_path);
+        let parent_path = path.parent().unwrap().to_str().unwrap().to_string();
+
+        // 检查是否有错误，如果有错误，那么跳过
+        if !self.parent_path.is_empty() && parent_path == self.parent_path && self.error {
+            tracing::info!(target: "soda::info","刮削失败，跳过: {}", src_path);
+            return false;
+        } else {
+            self.error = false;
+        }
+
+        // 更新刮削上下文
+        self.parent_path = parent_path;
+        self.cur_path = src_path.to_string();
+        self.cur_file_name = path.file_name().unwrap().to_str().unwrap().to_string();
+
+        return true;
+    }
 }
 
 /// The metadata parsed from the soda file name.
@@ -282,6 +647,18 @@ pub struct MTMetadata {
     ///a
     pub title_cn: String,
 
+    /// english title aka
+    ///
+    /// Sseo-ni.AKA.Sunny
+    ///
+    pub aka_title_en: String,
+
+    /// aka part 1
+    pub aka_title_en_first: String,
+
+    /// aka part 2
+    pub aka_title_en_second: String,
+
     /// english title
     ///
     /// The.Mortal.Ascention
@@ -292,7 +669,7 @@ pub struct MTMetadata {
     ///
     /// 2020
     ///
-    pub year: Option<String>,
+    pub year: String,
 
     /// 发布年，TMDB补充
     pub release_year: Option<String>,
@@ -465,7 +842,7 @@ impl MTMetadata {
             origin_title: title.to_string(),
             title_cn: "".to_string(),
             title_en: "".to_string(),
-            year: None,
+            year: "".to_string(),
             season: "".to_string(),
             episode: "".to_string(),
             resolution: "".to_string(),
@@ -476,6 +853,9 @@ impl MTMetadata {
             release_group: "".to_string(),
             special: "".to_string(),
             release_year: None,
+            aka_title_en: "".to_string(),
+            aka_title_en_first: "".to_string(),
+            aka_title_en_second: "".to_string(),
         };
     }
 
@@ -488,18 +868,50 @@ impl MTMetadata {
     }
 
     pub fn is_empty(&self) -> bool {
-        return self.title_cn.is_empty() && self.title_en.is_empty() && self.year.is_none() && self.season.is_empty() && self.episode.is_empty() && self.resolution.is_empty() && self.source.is_empty() && self.extension.is_empty() && self.video_codec.is_empty() && self.audio_codec.is_empty() && self.release_group.is_empty();
+        return self.title_cn.is_empty()
+            && self.title_en.is_empty()
+            && self.year.is_empty()
+            && self.season.is_empty()
+            && self.episode.is_empty()
+            && self.resolution.is_empty()
+            && self.source.is_empty()
+            && self.extension.is_empty()
+            && self.video_codec.is_empty()
+            && self.audio_codec.is_empty()
+            && self.release_group.is_empty();
     }
 
     pub fn title(&self) -> &str {
         return if self.title_cn.is_empty() { &self.title_en } else { &self.title_cn };
     }
 
+    pub fn episode_number_format(&self) -> String {
+        if self.episode.is_empty() {
+            return "".to_string();
+        }
+        return format!("E{:02}", self.episode_number().unwrap_or(0));
+    }
+
+    pub fn season_number_format(&self) -> String {
+        if self.season.is_empty() {
+            return "".to_string();
+        }
+        return format!("S{:02}", self.season_number().unwrap_or(0));
+    }
+
     pub fn season_number(&self) -> Option<i64> {
         if self.season.is_empty() {
             return None;
         }
-        let season_number = self.season.split("S").collect::<Vec<&str>>().get(1).unwrap().to_string().parse::<i64>().expect("season number parse error");
+        let season_number = self
+            .season
+            .split("S")
+            .collect::<Vec<&str>>()
+            .get(1)
+            .unwrap()
+            .to_string()
+            .parse::<i64>()
+            .expect("season number parse error");
         return Some(season_number);
     }
 
@@ -507,21 +919,122 @@ impl MTMetadata {
         if self.episode.is_empty() {
             return None;
         }
-        let episode_number = self.episode.split("E").collect::<Vec<&str>>().get(1).unwrap().to_string().parse::<i64>().expect("episode number parse error");
+        let episode_number = self
+            .episode
+            .split("E")
+            .collect::<Vec<&str>>()
+            .get(1)
+            .unwrap()
+            .to_string()
+            .parse::<i64>()
+            .expect("episode number parse error");
         return Some(episode_number);
     }
 
-    pub(crate) fn merge(&mut self, info: &mut MTInfo) {
+    pub(crate) fn merge_movie(&mut self, info: &mut MTInfo) {
+        if let MTInfo::MOVIE(movie) = info {
+            if let MovieType::TMDB(movie) = movie {
+                if self.is_movie() {
+                    // 如果没有中文名，则合并中文名
+                    if self.title_cn.is_empty() && !movie.movie.name().is_empty() {
+                        let new_title = movie.movie.name().to_string();
+
+                        // 新标题不等于英文名才合并
+                        if new_title != self.title_en {
+                            if contains_invalid_chars(&new_title) {
+                                tracing::debug!("invalid title_cn, title = {}", new_title);
+                            } else {
+                                tracing::debug!("merge title_cn, old_title = {} new_title = {}", self.title_cn, new_title);
+                                self.title_cn = new_title;
+                            }
+                        }
+                    }
+
+                    // 如果没有英文名，则合并英文名
+                    if self.title_en.is_empty() && !movie.movie.original_name().is_empty() {
+                        let new_title = movie.movie.original_name().to_string();
+
+                        // 新标题不等于中文名才合并
+                        if new_title != self.title_cn {
+                            tracing::debug!("merge title_en, old_title = {} new_title = {}", self.title_en, new_title);
+                            self.title_en = new_title;
+                        }
+                    }
+
+                    // 补充发布年
+                    if self.release_year.is_none() && !movie.movie.first_air_date().is_empty() && movie.movie.first_air_date().len() > 4 {
+                        self.release_year = Some(movie.movie.first_air_date()[0..4].to_string());
+                        tracing::debug!(
+                            "merge release_year, release_year = {:?} first_air_date = {:?}",
+                            self.release_year,
+                            movie.movie.first_air_date()
+                        );
+                    }
+
+                    // 如果英文名不一致，但是小写是一直的，那么合并英文名
+                    // 锻刀大赛.Forged.in.Fire.2022.S09 == 锻刀大赛.forged.in.fire.2022.S09
+                    if !self.title_en.is_empty()
+                        && !movie.movie.original_name().is_empty()
+                        && self.title_en.to_lowercase() == movie.movie.original_name().to_lowercase()
+                        && self.title_en != movie.movie.original_name()
+                    {
+                        tracing::debug!(
+                            "merge title_en, old_title = {} new_title = {}",
+                            self.title_en,
+                            movie.movie.original_name()
+                        );
+                        self.title_en = movie.movie.original_name().to_string();
+                    }
+                }
+            }
+        }
+    }
+
+    pub(crate) fn merge_tv(&mut self, info: &mut MTInfo) {
         if let MTInfo::TV(tv) = info {
             if let TVType::TMDB(tv) = tv {
                 if self.is_tv() {
-                    // 如果是TV但是有集无季需要补充信息
+                    // 如果季相同则更新年份
                     if let Some(seasons) = &tv.tv.seasons {
-                        if seasons.len() == 1 {
-                            if let Some(season) = seasons.get(0) {
-                                if let Some(season_number) = season.season_number {
-                                    self.season = format!("S{:02}", season_number);
-                                    tracing::info!("merge season info, name = {} season = {}", self.title(), self.season);
+                        for season in seasons {
+                            if season.season_number() == self.season_number().unwrap_or(0).to_string()
+                                && !self.year.is_empty()
+                                && !season.air_date().is_empty()
+                                && season.air_date().len() > 4
+                            {
+                                let year: String = self.year.to_string();
+                                let season_release_year = season.air_date()[0..4].to_string();
+                                if year != season_release_year {
+                                    self.year = season_release_year;
+                                    tracing::debug!("merge year, old_year = {} new_year = {}", year, self.year);
+                                }
+                            }
+                        }
+                    }
+
+                    // 如果有集无季需要补充季信息
+                    if self.season.is_empty() && !self.episode.is_empty() {
+                        if let Some(seasons) = &tv.tv.seasons {
+                            for season in seasons {
+                                // 有年有季的信息
+                                if !self.year.is_empty() && !season.air_date().is_empty() && season.air_date().len() > 4 {
+                                    let year = self.year.to_string();
+                                    let season_release_year = season.air_date()[0..4].to_string();
+                                    if year == season_release_year {
+                                        if let Some(season_number) = season.season_number {
+                                            self.season = format!("S{:02}", season_number);
+                                            tracing::debug!("merge season info, name = {} season = {}", self.origin_title, self.season);
+                                            break;
+                                        }
+                                    }
+                                }
+                                // 无年有季的信息
+                                else if self.year.is_empty() && !season.air_date().is_empty() && season.air_date().len() > 4 {
+                                    if let Some(season_number) = season.season_number {
+                                        self.season = format!("S{:02}", season_number);
+                                        tracing::debug!("merge season info, name = {} season = {}", self.origin_title, self.season);
+                                        break;
+                                    }
                                 }
                             }
                         }
@@ -530,26 +1043,65 @@ impl MTMetadata {
                     // 如果没有中文名，则合并中文名
                     if self.title_cn.is_empty() && !tv.tv.name().is_empty() {
                         let new_title = tv.tv.name().to_string();
-                        tracing::info!("merge title_cn, old_title = {} new_title = {}", self.title_cn, new_title);
-                        self.title_cn = new_title;
+
+                        // 新标题不等于英文名才合并
+                        if new_title != self.title_en {
+                            if contains_invalid_chars(&new_title) {
+                                tracing::debug!("invalid title_cn, title = {}", new_title);
+                            } else {
+                                tracing::debug!("merge title_cn, old_title = {} new_title = {}", self.title_cn, new_title);
+                                self.title_cn = new_title;
+                            }
+                        }
                     }
 
                     // 如果没有英文名，则合并英文名
                     if self.title_en.is_empty() && !tv.tv.original_name().is_empty() {
                         let new_title = tv.tv.original_name().to_string();
-                        tracing::info!("merge title_en, old_title = {} new_title = {}", self.title_en, new_title);
-                        self.title_en = new_title;
+
+                        // 新标题不等于中文名才合并
+                        if new_title != self.title_cn {
+                            tracing::debug!("merge title_en, old_title = {} new_title = {}", self.title_en, new_title);
+                            self.title_en = new_title;
+                        }
                     }
 
                     // 补充发布年
                     if self.release_year.is_none() && !tv.tv.first_air_date().is_empty() && tv.tv.first_air_date().len() > 4 {
                         self.release_year = Some(tv.tv.first_air_date()[0..4].to_string());
-                        tracing::info!("merge release_year, release_year = {:?} first_air_date = {:?}", self.release_year, tv.tv.first_air_date());
+                        tracing::debug!(
+                            "merge release_year, release_year = {:?} first_air_date = {:?}",
+                            self.release_year,
+                            tv.tv.first_air_date()
+                        );
+                    }
+
+                    // 如果英文名不一致，但是小写是一直的，那么合并英文名
+                    // 锻刀大赛.Forged.in.Fire.2022.S09 == 锻刀大赛.forged.in.fire.2022.S09
+                    if !self.title_en.is_empty()
+                        && !tv.tv.original_name().is_empty()
+                        && self.title_en.to_lowercase() == tv.tv.original_name().to_lowercase()
+                        && self.title_en != tv.tv.original_name()
+                    {
+                        tracing::debug!("merge title_en, old_title = {} new_title = {}", self.title_en, tv.tv.original_name());
+                        self.title_en = tv.tv.original_name().to_string();
                     }
                 }
             }
         }
     }
+
+    pub(crate) fn merge_season(&mut self, season_detail: &TmdbSeason) {
+        // 如果季没有年份则合并一下年份
+        if self.year.is_empty() && season_detail.air_date().len() > 4 {
+            self.year = season_detail.air_date()[0..4].to_string();
+        }
+    }
+}
+
+fn contains_invalid_chars(s: &str) -> bool {
+    let invalid_chars = ['<', '>', ':', '"', '|', '?', '*'];
+    s.chars().any(|c| invalid_chars.contains(&c))
 }
 
 #[derive(Debug, Clone)]
@@ -581,5 +1133,168 @@ pub enum TransferType {
     Move,
 }
 
+impl std::fmt::Display for TransferType {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let s = match self {
+            TransferType::HardLink => "hard_link",
+            TransferType::SymbolLink => "symbol_link",
+            TransferType::Copy => "copy",
+            TransferType::Move => "move",
+        };
+        s.fmt(f)
+    }
+}
+
+impl std::str::FromStr for TransferType {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "hard_link" => Ok(Self::HardLink),
+            "symbol_link" => Ok(Self::SymbolLink),
+            "copy" => Ok(Self::Copy),
+            "move" => Ok(Self::Move),
+            _ => Err(format!("Unknown type: {s}")),
+        }
+    }
+}
+
+#[derive(Debug, Clone)]
+pub struct Token {
+    pub tokens: HashMap<String, String>,
+}
+
+impl Token {
+    pub fn new() -> Token {
+        return Token { tokens: HashMap::new() };
+    }
+}
+
 #[cfg(test)]
 mod entity_tests {}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct Rule {
+    pub rule: String,
+    pub replaces: Option<Vec<RuleReplaces>>,
+    pub regex_replaces: Option<Vec<RuleReplaces>>,
+}
+
+impl Rule {
+    pub fn update(&mut self, rule: Rule) {
+        self.rule = rule.rule;
+        self.replaces = rule.replaces;
+    }
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct RuleReplaces {
+    pub src: String,
+    pub target: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct MatchRule {
+    pub before_replaces: Option<Vec<RuleReplaces>>,
+    pub rules: Vec<Rule>,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct RegexRule {
+    // pub original_title_en: Vec<String>,
+    pub edition: Vec<String>,
+    pub version: Vec<String>,
+    pub resolution_cn: Vec<String>,
+    pub episode_title_jp: Vec<String>,
+    pub episode_title_cn: Vec<String>,
+    pub episode_title_en: Vec<String>,
+    pub title_number_en: Vec<String>,
+    pub title_en: Vec<String>,
+    pub title_number_cn: Vec<String>,
+    pub season_title_cn: Vec<String>,
+    pub title_cn: Vec<String>,
+    pub subtitle_en: Vec<String>,
+    pub country: Vec<String>,
+    pub resolution: Vec<String>,
+    pub source: Vec<String>,
+    pub company: Vec<String>,
+    pub video_codec: Vec<String>,
+    pub color: Vec<String>,
+    pub audio_codec: Vec<String>,
+    pub release_group: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub(crate) struct NameMap {
+    pub(crate) src: NameInfo,
+    pub(crate) target: NameInfo,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub(crate) struct NameInfo {
+    pub(crate) title_cn: String,
+    pub(crate) title_en: String,
+    pub(crate) release_year: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub(crate) struct NamesMap {
+    pub(crate) names: Vec<NameMap>,
+}
+
+pub(crate) const KEY_ORIGIN_TITLE: &str = "origin_title";
+pub(crate) const KEY_TITLE_CN: &str = "title_cn";
+pub(crate) const KEY_TITLE_EN: &str = "title_en";
+pub(crate) const KEY_AKA_TITLE_EN: &str = "aka_title_en";
+pub(crate) const KEY_AKA_TITLE_EN_FIRST: &str = "aka_title_en_first";
+pub(crate) const KEY_AKA_TITLE_EN_SECOND: &str = "aka_title_en_second";
+pub(crate) const KEY_VIDEO_CODEC: &str = "video_codec";
+pub(crate) const KEY_AUDIO_CODEC: &str = "audio_codec";
+pub(crate) const KEY_SOURCE: &str = "source";
+pub(crate) const KEY_RESOLUTION: &str = "resolution";
+pub(crate) const KEY_YEAR: &str = "year";
+pub(crate) const KEY_SEASON: &str = "season";
+pub(crate) const KEY_EPISODE: &str = "episode";
+pub(crate) const KEY_EPISODE_1: &str = "episode1";
+pub(crate) const KEY_EPISODE_2: &str = "episode2";
+pub(crate) const KEY_RELEASE_GROUP: &str = "release_group";
+pub(crate) const KEY_SPECIAL: &str = "special";
+pub(crate) const KEY_COMPANY: &str = "company";
+pub(crate) const KEY_COLOR: &str = "color";
+pub(crate) const KEY_EDITION: &str = "edition";
+
+pub(crate) const KEY_SEASON_TITLE_CN: &str = "season_title_cn";
+pub(crate) const KEY_TITLE_NUMBER_CN: &str = "title_number_cn";
+pub(crate) const KEY_TITLE_NUMBER_EN: &str = "title_number_en";
+pub(crate) const KEY_EPISODE_TITLE_EN: &str = "episode_title_en";
+pub(crate) const KEY_EPISODE_TITLE_CN: &str = "episode_title_cn";
+pub(crate) const KEY_EPISODE_TITLE_JP: &str = "episode_title_jp";
+pub(crate) const KEY_TITLE_YEAR: &str = "title_year";
+pub(crate) const KEY_TEXT_CN: &str = "text_cn";
+pub(crate) const KEY_YEAR_START_TO_END: &str = "year_start_to_end";
+pub(crate) const KEY_YEAR_MONTH_DAY: &str = "year_month_day";
+pub(crate) const KEY_SEASON_EPISODE: &str = "season_episode";
+pub(crate) const KEY_SEASON_EPISODE_EPISODE: &str = "season_episode_episode";
+pub(crate) const KEY_SEASON_NUMBER: &str = "season_number";
+pub(crate) const KEY_EPISODE_NUMBER: &str = "episode_number";
+pub(crate) const KEY_SEASON_CN: &str = "season_cn";
+pub(crate) const KEY_EPISODE_CN: &str = "episode_cn";
+pub(crate) const KEY_SEASON_ALL_CN: &str = "season_all_cn";
+pub(crate) const KEY_SEASON_START_TO_END_CN: &str = "season_start_to_end_cn";
+pub(crate) const KEY_SEASON_START_TO_END_EN: &str = "season_start_to_end_en";
+pub(crate) const KEY_RESOLUTION_CN: &str = "resolution_cn";
+pub(crate) const KEY_VERSION: &str = "version";
+pub(crate) const KEY_SUBTITLE_EN: &str = "subtitle_en";
+pub(crate) const KEY_SUBTITLE_CN: &str = "subtitle_cn";
+pub(crate) const KEY_SUBTITLE: &str = "subtitle";
+pub(crate) const KEY_AUDIO_CN: &str = "audio_cn";
+pub(crate) const KEY_ANYTHING: &str = "anything";
+pub(crate) const KEY_COUNTRY: &str = "country";
+pub(crate) const KEY_MIX_NUMBERS_LETTERS: &str = "mix_numbers_letters";
+pub(crate) const KEY_NUMBER: &str = "number";
+pub(crate) const KEY_EXTENSION: &str = "extension";
+pub(crate) const KEY_AKA: &str = "AKA";
+
+pub(crate) fn wrap(s: &str) -> String {
+    return format!("${}$", s);
+}

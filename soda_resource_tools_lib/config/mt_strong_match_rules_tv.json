@@ -1,0 +1,876 @@
+{
+  "before_replaces": [
+    {
+      "src": " - ",
+      "target": " "
+    },
+    {
+      "src": ".￡",
+      "target": "-"
+    },
+    {
+      "src": "￡",
+      "target": "-"
+    },
+    {
+      "src": "..",
+      "target": "."
+    },
+    {
+      "src": ".mp4.mkv",
+      "target": ".mkv"
+    },
+    {
+      "src": ".mp4.mp4",
+      "target": ".mp4"
+    },
+    {
+      "src": " .mkv",
+      "target": ".mkv"
+    },
+    {
+      "src": ".REPACK.",
+      "target": "."
+    },
+    {
+      "src": "内嵌",
+      "target": ""
+    },
+    {
+      "src": "内封",
+      "target": ""
+    },
+    {
+      "src": ".Complete.",
+      "target": "."
+    },
+    {
+      "src": ".COMPLETE.",
+      "target": "."
+    },
+    {
+      "src": " 2Disc ",
+      "target": " "
+    },
+    {
+      "src": ".MultiAudio.",
+      "target": "."
+    },
+    {
+      "src": " D1 ",
+      "target": " "
+    },
+    {
+      "src": ".dv.",
+      "target": "."
+    },
+    {
+      "src": ".iP.",
+      "target": "."
+    },
+    {
+      "src": "  ",
+      "target": " "
+    },
+    {
+      "src": " - ",
+      "target": " "
+    },
+    {
+      "src": "  ",
+      "target": " "
+    },
+    {
+      "src": "   ",
+      "target": " "
+    },
+    {
+      "src": " .mkv",
+      "target": ".mkv"
+    },
+    {
+      "src": "Blue-ray",
+      "target": "BluRay"
+    },
+    {
+      "src": ".[v2].",
+      "target": "."
+    },
+    {
+      "src": " v2",
+      "target": ""
+    }
+  ],
+  "rules": [
+    {
+      "example": "风味人间3·大海小鲜.Once.Upon.A.Bite.2021.S03E01.4K.WEB-DL.H265.DoVi.DDP5.1.Atmos-PTerWEB.mp4",
+      "rule": "$title_cn$$season_number$·$season_title_cn$.$title_en$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "风味人间4.Once.Upon.A.Bite.2022.S04E01.2160p.50FPS.WEB-DL.H265.DV.DDP2.0-OurTV.mp4",
+      "rule": "$title_cn$$season_number$.$title_en$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "风味人间4.Once.Upon.A.Bite.2022.S04E01.2160p.50FPS.WEB-DL.H265.DV.DDP2.0-OurTV.mp4",
+      "rule": "$title_number_cn$.$title_en$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "请回答1988.第20集.Reply.1988.UHDTV.60fps.DD2.0.x265.10bit-Yumi.mkv",
+      "rule": "$title_number_cn$.$episode_cn$.$title_number_en$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "V世代.Gen.V.S01E01.2023.1080p.AMZN.WEB-DL.H264.DDP5.1-OurTV.mkv",
+      "rule": "$title_number_cn$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "24小时.S01E01.2001.1080p.Blu-ray.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_number_cn$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Aharen-san wa Hakarenai S01E01-[1080p][JP.BD.Remux][lolice-mix].mkv",
+      "rule": "$title_en$ $season_episode$-[$resolution$][$source$].$extension$"
+    },
+    {
+      "example": "Eiyuuoh Bu Wo S01E01-[1080p][BDRIP][x265.FLAC].mkv",
+      "rule": "$title_en$ $season_episode$-[$resolution$][$source$][$video_codec$.$audio_codec$].$extension$"
+    },
+    {
+      "example": "(2022.04.29)Re cycle of the Penguindrum Zenpen-[1080p][JP.BD.Remux][lolice-mix].mkv",
+      "rule": "($year_month_day$)$title_number_en$-[$resolution$][$source$].$extension$"
+    },
+    {
+      "example": "(2010.05.26)Evangelion 2.22 You Can (Not) Advance-[1080p][JP.BD.Remux].mkv",
+      "rule": "($year_month_day$)$title_number_en$-[$resolution$][$source$].$extension$"
+    },
+    {
+      "example": "Jujutsu Kaisen 0-[1080p][JP.BD.Remux][lolice-mix].mkv",
+      "rule": "$title_number_en$-[$resolution$][$source$].$extension$"
+    },
+    {
+      "example": "无耻家庭.全十一季",
+      "rule": "$title_cn$.$season_all_cn$"
+    },
+    {
+      "example": "S01-PTer",
+      "rule": "$season$"
+    },
+    {
+      "example": "暗黑S01-S03.Dark.2017-2020.2160p.WEBrip.x265.AC3.￡cXcY@FRDS",
+      "rule": "$title_cn$$season_start_to_end_en$.$title_en$.$year_start_to_end$.$resolution$.$source$.$video_codec$.$audio_codec$"
+    },
+    {
+      "example": "黑色五叶草：魔法帝之剑.Black.Clover.Sword.of.the.Wizard.King.2023.1080p.NF.WEB-DL.H264.DDP5.1-OurTV",
+      "rule": "$title_cn$.$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$"
+    },
+    {
+      "example": "邪恶力量.第01-14季.Supernatural.S01-S14.1080p.Blu-Ray.AC3.x265.10bit-Yumi",
+      "rule": "$title_cn$.$season_start_to_end_cn$.$title_en$.$season_start_to_end_en$.$resolution$.$source$.$audio_codec$.$video_codec$"
+    },
+    {
+      "example": "邪恶力量.第01季.Supernatural.S01.1080p.Blu-Ray.AC3.x265.10bit-Yumi",
+      "rule": "$title_cn$.$season_cn$.$title_en$.$season$.$resolution$.$source$.$audio_codec$.$video_codec$"
+    },
+    {
+      "example": "无耻家庭.第01季.Shameless.S01.2011.1080p.AMZN.WEB-DL.AC3.x265.10bit-Yumi@FRDS",
+      "rule": "$title_cn$.$season_cn$.$title_en$.$season$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$"
+    },
+    {
+      "example": "A.Perfect.Planet.S01.BluRay.2160p.Atmos.TrueHD.7.1.HDR.x265.10bit-CHD",
+      "rule": "$title_en$.$season$.$source$.$resolution$.$audio_codec$.$video_codec$"
+    },
+    {
+      "example": "Alone.S01.1080p.AMZN.WEBRip.DDP2.0.x264-Cinefeel",
+      "rule": "$title_en$.$season$.$resolution$.$source$.$audio_codec$.$video_codec$"
+    },
+    {
+      "example": "A.Perfect.Planet.2021.2160p.BluRay.x265.10bit.Atmos.TrueHD7.1-WiKi",
+      "rule": "$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$"
+    },
+    {
+      "example": "Avatar.The.Way.of.Water.2022.BluRay.1080p.AVC.DTS-HD.MA5.1-loongkee@MTeam",
+      "rule": "$title_en$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$"
+    },
+    {
+      "example": "The.Last.of.Us.Game.CG.2160p.60fps.WEB-DL.H264.AAC-Stone",
+      "rule": "$title_en$.$resolution$.$source$.$video_codec$.$audio_codec$"
+    },
+    {
+      "example": "Lost.S01-S06.COMPLETE.2004-2010.1080p.Blu-ray.x265.10bits.DTS.5.1-PTer",
+      "rule": "$title_en$.$season_start_to_end_en$.$year_start_to_end$.$resolution$.$source$.$video_codec$.$audio_codec$"
+    },
+    {
+      "example": "赘婿.第1季.My.Heroic.Husband.S01E36.2021.2160p.WEB-DL.H265.AAC-FLTTH.mp4",
+      "rule": "$title_cn$.$season_cn$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "The.Office.US.S09E12.2012.1080p.WEBrip.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Shameless.US.S09E01.1080p.AMZN.WEB-DL.AC3.x265.10bit-Yumi@FRDS.mkv",
+      "rule": "$title_en$.$season_episode$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Scarlet EP01.mp4",
+      "rule": "$title_en$ $episode$.$extension$"
+    },
+    {
+      "example": "Scarlet EP50 End.mp4",
+      "rule": "$title_en$ $episode$ End.$extension$"
+    },
+    {
+      "example": "S01E01-PTer.mkv",
+      "rule": "$season_episode$.$extension$"
+    },
+    {
+      "example": "[壹高清]你喜欢勃拉姆斯吗.Do You Like Brahms.Ep01.HDTV.720p.H264-OneHD.ts",
+      "rule": "$title_cn$.$title_en$.$episode$.$source$.$resolution$.$video_codec$.$extension$"
+    },
+    {
+      "example": "[壹高清]你喜欢勃拉姆斯吗.Do You Like Brahms.Ep16.End.HDTV.720p.H264-OneHD.ts",
+      "rule": "$title_cn$.$title_en$.$episode$.$episode_title_en$.$source$.$resolution$.$video_codec$.$extension$"
+    },
+    {
+      "example": "[三国].Three.Kingdoms.EP01.2010.BluRay.720p.x264.AC3-CMCT.mkv",
+      "rule": "[$title_cn$].$title_en$.$episode$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[三体].Three-Body.2023.S01E01.2160p.V3.WEB-DL.HEVC.DDP5.1.Atmos.&.AAC-QHstudIo.mp4",
+      "rule": "[$title_cn$].$title_en$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[傲椒的湘菜].THE.PRIDE.OF.HUNAN.CUISINE.2021.EP01.WEB-DL.2160p.HEVC.AAC-QHstudIo.mp4",
+      "rule": "[$title_cn$].$title_en$.$year$.$episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[大明王朝1566].Da.Ming.Wang.Chao.2007.E01.1080p.WEB-DL.H265.AAC-PTerWEB.mp4",
+      "rule": "[$title_number_cn$].$title_en$.$year$.$episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[大堡礁].BBC.Great.Barrier.Reef.2012.Blu-ray.1080i.AVC.DTS-HD.MA.2.0-CMCT.mkv",
+      "rule": "[$title_cn$].$title_en$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[非洲].BBC.Africa.S01.2013.Blu-ray.1080i.AVC.DTS-HD.MA.5.1-CMCT.mkv",
+      "rule": "[$title_cn$].$title_en$.$season$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[信号].Signal.S01E01.2016.BluRay.1080p.x264.DTS-CMCT.mkv",
+      "rule": "[$title_cn$].$title_en$.$season_episode$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Jade.Forensic.Heroes.V.E01.2022.HDTV.1080i.H264-HDCTV.ts",
+      "rule": "$title_en$.$episode$.$year$.$source$.$resolution$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Jade.Other People's Money.Ep01.HDTV.1080p.H264-CNHK.ts",
+      "rule": "$title_en$.$episode$.$source$.$resolution$.$video_codec$.$extension$"
+    },
+    {
+      "example": "BBC.Africa.EP01.Kalahari.2013.1080p.BluRay.x264.DTS-WiKi.mkv",
+      "rule": "$title_en$.$episode$.$episode_title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Wonders.Of.The.Solar.System.EP01.Empire.of.the.Sun.2010.1080p.BluRay.DD2.0.x264-HDS.mkv",
+      "rule": "$title_en$.$episode$.$episode_title_en$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "TVB Anywhere.法证先锋V.Forensic Heroes V.Ep01.HDTV.1080p.H264.2Audio-OneHD.mkv",
+      "rule": "$title_cn$.$title_en$.$episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "TVB Anywhere.法证先锋V.Forensic Heroes V.Ep01.Repack.HDTV.1080p.H264.2Audio-OneHD.mkv",
+      "rule": "$title_cn$.$title_en$.$episode$.$episode_title_en$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "汉尼拔S01-S03.Hannibal.2013-2015.1080p.Blu-ray.x265.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_cn$$season_start_to_end_en$.$title_en$.$year_start_to_end$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "灿烂的转身.The.Magical.Women.S01E01.2023.2160p.WEB-DL.H265.DDP5.1-ADWeb.mkv",
+      "rule": "$title_cn$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "消失的十一层.The.Lost.11th.Floor.S01E24.2023.2160p.WEB-DL.H265.DDP5.1-OurTV.mp4",
+      "rule": "$title_cn$.$title_number_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "繁城之下.Ripe.Town.S01E12.2023.2160p.WEB-DL.H265.DV.DDP5.1-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "鹊刀门传奇.Legend.of.the.Undercover.Chef.S01E01.2023.2160p.WEB-DL.DDP.AAC.DV.H265-HDSWEB.mp4",
+      "rule": "$title_cn$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "繁城之下.Ripe.Town.S01E12.2023.2160p.WEB-DL.AAC.H.265-HDSWEB.mp4",
+      "rule": "$title_cn$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "去有风的地方.Meet.Yourself.2023.S01E01.1080p.HDR.WEB-DL.H265.AAC-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "他是谁.Who.Is.He.S01E01.2023.2160p.60FPS.HQ.WEB-DL.H265.10bit.AAC-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "鹿鼎記.1998.S01E01.1080p.myTV-SUPER.WEB-DL.H265.AAC-ManGor@MTeam.mkv",
+      "rule": "$title_cn$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "护心.Back.From.The.Brink.2023.EP03.WEB-DL.4K.H265.10bit.AAC.Mandarin-OPS.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "龙族.Dragon.Raja.2022.E00.1080p.WEB-DL.H264.AAC-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "士兵突击.Soldiers.Sortie.2006.E01.2160p.WEB-DL.AAC.H.265-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$episode$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "凡人修仙传.The.Mortal.Ascention.S01.2160p.WEB-DL.H264.AAC-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$season$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "凡人修仙传.The.Mortal.Ascention.2020.S01E01.2160p.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$season_episode$.$resolution$.$extension$"
+    },
+    {
+      "example": "凡人修仙传.The.Mortal.Ascention.2020.S01E01-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$season_episode$.$extension$"
+    },
+    {
+      "example": "二十二.Twenty.Two.2015.4K.WEB-DL.H265.DDP2.0-PTerWEB.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "龙马精神.Ride.On.2023.2160p.WEB-DL.H265.10bit.DTS.5.1-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "无耻家庭.第01季.Shameless.S01.2011.1080p.AMZN.WEB-DL.AC3.x265.10bit-Yumi@FRDS.mkv",
+      "rule": "$title_cn$.$season_cn$.$title_en$.$season$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "康熙王朝.E01.2001.DVDRip.x264.AC3-CMCT.mkv",
+      "rule": "$title_cn$.$episode$.$year$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "白い巨塔.E01.2003.1080p.HDTV.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_cn$.$episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[DMG] EDENS ZERO [BDRip][HEVC_FLAC][1080P](4ABDCA70).mkv",
+      "rule": "$title_en$ [$source$][$video_codec$_$audio_codec$][$resolution$]($mix_numbers_letters$).$extension$"
+    },
+    {
+      "example": "The.IT.Crowd.Manual.2014.720p.HDTV.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Hannibal.S01.2013.1080p.Blu-ray.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_en$.$season$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Planet.Earth.II.S01.EP01.Islands.2016.2160p.BluRay.REMUX.HEVC.DTS-HD.MA.5.1-DVB@szsddqwx.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "A.Perfect.Planet.S01.BluRay.2160p.Atmos.TrueHD.7.1.HDR.x265.10bit-CHD.mkv",
+      "rule": "$title_en$.$season$.$source$.$resolution$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "A.Perfect.Planet.S01E01.BluRay.2160p.Atmos.TrueHD.7.1.HDR.x265.10bit-CHD.mkv",
+      "rule": "$title_en$.$season_episode$.$source$.$resolution$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "True.Blood.S01E01.Strange.Love.1080p.DTS-HD.MA.5.1.AVC.REMUX-FraMeSToR.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$resolution$.$audio_codec$.$source$.$extension$"
+    },
+    {
+      "example": "Moving.S01E01.Senior.Year.2160p.Disney+.WEB-DL.DDP.5.1.Atmos.DV.HDR.H.265-Beans@CHDBits.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Supernatural.S01E01.Pilot.1080p.BluRay.REMUX.VC-1.DD.5.1-EPSiLON.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "What.on.Earth.S05E01.CIA.Killer.Monks.1080p.WEB.x264-CAFFEiNE.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Prison.Break.S01E01.Pilot.1080p.BluRay.Dts-HDMa5.1.PiR8.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$resolution$.$source$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "The.Wire.S01E01.1080p.Blu-ray.REMUX.AVC.DTS-HD.MA.5.1-HDH.mkv",
+      "rule": "$title_en$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "The.Walking.Dead.S01E01.1080p.BluRay.x264-Japhson.mkv",
+      "rule": "$title_en$.$season_episode$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Breaking.Bad.S02E01.2160p.WEB-DL.5xRus.Ukr.Eng.TrollUHD-ULTRAHDCLUB.mkv",
+      "rule": "$title_en$.$season_episode$.$resolution$.$source$.$extension$",
+      "replaces": [
+        {
+          "src": "5xRus.Ukr.Eng.",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "example": "Big.Bet.S01E01.2022.Disney+.WEB-DL.4K.HEVC.HDR.DDP-HDCTV.mkv",
+      "rule": "$title_en$.$season_episode$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Hanzawa.Naoki.S01E01.2013.DC.Blu-ray.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_en$.$season_episode$.$year$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Great.British.Railway.Journeys.S01E02.HDTV.720p.x264-CiA.mkv",
+      "rule": "$title_en$.$season_episode$.$source$.$resolution$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Skam.S1E01.WEBRip.1080P.不着调字幕组.mkv",
+      "rule": "$title_en$.$season_episode$.$source$.$resolution$.$extension$"
+    },
+    {
+      "example": "Skam.S1E01.你看起来像个荡女彐.中挪字幕.WEBRip.1080P.不着调字幕组.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_cn$.$source$.$resolution$.$extension$"
+    },
+    {
+      "example": "Skam.S2E02.你对一个朋友撒谎却怪罪于我.SweSub.1080p.WEB-DL.H264.mp4",
+      "rule": "$title_en$.$season_episode$.$episode_title_cn$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Oh.No.Here.Comes.Trouble.S01E02.2023.1080p.WEB-DL.AAC.H264-JKCT.mkv",
+      "rule": "$title_en$.$season_episode$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Yes,Minister.S03E08.1984.Party.Games.480p.DVDrip.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_en$.$season_episode$.$year$.$episode_title_en$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Young.Sheldon.S05E01.One.Bad.Night.and.Chaos.of.Selfish.Desires.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$extension$"
+    },
+    {
+      "example": "The.Universe.S01E01.Secrets.of.the.Sun.2007.BD-REMUX.1080P.H264.AC3-FrankB.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "The.Universe.S01E01.Secrets.of.the.Sun.2007.BD-REMUX.1080P.H264.AC3-FrankB.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$year$.$source$.$resolution$.$video_codec$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Arrow.S01E01.Pilot.Bluray.1080p.x265.10bit.DDP.5.1.MNHD-FRDS.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Supernatural.S06E22.The.Man.Who.Knew.Too.Much.Blu-Ray.AC3.x265.10bit-Yumi.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "The.Universe.S05E01.7.Wonders.of.the.Solar.System.BD-REMUX.1080P.H264.AVC.DTS-HD-FrankB.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$source$.$resolution$.$video_codec$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Australia.with.Simon.Reeve.S01E01.WEB-DL.720p.H.264.AAC-FOXKING.mp4",
+      "rule": "$title_en$.$season_episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "The.Universe.S09E01.Omens.of.Doom.1080p.x264.Eac3-FrankB.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "The.Universe.S08E01.2014.stonehenge.1080p.BD-REMUX.H264.AVC.DTS-FrankB.mkv",
+      "rule": "$title_en$.$season_episode$.$year$.$episode_title_en$.$resolution$.$source$.$video_codec$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "SEAL.Team.S03E11E12.2019.1080p.WEBrip.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_en$.$season_episode_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Friends.S10E17E18.1080p.BluRay.Remux.AVC.AC3-WhaleHu.mkv",
+      "rule": "$title_en$.$season_episode_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Better Call Saul S01E01 2160p WEB-DL DTS x265-TrollUHD.mkv",
+      "rule": "$title_en$ $season_episode$ $resolution$ $source$ $audio_codec$ $video_codec$.$extension$"
+    },
+    {
+      "example": "The Big Bang Theory S03E01 The Electric Can Opener Fluctuation 1080p BluRay Remux VC1 DD5.1-Gamma.mkv",
+      "rule": "$title_en$ $season_episode$ $episode_title_en$ $resolution$ $source$ $video_codec$ $audio_codec$.$extension$"
+    },
+    {
+      "example": "The Sopranos S01E01 1080p Blu-ray Remux AVC DTS-HD MA 5.1.mkv",
+      "rule": "$title_en$ $season_episode$ $resolution$ $source$ $video_codec$ $audio_codec$.$extension$"
+    },
+    {
+      "example": "My.Own.Swordsman.2006.S01E01.2160p.WEB-DL.H265.AAC-LeagueWEB.mp4",
+      "rule": "$title_en$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": " Immigration.Nation.2020.S01E01.Installing.Fear.1080p.WEB-DL.DDP5.1.x264.mkv",
+      "rule": "$title_en$.$year$.$season_episode$.$episode_title_en$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "America.the.Beautiful.2022.S01E01.1080p.WEB.h264-KOGi.mkv",
+      "rule": "$title_en$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Explore.with.the.Note.2019.E01.1080p.WEB-DL.H264.AAC-LeagueWEB.mp4",
+      "rule": "$title_en$.$year$.$episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Into.the.Universe.With.Stephen.Hawking.2010.E03.1080p.Bluray.x265.10bit.MNHD-FRDS.mkv",
+      "rule": "$title_en$.$year$.$episode$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Under.the.Microscope.2023.S01E01.WEB-DL.2160P.HEVC.AAC-CJWL.mp4",
+      "rule": "$title_en$.$year$.$season_episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Fringe.2008.S01E01.Blu-Ray.1080p.DD5.1.x265.10bit-Yumi.mkv",
+      "rule": "$title_en$.$year$.$season_episode$.$source$.$resolution$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "One.Dream.One.Home.2019.E01.WEB-DL.4K.HLG10.H265.AAC-HDCTV.mp4",
+      "rule": "$title_en$.$year$.$episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Eight.Hours.2022.E09.Repack.WEB-DL.4K.H265.DDP.AAC-HDCTV.mp4",
+      "rule": "$title_en$.$year$.$episode$.$episode_title_en$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Howl's.Moving.Castle.2004.BluRay.1080p.x265.10bit.4Audio.MNHD-FRDS.mkv",
+      "rule": "$title_en$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Heidi.2015.BluRay.1080p.DTS-HD.MA.5.1.3Audio.x264-EPiC.mkv",
+      "rule": "$title_en$.$year$.$source$.$resolution$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Love.is.Pyjamas.2012.Blu-ray.1080p.Remux.AVC.TrueHD.7.1-Dream.mkv",
+      "rule": "$title_en$.$year$.$source$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Downton.Abbey.A.New.Era.2022.2160p.WEB-DL.DDP5.1.Atmos.HDR.DV.x265-HDFans.mkv",
+      "rule": "$title_en$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$",
+      "replaces": [
+        {
+          "src": ".MA.",
+          "target": "."
+        }
+      ]
+    },
+    {
+      "example": "Triangle.of.Sadness.2022.CC.UHD.BluRay.2160p.x265.10bit.HDR.mUHD-FRDS.mkv",
+      "rule": "$title_en$.$year$.$source$.$resolution$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Empresses.in.the.Palace.E01.BluRay.1080p.x265.10bit.2Audio.MNHD-FRDS.mkv",
+      "rule": "$title_en$.$episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "The.Last.of.Us.Game.CG.2160p.60fps.WEB-DL.H264.AAC-Stone.mkv",
+      "rule": "$title_en$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[cX]A.Small.Light.E08.2023.1080p.WEBrip.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$title_en$.$episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$",
+      "replaces": [
+        {
+          "src": "[cX]",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "example": "The.Bad.Kids.E01.2020.WEB-DL.4K.H265.AAC-Enichi.mp4",
+      "rule": "$title_en$.$episode$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "1899.2022.S01E01.1080p.NF.WEB-DL.H264.DDP5.1.Atmos-OurTV.mkv",
+      "rule": "$title_year$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Prince of Persia the Sands of Time 2010 BluRay 1080p x265 2Audio-WGXC@HDFans.mkv",
+      "rule": "$title_en$ $year$ $source$ $resolution$ $video_codec$ $audio_codec$.$extension$"
+    },
+    {
+      "example": "[DMG] EDENS ZERO Menu Vol.1 [BDRip][HEVC_FLAC][1080P_Ma10P](4ABDCA70).mkv",
+      "rule": "$title_en$ [$source$][$video_codec$_$audio_codec$][$resolution$]($mix_numbers_letters$).$extension$",
+      "replaces": [
+        {
+          "src": "Menu Vol.1 ",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "example": "[Isekai Ojisan][Vol.01][Menu][BDRIP][1080P][H264_FLAC].mkv",
+      "rule": "[$title_en$][$source$][$resolution$][$video_codec$_$audio_codec$].$extension$",
+      "replaces": [
+        {
+          "src": "[Vol.01]",
+          "target": ""
+        },
+        {
+          "src": "[Menu]",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "example": "[Isekai Ojisan][03][BDRIP][1080P][H264_FLAC].mkv",
+      "rule": "[$title_en$][$episode_number$][$source$][$resolution$][$video_codec$_$audio_codec$].$extension$"
+    },
+    {
+      "example": "2.Broke.Girls.S01E01.2011.1080p.WEB-DL.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$number$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "2.Broke.Girls.S06E01E02.2016.1080p.WEB-DL.x265.10bit.AC3￡cXcY@FRDS.mkv",
+      "rule": "$number$.$title_en$.$season_episode_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "风味人间.Once.Upon.A.Bite.2022.S04E01.2160p.50FPS.WEB-DL.H265.DV.DDP2.0-OurTV.mp4",
+      "rule": "$title_cn$.$title_en$.$year$.$season_episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "斗罗大陆.Dou.Luo.Da.Lu.2018.S01E01.1080p.WEB-DL.AAC.H264-OurTV.mp",
+      "rule": "$title_cn$.$title_en$.$year$.$season_episode$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "The.Vietnam.War.E01.2017.BluRay.1080p.x265.10bit.MNHD-FRDS.mkv",
+      "rule": "$title_en$.$episode$.$year$.$source$.$resolution$.$video_codec$.$extension$"
+    },
+    {
+      "example": "USA.A.West.Coast.Journey.2014.2160p.BluRay.x265.10bit.SDR.mUHD-FRDS.mkv",
+      "rule": "$title_en$.$year$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Alone.S09E11.Fight.Flight.or.Freeze.1080p.AMZN.WEB-DL.AAC2.0.H.264-SMURF.mkv",
+      "rule": "$title_en$.$season_episode$.$episode_title_en$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "BBC.Frozen.Planet.EP01.2011.1080p.BluRay.DTS.x264-HDS.mkv",
+      "rule": "$title_en$.$episode$.$year$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Blue Planet II 2017 D1 UHD BluRay REMUX 2160p HEVC DTS-HD MA5.1 2Audio-CHD.mkv",
+      "rule": "$title_en$ $year$ $source$ $resolution$ $video_codec$ $audio_codec$.$extension$"
+    },
+    {
+      "example": "Our Planet 2019 S01E04 Coastal Seas 2160p NF WEBRip x265.mkv",
+      "rule": "$title_en$ $year$ $season_episode$ $episode_title_en$ $resolution$ $source$ $video_codec$.$extension$"
+    },
+    {
+      "example": "CCTV.Bian.Jiang.Xing.E01.720p.HDTV.x264-NGB.mkv",
+      "rule": "$title_en$.$episode$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "CCTV.Bian.Jiang.Xing.E01.720p.HDTV.x264.AC3-NGB.mkv",
+      "rule": "$title_en$.$episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Earth.Flight.Ep01.North.America.1080p.BluRay.x264-xiaofriend.mkv",
+      "rule": "$title_en$.$episode$.$episode_title_en$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Earth.Flight.Ep01.North.America.1080p.BluRay.x264-xiaofriend.mkv",
+      "rule": "$title_en$.$episode$.$episode_title_en$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "How.Earth.Made.Us.EP01.HK.2010.BluRay.1080P.DTS-HD.MA2.0.x264-th71@beAst.mkv",
+      "rule": "$title_en$.$episode$.$year$.$source$.$resolution$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "早餐中国.Breakfast.In.China.S04E31.2020.2160p.WEB-DL.H265.mkv",
+      "rule": "$title_cn$.$title_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$extension$"
+    },
+    {
+      "example": "风味人间.Once.Upon.a.Bite.2018.S01E01.WEB-DL.4K.VP9.AAC-PTerWEB.mkv",
+      "rule": "$title_cn$.$title_en$.$year$.$season_episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "[易中天品三国52千古风流].Yi.Zhong.Tian.Pin.San.Guo.E52.2006.DVDRip.576p.x264.AC3-CMCT.mkv",
+      "rule": "[$title_cn$$episode_number$$episode_title_cn$].$title_en$.$episode$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "宇宙时空之旅.Cosmos.A.SpaceTime.Odyssey.S01E01.Standing.Up.in.the.Milky.Way.2014.BluRay.1080p.x265.DTS.5.1.mkv",
+      "rule": "$title_cn$.$title_en$.$season_episode$.$episode_title_en$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "The.Civil.War.E9.1865.The.Better.Angels.of.Our.Nature.720p.BluRay.DD5.1.x264-DON.mkv",
+      "rule": "$title_en$.$episode$.$year$.$episode_title_en$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Planet.Earth.EP01.From.Polo.To.Polo.2006.BluRay.1080p.MultiAudio.DTS-HD.HR.5.1.x264-beAst.mkv",
+      "rule": "$title_en$.$episode$.$episode_title_en$.$year$.$source$.$resolution$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "BBC.Attenborough.60.Years.in.the.Wild.2012.EP01.BluRay.1080p.DTS-HD.MA.2.0.x265.10bit-BeiTai.mkv",
+      "rule": "$title_number_en$.$year$.$episode$.$source$.$resolution$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Around.The.World.In.80.Gardens.2008.E10.1080p.WEB-DL.H264.AAC-PTerWEB.mp4",
+      "rule": "$title_number_en$.$year$.$episode$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Around.The.World.In.80.Gardens.2008.E10.1080p.WEB-DL.H264.AAC-PTerWEB.mp4",
+      "rule": "$title_number_en$.$year$.$episode$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Formula.1.Drive.to.Survive.S03E01.2021.Netflix.WEB-DL.4K.HEVC.HDR.DDP-HDCTV.mkv",
+      "rule": "$title_number_en$.$season_episode$.$year$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "John Wick Chapter 4 2023 UHD BluRay 2160p HEVC Atmos TrueHD7.1-BHYS@OurBits",
+      "rule": "$title_number_en$ $year$ $color$ $source$ $resolution$ $video_codec$ $audio_codec$"
+    },
+    {
+      "example": "Attenborough 60 Years in the Wild 2012 2Disc Blu-ray 1080i AVC DTS-HD 2.0-TTG",
+      "rule": "$title_number_en$ $year$ $source$ $resolution$ $video_codec$ $audio_codec$"
+    },
+    {
+      "example": "13.Reasons.Why.S01E01.Tape.1.Side.A.2160p.NF.WEB-DL.DDP5.1.HDR.HEVC-HHWEB.mkv",
+      "rule": "$title_number_en$.$season_episode$.$episode_title_en$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Re.Zero.kara.Hajimeru.Isekai.Seikatsu.E26.Crunchyroll.WEB-DL.1080p.x264.AAC-HDCTV.mkv",
+      "rule": "$title_en$.$episode$.$episode_title_en$.$source$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Record.of.Ragnarok.II.2023.S02E01.1080p.NF.WEB-DL.DDP2.0.x264-PTerWEB.mkv",
+      "rule": "$title_en$.$year$.$season_episode$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Record.of.Ragnarok.II.2023.S02E01.1080p.NF.WEB-DL.x264.DDP2.0-PTerWEB.mkv",
+      "rule": "$title_en$.$year$.$season_episode$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Record.of.Ragnarok.II.2023.S02E01.1080p.NF.WEB-DL.DDP2.0.x264-PTerWEB.mkv",
+      "rule": "$title_en$.$year$.$season_episode$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Cyberpunk.Edgerunners.E02.Like.A.Boy.2160p.NF.Blue-ray.DDP5.1.H.264-SPADE.mkv",
+      "rule": "$title_en$.$episode$.$episode_title_en$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Cyberpunk.Edgerunners.02.Like.A.Boy.2160p.NF.Blue-ray.DDP5.1.H.264-SPADE.mkv",
+      "rule": "$title_en$.$episode_number$.$episode_title_en$.$resolution$.$source$.$audio_codec$.$video_codec$.$extension$"
+    },
+    {
+      "example": "[VCB-Studio] OVERLORD [13][1080p][x265_flac].mkv",
+      "rule": "$title_en$ [$episode_number$][$resolution$][$video_codec$_$audio_codec$].$extension$"
+    },
+    {
+      "example": "[VCB-Studio] Durarara!!×2 Shou [01][Ma10p_1080p][x265_flac_aac].mkv",
+      "rule": "$title_number_en$ [$episode_number$][$resolution$][$video_codec$_$audio_codec$].$extension$"
+    },
+    {
+      "example": "Dragon.Ball.150.480p.x264.mkv",
+      "rule": "$title_en$.$episode_number$.$resolution$.$video_codec$.$extension$"
+    },
+    {
+      "example": "Night on Earth S01E01 Moonlit Plains 2160p WEBRip DD+5.1 HDR x265-Chotab.mkv",
+      "rule": "$title_en$ $season_episode$ $episode_title_en$ $resolution$ $source$ $audio_codec$ $video_codec$.$extension$"
+    },
+    {
+      "example": "[sergey_krs] Kuroshitsuji II - 01 [BDRip 1920x1080 x264 FLAC].mkv",
+      "rule": "$title_en$ $episode_number$ [$source$ $resolution$ $video_codec$ $audio_codec$].$extension$"
+    },
+    {
+      "example": "[sergey_krs] Kuroshitsuji II - 01 [BDRip 1920x1080 x264 FLAC].mkv",
+      "rule": "$title_en$ $episode_number$ [$source$ $resolution$ $audio_codec$ $video_codec$].$extension$"
+    },
+    {
+      "example": "[sergey_krs] Kuroshitsuji II - 01 [BDRip 1920x1080 x264 FLAC].mkv",
+      "rule": "[$title_en$][$episode_number$][$source$][$audio_codec$][$resolution$].$extension$"
+    },
+    {
+      "example": "[Nekomoe kissaten&VCB-Studio] Mushoku Tensei ~Isekai Ittara Honki Dasu~ [01][Ma10p_1080p][x265_flac].mkv",
+      "rule": "$title_en$ [$episode_number$][$resolution$][$video_codec$_$audio_codec$].$extension$"
+    },
+    {
+      "example": "[NC-Raws] OVERLORD IV - 01 (B-Global 3840x2160 HEVC AAC MKV) [038B942D].mkv",
+      "rule": "$title_en$ $episode_number$ $resolution$ $video_codec$ $audio_codec$ [$mix_numbers_letters$].$extension$",
+      "replaces": [
+        {
+          "src": "B-Global ",
+          "target": ""
+        },
+        {
+          "src": " MKV",
+          "target": ""
+        },
+        {
+          "src": " (",
+          "target": " "
+        },
+        {
+          "src": ") ",
+          "target": " "
+        }
+      ]
+    },
+    {
+      "example": "[DMG] EDENS ZERO 第01话「桜舞うソラに」 [BDRip][HEVC_FLAC][1080P_Ma10P](3E87A76C).mkv",
+      "rule": "$title_en$ $episode_cn$ $episode_title_jp$ [$source$][$video_codec$_$audio_codec$][$resolution$]($mix_numbers_letters$).$extension$",
+      "replaces": [
+        {
+          "src": "「",
+          "target": " "
+        },
+        {
+          "src": "」 ",
+          "target": " "
+        }
+      ]
+    },
+    {
+      "example": "Mobseka 2022 S01E01-[1080p][BDRIP][x265.FLAC].mkv",
+      "rule": "$title_en$ $year$ $season_episode$-[$resolution$][$source$][$video_codec$.$audio_codec$].$extension$"
+    },
+    {
+      "example": "Onipan! S01E01-[1080p][BDRIP][x265.FLAC].mkv",
+      "rule": "$title_en$ $season_episode$-[$resolution$][$source$][$video_codec$.$audio_codec$].$extension$"
+    },
+    {
+      "example": "Zom.100.Bucket.List.of.the.Dead.S01E01.2023.2160p.WEB-DL.H264.AAC.mkv",
+      "rule": "$title_number_en$.$season_episode$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
+      "example": "Hunter X Hunter 2011 - EP001 [BD 1920x1080 23.976fps AVC-yuv444p10 FLAC Chap] v2 - mawen1250.mkv",
+      "rule": "$title_en$ $year$ $episode$ [$anything$].$extension$"
+    },
+    {
+      "example": "圣斗士星矢第52话：亚历士，传说中的魔皇拳.mkv",
+      "rule": "$title_cn$ $episode_cn$ $episode_title_cn$.$extension$",
+      "regex_replaces": [
+        {
+          "src": "$episode_cn$",
+          "target": " $episode_cn$ "
+        }
+      ],
+      "replaces": [
+        {
+          "src": "：",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "example": "Air.Emergency.S16E01.Deadly.Silence.死寂（1999年里尔35公务机空难）.mp4",
+      "rule": "$title_en$.$season_episode$.$anything$.$extension$"
+    }
+  ]
+}

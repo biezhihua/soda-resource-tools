@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+use crate::soda::fanart::entity::FanartMovie;
 use crate::soda::fanart::entity::FanartTV;
 use serde::Deserialize;
 use serde::Serialize;
@@ -12,20 +13,27 @@ pub struct TmdbSeasonInfo {
 }
 impl TmdbSeasonInfo {
     pub(crate) fn new(tmdb_season: TmdbSeason) -> TmdbSeasonInfo {
-        return TmdbSeasonInfo { tv_season: tmdb_season, tv_episodes: HashMap::new() };
+        return TmdbSeasonInfo {
+            tv_season: tmdb_season,
+            tv_episodes: HashMap::new(),
+        };
     }
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct TmdbTVInfo {
     pub tv: TmdbTV,
-    pub fanart_tv: Option<FanartTV>,
+    pub fanart: Option<FanartTV>,
     pub tv_seasons: HashMap<i64, TmdbSeasonInfo>,
 }
 
 impl TmdbTVInfo {
     pub(crate) fn new(tmdb_tv: TmdbTV) -> TmdbTVInfo {
-        return TmdbTVInfo { tv: tmdb_tv, tv_seasons: HashMap::new(), fanart_tv: None };
+        return TmdbTVInfo {
+            tv: tmdb_tv,
+            tv_seasons: HashMap::new(),
+            fanart: None,
+        };
     }
 }
 
@@ -42,11 +50,13 @@ pub struct TmdbTV {
     pub popularity: Option<f64>,
     pub poster_path: Option<String>,
     pub seasons: Option<Vec<TmdbSeason>>,
+    pub number_of_seasons: Option<i64>,
     pub vote_average: Option<f64>,
     pub vote_count: Option<i64>,
     pub credits: Option<TmdbCredits>,
     pub external_ids: Option<TmdbExternalIds>,
 }
+
 impl TmdbTV {
     pub(crate) fn new(tmdb_info: Value) -> TmdbTV {
         let result: Result<TmdbTV, serde_json::Error> = serde_json::from_value(tmdb_info);
@@ -55,16 +65,7 @@ impl TmdbTV {
                 return result;
             }
             Err(e) => {
-                // 打印错误信息
-                if e.is_data() {
-                    tracing::error!("TmdbTV new 数据类型错误 {}", e);
-                } else if e.is_syntax() {
-                    tracing::error!("TmdbTV new 语法错误 {}", e);
-                } else if e.is_io() {
-                    tracing::error!("TmdbTV new IO 错误 {}", e);
-                } else if e.is_eof() {
-                    tracing::error!("TmdbTV new 意外的文件结束 {}", e);
-                }
+                tracing::error!("TmdbTV new err {}", e);
                 unreachable!("解析失败");
             }
         }
@@ -111,7 +112,10 @@ impl TmdbTV {
     }
 
     pub(crate) fn year(&self) -> &str {
-        &(self.first_air_date()[0..4])
+        if self.first_air_date().is_empty() {
+            return "";
+        }
+        return &(self.first_air_date()[0..4]);
     }
 
     pub(crate) fn tmdb_id(&self) -> String {
@@ -439,5 +443,178 @@ impl TmdbSeason {
             Some(season_number) => season_number.to_string(),
             None => "".to_string(),
         }
+    }
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct TmdbMovie {
+    pub id: i64,
+    pub imdb_id: Option<String>,
+    pub release_date: Option<String>,
+    pub genres: Option<Vec<TmdbGenre>>,
+    pub title: Option<String>,
+    pub original_title: Option<String>,
+    pub original_language: Option<String>,
+    pub overview: Option<String>,
+    pub popularity: Option<f64>,
+    pub backdrop_path: Option<String>,
+    pub poster_path: Option<String>,
+    pub vote_average: Option<f64>,
+    pub vote_count: Option<i64>,
+    pub credits: Option<TmdbCredits>,
+    pub external_ids: Option<TmdbExternalIds>,
+}
+impl TmdbMovie {
+    pub(crate) fn new(tmdb_info: Value) -> TmdbMovie {
+        let result: Result<TmdbMovie, serde_json::Error> = serde_json::from_value(tmdb_info);
+        match result {
+            Ok(result) => {
+                return result;
+            }
+            Err(e) => {
+                tracing::error!("TmdbMovie new err {}", e);
+                unreachable!("解析失败");
+            }
+        }
+    }
+
+    pub(crate) fn actors(&self) -> Option<Vec<&TmdbCast>> {
+        let mut ret = Vec::new();
+        match &self.credits {
+            Some(credits) => match &credits.cast {
+                Some(casts) => {
+                    for cast in casts {
+                        match cast.known_for_department() {
+                            "Acting" => {
+                                ret.push(cast);
+                            }
+                            _ => {}
+                        }
+                    }
+                }
+                None => return None,
+            },
+            None => return None,
+        }
+        return Some(ret);
+    }
+
+    pub(crate) fn directors(&self) -> Option<Vec<&TmdbCrew>> {
+        let mut ret = Vec::new();
+        match &self.credits {
+            Some(credits) => match &credits.crew {
+                Some(crews) => {
+                    for crew in crews {
+                        let job = crew.job();
+                        if job == "Director" || job == "Writer" || job == "Editor" || job == "Producer" {
+                            ret.push(crew);
+                        }
+                    }
+                }
+                None => return None,
+            },
+            None => return None,
+        }
+        return Some(ret);
+    }
+
+    pub(crate) fn year(&self) -> &str {
+        if self.first_air_date().is_empty() {
+            return "";
+        }
+        return &(self.first_air_date()[0..4]);
+    }
+
+    pub(crate) fn tmdb_id(&self) -> String {
+        self.id.to_string()
+    }
+
+    pub(crate) fn tvdb_id(&self) -> Option<String> {
+        if let Some(external_ids) = &self.external_ids {
+            if let Some(tvdb_id) = external_ids.tvdb_id {
+                return Some(tvdb_id.to_string());
+            }
+        }
+        return None;
+    }
+
+    pub(crate) fn imdb_id(&self) -> Option<&str> {
+        if let Some(external_ids) = &self.external_ids {
+            if let Some(imdb_id) = &external_ids.imdb_id {
+                return Some(imdb_id);
+            }
+        }
+        return None;
+    }
+
+    pub(crate) fn overview(&self) -> &str {
+        match &self.overview {
+            Some(overview) => overview.as_str(),
+            None => "",
+        }
+    }
+
+    pub(crate) fn name(&self) -> &str {
+        match &self.title {
+            Some(name) => name.as_str(),
+            None => "",
+        }
+    }
+
+    pub(crate) fn original_language(&self) -> &str {
+        match &self.original_language {
+            Some(original_language) => original_language.as_str(),
+            None => "",
+        }
+    }
+
+    pub(crate) fn first_air_date(&self) -> &str {
+        match &self.release_date {
+            Some(first_air_date) => first_air_date.as_str(),
+            None => "",
+        }
+    }
+
+    pub(crate) fn poster_path(&self) -> &str {
+        match &self.poster_path {
+            Some(poster_path) => poster_path.as_str(),
+            None => "",
+        }
+    }
+
+    pub(crate) fn backdrop_path(&self) -> &str {
+        match &self.backdrop_path {
+            Some(backdrop_path) => backdrop_path.as_str(),
+            None => "",
+        }
+    }
+
+    pub(crate) fn original_name(&self) -> &str {
+        match &self.original_title {
+            Some(original_name) => original_name.as_str(),
+            None => "",
+        }
+    }
+
+    pub(crate) fn vote_average(&self) -> String {
+        match &self.vote_average {
+            Some(vote_average) => vote_average.to_string(),
+            None => "".to_string(),
+        }
+    }
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct TmdbMovieInfo {
+    pub movie: TmdbMovie,
+    pub fanart: Option<FanartMovie>,
+}
+
+impl TmdbMovieInfo {
+    pub(crate) fn new(tmdb_movie: TmdbMovie) -> TmdbMovieInfo {
+        return TmdbMovieInfo {
+            movie: tmdb_movie,
+            fanart: None,
+        };
     }
 }
