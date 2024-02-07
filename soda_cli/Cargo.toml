@@ -2,7 +2,7 @@
 name = "soda_cli"
 version = "0.1.0"
 edition = "2021"
-license = "GPLv3"
+license = "GPL-3.0-only"
 keywords = ["tv or movie scrape", "scrape", "file recognize"]
 homepage = "https://github.com/biezhihua/soda-resource-tools"
 readme = "https://github.com/biezhihua/soda-resource-tools/blob/main/soda_cli/README.md"
