@@ -8,7 +8,7 @@ homepage = "https://github.com/biezhihua/soda-resource-tools"
 documentation = "https://github.com/biezhihua/soda-resource-tools"
 repository = "https://github.com/biezhihua/soda-resource-tools"
 readme = "README.md"
-description = "bzh_clix"
+description = "soda_clix"
 authors = ["biezhihua"]
 categories = ["command-line-utilities"]
 
