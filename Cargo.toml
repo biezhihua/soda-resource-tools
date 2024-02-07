@@ -1,6 +1,6 @@
 [workspace]
 resolver = "1"
 members = [
-  "soda_resource_tools_cli",
+  "soda_cli",
   "soda_resource_tools_lib",
 ]
