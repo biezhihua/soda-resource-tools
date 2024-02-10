@@ -58,7 +58,7 @@ Options:
 ```shell
 # 查看soda_clix scrape子命令
 
-➜  downloads soda_clix scrape
+➜  soda_clix scrape
 刮削资源
 
 Usage: soda_clix scrape [OPTIONS]
@@ -68,17 +68,38 @@ Options:
       --transfer-type <TRANSFER_TYPE>  媒体从源目录转移到输出目录的方式 hard_link: 硬链接 symbol_link: 符号链接 copy: 复制 move: 移动 [default: hard_link] [possible values: hard_link, symbol_link, copy, move]
       --scrape-image                   刮削图片 true: 刮削图片 false: 不刮削图片
       --rename-style <RENAME_STYLE>    重命名格式 emby: Emby格式 [default: emby] [possible values: emby]
-      --src-dir <SRC_DIR>              媒体源目录
-      --target-dir <TARGET_DIR>        媒体刮削输出目录 刮削后的文件输出目录，如果不指定则默认为src_dir
-  -h, --help                           Print help
+      --src <SRC>                      媒体源目录或文件
+      --target <TARGET>                媒体刮削输出目录 刮削后的文件输出目录，如果不指定则默认为src
+  -h, --help                           Print help                         Print help
 ```
 
 ```shell
-# 刮削单个文件
+# 刮削文件
 
+➜ soda_clix scrape --resource-type mt --transfer-type hard_link --src ./xxx.mkv --target ./Target/电影
 ```
 
+```shell
+# 刮削目录
+
+➜ soda_clix scrape --resource-type mt --transfer-type hard_link --src ./Src --target ./Target/电影
+```
+
+
 ## 问题排查
+
+### 网络问题
+
+```text
+➜  downloads soda_clix scrape --resource-type mt --transfer-type hard_link --src ./Spider.Man.Across.the.Spider.Verse.2023.2160p.WEB-DL.H.265.DDP.5.1.Atmos.mkv --target ./电影
+2024-02-10 21:26:23  INFO soda::info: 配置文件目录: /root/.config/soda
+2024-02-10 21:26:23  INFO soda::info: 缓存文件目录: /root/.cache/soda/cache
+2024-02-10 21:26:23  INFO soda::info: 日志文件目录: /root/.cache/soda/log
+2024-02-10 21:26:23  INFO soda::info: 开始检查网络
+2024-02-10 21:26:23  INFO soda::info: 开始访问: https://raw.githubusercontent.com/biezhihua/soda-resource-tools/main/soda_cli_config/soda_config.json
+2024-02-10 21:26:23  INFO soda::info: 开始访问: https://api.themoviedb.org
+Error: Request(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("api.themoviedb.org")), port: None, path: "/", query: None, fragment: None }, source: TimedOut })
+```
 
 ### 日志目录
 
@@ -88,6 +109,14 @@ Options:
 配置文件目录: C:\Users\biezhihua\AppData\Roaming\biezhihua\soda\config
 缓存文件目录: C:\Users\biezhihua\AppData\Local\biezhihua\soda\cache\cache
 日志文件目录: C:\Users\biezhihua\AppData\Local\biezhihua\soda\cache\log
+```
+
+#### linux 
+
+```text
+配置文件目录: /root/.config/soda
+缓存文件目录: /root/.cache/soda/cache
+日志文件目录: /root/.cache/soda/log
 ```
 
 ## 开发者
