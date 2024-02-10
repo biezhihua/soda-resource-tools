@@ -18,8 +18,7 @@ use clap::Parser;
 use clap::Subcommand;
 
 #[derive(Debug, Parser)]
-#[command(name = "soda")]
-#[command(about = "A resource scrape CLI", long_about = None)]
+#[command(name = "soda_clix", version = "0.1.1", author = "biezhihua", about = "A media scrape CLI", long_about = None)]
 struct Cli {
     /// 开发模式
     #[arg(long)]
