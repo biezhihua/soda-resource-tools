@@ -4,6 +4,13 @@
 
 识别和刮削媒体资源文件。
 
+## 注意事项
+
+- 不支持蓝光原盘。
+- 刮削信息从github、tmdb、fanart获取，需要科学上网。
+- 问题反馈
+  - 从Github上提ISSUE并且附上日志文件。
+
 ## 如何安装
 
 ### 从Docker安装
@@ -126,10 +133,6 @@ Error: Request(reqwest::Error { kind: Request, url: Url { scheme: "https", canno
 ```shell
 cargo build
 ```
-
-## 注意事项
-
-- 不支持蓝光原盘
 
 ## 开源协议
 
