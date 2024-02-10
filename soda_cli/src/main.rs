@@ -81,14 +81,14 @@ enum Commands {
         )]
         rename_style: RenameStyle,
 
-        /// 媒体源目录
+        /// 媒体源目录或文件
         #[arg(long,value_hint = clap::ValueHint::DirPath)]
-        src_dir: Option<std::path::PathBuf>,
+        src: Option<std::path::PathBuf>,
 
         /// 媒体刮削输出目录
-        /// 刮削后的文件输出目录，如果不指定则默认为src_dir
+        /// 刮削后的文件输出目录，如果不指定则默认为src
         #[arg(long,value_hint = clap::ValueHint::DirPath)]
-        target_dir: Option<std::path::PathBuf>,
+        target: Option<std::path::PathBuf>,
     },
 }
 
@@ -149,8 +149,8 @@ fn main() -> Result<(), SodaError> {
         Commands::Scrape {
             resource_type,
             transfer_type,
-            src_dir,
-            target_dir,
+            src: src_path,
+            target: target_path,
             scrape_image,
             rename_style,
         } => {
@@ -180,17 +180,17 @@ fn main() -> Result<(), SodaError> {
                 init_lib_config(&local_soda_config, &config_dir, &cache_dir, &rename_style);
             }
 
-            if src_dir.is_some() {
-                let src_dir = src_dir.clone().unwrap();
-                let target_dir = if target_dir.is_some() { target_dir.unwrap() } else { src_dir.clone() };
-                if src_dir.exists() {
-                    if !target_dir.exists() {
-                        fs::create_dir_all(target_dir.clone()).unwrap();
-                        tracing::info!(target:"soda::info", "创建媒体刮削输出目录: {}", target_dir.to_str().unwrap());
+            if src_path.is_some() {
+                let src_path = src_path.clone().unwrap();
+                let target_path = if target_path.is_some() { target_path.unwrap() } else { src_path.clone() };
+                if src_path.exists() {
+                    if !target_path.exists() {
+                        fs::create_dir_all(target_path.clone()).unwrap();
+                        tracing::info!(target:"soda::info", "创建媒体刮削输出目录: {}", target_path.to_str().unwrap());
                     }
-                    let src_dir = src_dir.to_str().unwrap().to_string();
-                    let target_dir = target_dir.to_str().unwrap().to_string();
-                    scrape_mt(resource_type, transfer_type, src_dir, target_dir, scrape_image);
+                    let src_path = src_path.to_str().unwrap().to_string();
+                    let target_path = target_path.to_str().unwrap().to_string();
+                    scrape_mt(resource_type, transfer_type, src_path, target_path, scrape_image);
                 } else {
                     tracing::error!(target:"soda::info", "媒体源目录不存在")
                 }
@@ -369,14 +369,14 @@ fn init_tracing(log_level: String, all_log: NonBlocking, metadata_log: NonBlocki
         .init();
 }
 
-fn scrape_mt(resource_type: ResourceType, transfer_type: TransferType, src_dir: String, target_dir: String, scrape_image: bool) {
-    tracing::info!(target:"soda::info", "刮削开始: 媒体类型: {:?}, 媒体从源目录转移到输出目录的方式: {:?}, 媒体源目录: {:?}, 媒体刮削输出目录: {:?}",resource_type, transfer_type,   src_dir,  target_dir);
+fn scrape_mt(resource_type: ResourceType, transfer_type: TransferType, src_path: String, target_path: String, scrape_image: bool) {
+    tracing::info!(target:"soda::info", "刮削开始: 媒体类型: {:?}, 媒体从源目录转移到输出目录的方式: {:?}, 媒体源目录: {:?}, 媒体刮削输出目录: {:?}", resource_type, transfer_type, src_path, target_path);
 
     let mut scrape_config = ScrapeConfig::new();
     scrape_config.enable_scrape_image = scrape_image;
     scrape_config.enable_recognize = true;
 
-    soda::scrape(resource_type, transfer_type, scrape_config, src_dir, target_dir);
+    soda::scrape(resource_type, transfer_type, scrape_config, src_path, target_path);
 
     tracing::info!(target:"soda::info", "刮削结束");
 }

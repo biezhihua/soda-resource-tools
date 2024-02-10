@@ -6,7 +6,7 @@ use crate::soda::entity::EmbyRenameStyle;
 use super::entity::{MTInfo, MTMetadata, RenameStyle, SodaError, TransferType};
 
 pub(crate) fn transfer(
-    target_dir: &str,
+    target_path: &str,
     transfer_mode: &TransferType,
     rename_style: Option<RenameStyle>,
     rename_format: &str,
@@ -14,7 +14,7 @@ pub(crate) fn transfer(
     src_path: &str,
 ) -> Result<String, SodaError> {
     // 生成转移文件路径
-    let target_path = gen_mt_transfer_target_path(target_dir, rename_style, rename_format, mt_meta);
+    let target_path = gen_mt_transfer_target_path(target_path, rename_style, rename_format, mt_meta);
     tracing::debug!("target_path {:?}", target_path);
 
     // 转移文件
@@ -23,10 +23,10 @@ pub(crate) fn transfer(
 }
 
 /// 生成转移文件路径
-pub(crate) fn gen_mt_transfer_target_path(target_dir: &str, rename_style: Option<RenameStyle>, rename_format: &str, mt_meta: &MTMetadata) -> String {
+pub(crate) fn gen_mt_transfer_target_path(target_path: &str, rename_style: Option<RenameStyle>, rename_format: &str, mt_meta: &MTMetadata) -> String {
     tracing::debug!(
-        "gen_mt_transfer_target_path target_dir = {:?} rename_style = {:?}, rename_format = {:?}, mt_meta = {:?}",
-        target_dir,
+        "gen_mt_transfer_target_path target_path = {:?} rename_style = {:?}, rename_format = {:?}, mt_meta = {:?}",
+        target_path,
         rename_style,
         rename_format,
         mt_meta
@@ -35,7 +35,7 @@ pub(crate) fn gen_mt_transfer_target_path(target_dir: &str, rename_style: Option
     if let Some(rename_style) = rename_style {
         let transfer_path = gen_mt_rename_path2(rename_style, mt_meta);
 
-        let path = Path::new(target_dir).join(transfer_path).to_string_lossy().to_string();
+        let path = Path::new(target_path).join(transfer_path).to_string_lossy().to_string();
 
         tracing::debug!("transfer_path after {:?}", path);
 
@@ -44,7 +44,7 @@ pub(crate) fn gen_mt_transfer_target_path(target_dir: &str, rename_style: Option
         let transfer_path: String = gen_mt_rename_path(rename_format, mt_meta);
         tracing::debug!("transfer_path before {:?}", transfer_path);
 
-        let path = Path::new(target_dir)
+        let path = Path::new(target_path)
             .join(transfer_path)
             .to_string_lossy()
             .to_string()

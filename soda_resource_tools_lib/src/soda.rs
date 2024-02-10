@@ -64,19 +64,13 @@ pub fn update_lib_config(new_config: LibConfig) {
 /// https://emby.media/support/articles/Movie-Naming.html
 /// https://support.emby.media/support/solutions/articles/44001159110-tv-naming
 ///
-pub fn scrape(
-    resource_type: ResourceType,
-    transfer_type: TransferType,
-    scrape_config: ScrapeConfig,
-    src_directory: String,
-    target_directory: String,
-) {
+pub fn scrape(resource_type: ResourceType, transfer_type: TransferType, scrape_config: ScrapeConfig, src_path: String, target_path: String) {
     tracing::debug!(
-        "scrape_src_to_target resource_type {:?}, transfer_mode {:?}, src_directory {:?}, target_directory {:?}",
+        "scrape_src_to_target resource_type {:?}, transfer_mode {:?}, src_path {:?}, target_path {:?}",
         resource_type,
         transfer_type,
-        src_directory,
-        target_directory
+        src_path,
+        target_path
     );
 
     let mut paths: Vec<String> = Vec::new();
@@ -86,7 +80,7 @@ pub fn scrape(
         tracing::debug!("find path = {}", path);
         paths.push(path);
     };
-    finder::find(&resource_type, &src_directory, &mut callback);
+    finder::find(&resource_type, &src_path, &mut callback);
 
     tracing::info!(target:"soda::info", "资源数量: {}", paths.len());
 
@@ -112,14 +106,7 @@ pub fn scrape(
                 // 初始化上下文
                 if meta_context.init(&src_path) {
                     // 刮削
-                    match scrape_mt(
-                        &mut meta_context,
-                        &mut mt_infos,
-                        src_path,
-                        &scrape_config,
-                        &target_directory,
-                        &transfer_type,
-                    ) {
+                    match scrape_mt(&mut meta_context, &mut mt_infos, src_path, &scrape_config, &target_path, &transfer_type) {
                         Ok(_) => {}
                         Err(e) => {
                             tracing::error!(target: "soda::info","刮削失败 e = {}", e);
@@ -138,7 +125,7 @@ fn scrape_mt(
     mt_infos: &mut HashMap<String, MTInfo>,
     src_path: String,
     scrape_config: &ScrapeConfig,
-    target_directory: &String,
+    target_path: &String,
     transfer_type: &TransferType,
 ) -> Result<(), SodaError> {
     tracing::info!(target:"soda::info", "开始刮削: {}", src_path);
@@ -203,7 +190,7 @@ fn scrape_mt(
             };
 
             // 生成转移文件路径
-            let transfer_target_path = transfer::gen_mt_transfer_target_path(&target_directory, rename_style, &rename_format, &mt_meta);
+            let transfer_target_path = transfer::gen_mt_transfer_target_path(&target_path, rename_style, &rename_format, &mt_meta);
 
             final_target_path = transfer_target_path.clone();
 
@@ -236,7 +223,7 @@ fn scrape_mt(
             };
 
             // 生成转移文件路径
-            let transfer_target_path = transfer::gen_mt_transfer_target_path(&target_directory, rename_style, &rename_format, &mt_meta);
+            let transfer_target_path = transfer::gen_mt_transfer_target_path(&target_path, rename_style, &rename_format, &mt_meta);
 
             final_target_path = transfer_target_path.clone();
 
