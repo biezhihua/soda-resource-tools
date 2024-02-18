@@ -4,7 +4,7 @@ use crate::soda::entity::SodaError;
 use crate::soda::extension_option::OptionExtensions;
 use crate::soda::extension_result::ResultExtensions;
 use crate::soda::request::blocking_request;
-use crate::soda::{cache, request, utils};
+use crate::soda::{cache, request, utils, LIB_CONFIG};
 
 pub(crate) fn tmdb_request(action: &str, params: &str, method: &str) -> Result<Value, SodaError> {
     let api_key = get_api_key()
@@ -32,7 +32,8 @@ pub(crate) fn tmdb_request(action: &str, params: &str, method: &str) -> Result<V
 }
 
 fn get_api_key() -> Option<String> {
-    return Some("6f5b96d0d7253117c44963a0ce8aa6f2".to_string());
+    let config = LIB_CONFIG.lock().unwrap();
+    return Some(config.tmdb_api_key.clone());
 }
 
 fn get_api_domain() -> String {

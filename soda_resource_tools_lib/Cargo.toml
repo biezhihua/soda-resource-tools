@@ -1,7 +1,7 @@
 # https://doc.rust-lang.org/cargo/reference/manifest.html
 [package]
 name = "soda_resource_tools_lib"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["biezhihua"]
 edition = "2021"
 rust-version = "1.56.0"

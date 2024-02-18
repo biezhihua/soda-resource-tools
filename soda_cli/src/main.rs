@@ -36,6 +36,10 @@ struct Cli {
     #[arg(long,value_hint = clap::ValueHint::DirPath)]
     cache_path: Option<std::path::PathBuf>,
 
+    /// TMDB API Key
+    #[arg(long)]
+    tmdb_api_key: Option<String>,
+
     #[command(subcommand)]
     command: Commands,
 }
@@ -96,6 +100,9 @@ fn main() -> Result<(), SodaError> {
     // 解析命令行参数
     let args = Cli::parse();
 
+    // TMDB API Key
+    let tmdb_api_key = args.tmdb_api_key.unwrap_or("".to_string());
+
     // 开发模式
     let dev = args.dev.unwrap_or(false);
 
@@ -145,6 +152,12 @@ fn main() -> Result<(), SodaError> {
     // 检查网络
     check_internet()?;
 
+    // 检查TMDB API Key
+    if !dev && tmdb_api_key.is_empty() {
+        tracing::error!(target:"soda::info", "TMDB API Key不能为空");
+        return Err(SodaError::Str("TMDB API Key不能为空"));
+    }
+
     match args.command {
         Commands::Scrape {
             resource_type,
@@ -177,7 +190,7 @@ fn main() -> Result<(), SodaError> {
                     return Ok(());
                 }
 
-                init_lib_config(&local_soda_config, &config_dir, &cache_dir, &rename_style);
+                init_lib_config(&tmdb_api_key, &local_soda_config, &config_dir, &cache_dir, &rename_style);
             }
 
             if src_path.is_some() {
@@ -216,7 +229,7 @@ fn check_internet() -> Result<(), SodaError> {
     return Ok(());
 }
 
-fn init_lib_config(local_soda_config: &Value, config_dir: &Path, cache_dir: &Path, rename_style: &RenameStyle) {
+fn init_lib_config(tmdb_api_key: &str, local_soda_config: &Value, config_dir: &Path, cache_dir: &Path, rename_style: &RenameStyle) {
     let bin_path_name = local_soda_config.get("bin").unwrap().as_str().unwrap();
     let soda_config_bin_path = config_dir.join(bin_path_name);
     let soda_config_bin_content = fs::read_to_string(&soda_config_bin_path).unwrap();
@@ -239,6 +252,7 @@ fn init_lib_config(local_soda_config: &Value, config_dir: &Path, cache_dir: &Pat
     config.strong_match_name_map_path = "".to_string();
     config.metadata_skip_special = true;
     config.rename_style = Some(rename_style.clone());
+    config.tmdb_api_key = tmdb_api_key.to_string();
     soda::update_lib_config(config);
     tracing::info!(target:"soda::info", "配置更新成功");
 }

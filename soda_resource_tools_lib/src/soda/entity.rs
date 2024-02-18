@@ -230,6 +230,9 @@ impl EmbyRenameStyle {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct LibConfig {
+    /// TMDB API Key
+    pub tmdb_api_key: String,
+
     /// 缓存路径
     pub cache_path: String,
 
@@ -345,6 +348,7 @@ impl LibConfig {
             strong_match_regex_rules: "".to_string(),
             strong_match_name_map: "".to_string(),
             rename_style: None,
+            tmdb_api_key: "6f5b96d0d7253117c44963a0ce8aa6f2".to_string(),
         };
     }
 }
