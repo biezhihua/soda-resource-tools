@@ -1,3 +1,10 @@
+cd ./soda_resource_tools_lib 
+cargo build && cargo publish
+
+cd ..
+cd ./soda_cli
+cargo build && cargo publish
+
 cross build --target x86_64-apple-darwin --release
 cross build --target x86_64-pc-windows-gnu --release
 cross build --target x86_64-unknown-linux-gnu --release
