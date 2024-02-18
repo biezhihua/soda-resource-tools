@@ -178,15 +178,17 @@ impl EmbyRenameStyle {
                     mt_meta.title_en.clone()
                 };
 
+                let release_year = mt_meta.release_year.clone().unwrap_or(mt_meta.year.clone());
+
                 // \Glee (2009)\Season 1\S01E01.mp4
                 if !title.is_empty()
-                    && !mt_meta.year.is_empty()
+                    && !release_year.is_empty()
                     && !mt_meta.season.is_empty()
                     && !mt_meta.episode.is_empty()
                     && !mt_meta.extension.is_empty()
                 {
                     let path = PathBuf::new()
-                        .join(format!("{} ({})", title, mt_meta.year))
+                        .join(format!("{} ({})", title, release_year))
                         .join(format!("Season {}", mt_meta.season_number().unwrap_or(1)))
                         .join(format!(
                             "S{:02}E{:02}.{}",
@@ -202,7 +204,7 @@ impl EmbyRenameStyle {
 
                 // \Glee\Season 1\S01E01.mp4
                 if !title.is_empty()
-                    && mt_meta.year.is_empty()
+                    && release_year.is_empty()
                     && (mt_meta.season.is_empty() || !mt_meta.season.is_empty())
                     && !mt_meta.episode.is_empty()
                     && !mt_meta.extension.is_empty()

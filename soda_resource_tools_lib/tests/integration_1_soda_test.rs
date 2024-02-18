@@ -409,12 +409,53 @@ mod soda_tests {
         );
     }
 
+    // #[test]
+    // fn test_scrape_tv_29() {
+    //     test_scrape_emby_tv(
+    //         "test_scrape_tv_29",
+    //         "Rick.and.Morty.S02E01.A.Rickle.in.Time.1080p.BluRay.REMUX.VC-1.TrueHD.5.1-NOGRP.mkv",
+    //         "瑞克和莫蒂 (2013)",
+    //         "Season 2",
+    //         "S02E01.mkv",
+    //     )
+    // }
+
     fn test_scrape_tv2(tag: &str, path: &PathBuf, root: &str, season: &str, episode: &str) {
         use soda_resource_tools_lib::soda::entity::{ResourceType, TransferType};
 
         init_tracing();
 
         default_lib_config();
+        let scrape_config = default_scrape_config();
+
+        let test_dir = tests_dir().join(tag);
+        clean_dir(&test_dir);
+
+        create_file(&test_dir.join(path));
+
+        soda::scrape(
+            ResourceType::MT,
+            TransferType::Copy,
+            scrape_config.clone(),
+            test_dir.to_str().unwrap().to_string(),
+            test_dir.to_str().unwrap().to_string(),
+        );
+
+        let target_file: std::path::PathBuf = test_dir.join(root).join(season).join(episode);
+
+        tracing::debug!("test_scrape_tv target_file = {:?} exist = {}", target_file, target_file.exists());
+
+        assert_eq!(true, target_file.exists());
+
+        clean_dir(&test_dir);
+    }
+
+    fn test_scrape_emby_tv(tag: &str, path: &str, root: &str, season: &str, episode: &str) {
+        use soda_resource_tools_lib::soda::entity::{ResourceType, TransferType};
+
+        init_tracing();
+
+        emby_lib_config();
         let scrape_config = default_scrape_config();
 
         let test_dir = tests_dir().join(tag);
@@ -542,6 +583,14 @@ mod soda_tests {
         config.metadata_skip_special = true;
         config.transfer_rename_format_tv = "$title_cn$.$title_en$.$release_year$/$title_cn$.$title_en$.$year$.$season$.$resolution$.$source$.$video_codec$.$audio_codec$-$release_group$/$title_cn$.$title_en$.$year$.$season$$episode$.$resolution$.$source$.$video_codec$.$audio_codec$-$release_group$.$extension$".to_string();
         config.transfer_rename_format_movie = "$title_cn$.$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$/$title_cn$.$title_en$.$year$.$resolution$.$source$.$video_codec$.$audio_codec$.$extension$".to_string();
+        soda::update_lib_config(config);
+    }
+
+    fn emby_lib_config() {
+        let mut config = soda::get_lib_config();
+        config.cache_path = tests_dir().join("test_cache").to_string_lossy().to_string();
+        config.metadata_skip_special = true;
+        config.rename_style = Some(soda::entity::RenameStyle::Emby);
         soda::update_lib_config(config);
     }
 }

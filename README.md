@@ -136,7 +136,7 @@ cargo build
 
 ## 未来计划
 
-- 支持配置tmdb的key
+- scrape的config配置拆分，每次刮削的config都应该是隔离的。
 
 ## 开源协议
 
