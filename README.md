@@ -137,6 +137,7 @@ cargo build
 ## 未来计划
 
 - scrape的config配置拆分，每次刮削的config都应该是隔离的。
+- 增加刮削缓存逻辑
 
 ## 开源协议
 
