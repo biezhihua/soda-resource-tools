@@ -134,6 +134,10 @@ Error: Request(reqwest::Error { kind: Request, url: Url { scheme: "https", canno
 cargo build
 ```
 
+## 未来计划
+
+- 支持配置tmdb的key
+
 ## 开源协议
 
 ```text
