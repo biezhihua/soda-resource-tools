@@ -6664,6 +6664,22 @@
         "release_group": "MNHD-FRDS",
         "container": "mkv"
       }
+    },
+    {
+      "title": "[Nekomoe kissaten&VCB-Studio] Dorohedoro [01][Ma10p_1080p][x265_flac].mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Dorohedoro",
+        "year": "",
+        "season": "",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.265",
+        "audio_codec": "FLAC",
+        "release_group": "Nekomoe kissaten&VCB-Studio",
+        "container": "mkv"
+      }
     }
   ]
 }
