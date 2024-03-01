@@ -10,6 +10,8 @@ RUN cargo build --release
 # 阶段2: 最终镜像
 FROM ubuntu:latest
 
+# 安装zsh、wget和git
+RUN apt-get update && apt-get install -y wget git
 
 # 安装SSH服务
 RUN apt-get update && apt-get install -y openssh-server
@@ -34,9 +36,9 @@ RUN sed -ri 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ss
 # 开放22端口
 EXPOSE 22
 
+# 复制阶段1编译的结果到最终镜像
 COPY --from=builder /usr/src/soda/target/release/soda_clix /usr/local/bin/soda_clix
 RUN chmod +rx /usr/local/bin/soda_clix && ls -l /usr/local/bin/soda_clix
-# CMD [ "/usr/local/bin/soda_clix --version" ]
 
 # 启动SSH服务
 CMD ["/usr/sbin/sshd", "-D"] && tail -f /dev/null
