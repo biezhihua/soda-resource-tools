@@ -6680,6 +6680,22 @@
         "release_group": "Nekomoe kissaten&VCB-Studio",
         "container": "mkv"
       }
+    },
+    {
+      "title": "[三大队].The.Lonely.Warrior.2023.S01E02.2160p.WEB-DL.HEVC.DDP5.1.2Audios-QHstudIo.mp4",
+      "metadata": {
+        "cn_name": "三大队",
+        "en_name": "The Lonely Warrior",
+        "year": "2023",
+        "season": "S01",
+        "episode": "E02",
+        "resolution": "2160p",
+        "source": "WEB-DL",
+        "video_codec": "H.265",
+        "audio_codec": "DDP.5.1.2Audios",
+        "release_group": "QHstudIo",
+        "container": "mp4"
+      }
     }
   ]
 }

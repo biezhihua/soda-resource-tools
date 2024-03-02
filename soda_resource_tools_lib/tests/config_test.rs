@@ -87,13 +87,13 @@ mod config_tests {
             combined_json["mt_strong_match_name_map"] = value;
         }
 
+        println!("current_path: {:?}", current_path);
+
         let mut bin_out_file = File::create(
             current_path
                 .parent()
                 .unwrap()
-                .parent()
-                .unwrap()
-                .join("soda_cl")
+                .join("soda_cli_config")
                 .join("soda_config_rule.json"),
         )
         .unwrap();
@@ -107,12 +107,12 @@ mod config_tests {
         bin_out_file.write_all(combined_str.as_bytes()).unwrap();
 
         let soda_config_json = json!({
-            "version": 0,
+            "version": 1,
             "bin": "soda_config_rule.json",
             "enable_cli": true,
         });
 
-        let mut json_out_file = File::create(current_path.parent().unwrap().parent().unwrap().join("soda_cl").join("soda_config.json")).unwrap();
+        let mut json_out_file = File::create(current_path.parent().unwrap().join("soda_cli_config").join("soda_config.json")).unwrap();
         let combined_str = serde_json::to_string(&soda_config_json).unwrap();
         json_out_file.write_all(combined_str.as_bytes()).unwrap();
     }

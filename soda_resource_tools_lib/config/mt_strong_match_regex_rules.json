@@ -199,6 +199,7 @@
     "AC3\\.AAC",
     "FLAC(x2|\\.2\\.0)?",
     "flac(_aac)?",
+    "DDP5\\.1\\.2Audios",
     "FLAC\\.H",
     "E?[Aa][Cc]3"
   ],
