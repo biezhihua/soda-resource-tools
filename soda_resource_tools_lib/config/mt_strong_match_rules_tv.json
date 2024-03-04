@@ -873,6 +873,10 @@
       "rule": "$title_en$ $season_episode$ ($source$ $resolution$ $video_codec$ $audio_codec$).$extension$"
     },
     {
+      "example": "One.Punch.Man.2015.S01.E08.1080p.AVC.FLAC2.0-PTer.mkv",
+      "rule": "$title_en$.$year$.$season_episode$.$resolution$.$video_codec$.$audio_codec$.$extension$"
+    },
+    {
       "example": "Air.Emergency.S16E01.Deadly.Silence.死寂（1999年里尔35公务机空难）.mp4",
       "rule": "$title_en$.$season_episode$.$anything$.$extension$"
     }

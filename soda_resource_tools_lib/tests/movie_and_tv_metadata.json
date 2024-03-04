@@ -6728,6 +6728,38 @@
         "release_group": "PTerWEB",
         "container": "mkv"
       }
+    },
+    {
+      "title": "One.Punch.Man.2015.S01E08.1080p.AVC.FLAC2.0-PTer.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "One Punch Man",
+        "year": "2015",
+        "season": "S01",
+        "episode": "E08",
+        "resolution": "1080p",
+        "source": "",
+        "video_codec": "H.264",
+        "audio_codec": "FLAC2.0",
+        "release_group": "PTer",
+        "container": "mkv"
+      }
+    },
+    {
+      "title": "One-Punch.Man.2015.S01.E08.1080p.BluRay.Remux.AVC.FLAC2.0-PTer.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "One Punch Man",
+        "year": "2015",
+        "season": "S01",
+        "episode": "E08",
+        "resolution": "1080p",
+        "source": "BluRay.Remux",
+        "video_codec": "H.264",
+        "audio_codec": "FLAC2.0",
+        "release_group": "PTer",
+        "container": "mkv"
+      }
     }
   ]
 }
