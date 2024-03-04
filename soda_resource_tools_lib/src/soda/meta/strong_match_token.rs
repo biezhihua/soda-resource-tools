@@ -254,8 +254,10 @@ fn regex_item_year_month_day() -> String {
 }
 
 /// 匹配季和集 S01E01
+/// 匹配季和集 S01E001
+/// 匹配季和集 S01E0001
 fn regex_item_season_episode() -> String {
-    return regex_item_multi_str(KEY_SEASON_EPISODE, 0, &vec!["[Ss]\\d{1,2}\\.?[Ee]\\d{2,3}"]);
+    return regex_item_multi_str(KEY_SEASON_EPISODE, 0, &vec!["[Ss]\\d{1,2}\\.?[Ee]\\d{2,4}"]);
 }
 
 /// 匹配季和集 S01E01E02
@@ -264,8 +266,10 @@ fn regex_item_season_episode_episode() -> String {
 }
 
 /// 匹配季和集 S01E01
+/// 匹配季和集 S01E001
+/// 匹配季和集 S01E0001
 fn regex_item_season_episode_split() -> &'static str {
-    r"(?P<season>S\d{1,2})\.?(?P<episode>E[Pp]?\d{2,3})"
+    r"(?P<season>S\d{1,2})\.?(?P<episode>E[Pp]?\d{2,4})"
 }
 
 fn regex_item_season_and_episode() -> &'static str {

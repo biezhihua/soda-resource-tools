@@ -6712,6 +6712,22 @@
         "release_group": "",
         "container": "mkv"
       }
+    },
+    {
+      "title": "Detective Conan S01E0001 1080p WEB-DL AAC2.0 H.264-PTerWEB.mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Detective Conan",
+        "year": "",
+        "season": "S01",
+        "episode": "E0001",
+        "resolution": "1080p",
+        "source": "WEB-DL",
+        "video_codec": "H.264",
+        "audio_codec": "AAC2.0",
+        "release_group": "PTerWEB",
+        "container": "mkv"
+      }
     }
   ]
 }

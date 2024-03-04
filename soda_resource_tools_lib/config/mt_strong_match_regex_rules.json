@@ -202,7 +202,7 @@
     "DDP5\\.1\\.2Audios",
     "FLAC\\.H",
     "E?[Aa][Cc]3",
-    "LPCM"
+    "LPCM|ADPCM|G711|G726"
   ],
   "release_group": [
     "不着调字幕组",
