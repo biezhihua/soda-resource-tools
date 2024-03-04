@@ -6696,6 +6696,22 @@
         "release_group": "QHstudIo",
         "container": "mp4"
       }
+    },
+    {
+      "title": "Sword Art Online II S02E01 (BDRemux 1920x1080 AVC LPCM).mkv",
+      "metadata": {
+        "cn_name": "",
+        "en_name": "Sword Art Online II",
+        "year": "",
+        "season": "S02",
+        "episode": "E01",
+        "resolution": "1080p",
+        "source": "BDRemux",
+        "video_codec": "H.264",
+        "audio_codec": "LPCM",
+        "release_group": "",
+        "container": "mkv"
+      }
     }
   ]
 }

@@ -869,6 +869,10 @@
       ]
     },
     {
+      "example": "Sword Art Online II S02E01 (BDRemux 1920x1080 AVC LPCM).mkv",
+      "rule": "$title_en$ $season_episode$ ($source$ $resolution$ $video_codec$ $audio_codec$).$extension$"
+    },
+    {
       "example": "Air.Emergency.S16E01.Deadly.Silence.死寂（1999年里尔35公务机空难）.mp4",
       "rule": "$title_en$.$season_episode$.$anything$.$extension$"
     }

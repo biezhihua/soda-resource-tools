@@ -201,7 +201,8 @@
     "flac(_aac)?",
     "DDP5\\.1\\.2Audios",
     "FLAC\\.H",
-    "E?[Aa][Cc]3"
+    "E?[Aa][Cc]3",
+    "LPCM"
   ],
   "release_group": [
     "不着调字幕组",
